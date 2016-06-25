@@ -1,0 +1,28 @@
+body.stripeLoadError {
+  background: rgba(255, 255, 255, 0.75);
+}
+body.stripeLoadError .stripeErrorMessage {
+  display: block;
+}
+body.stripeInFrame .stripeErrorMessageFrame {
+  display: block;
+}
+body.stripeInFrame.stripeLoadError #stripeSpinner {
+  display: none;
+}
+
+.stripeErrorMessage {
+  display: none;
+  position: absolute;
+  top: 160px;
+  left: 20px;
+  right: 20px;
+  font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+  font-size: 13px;
+  color: #050507;
+  text-align: center;
+}
+.stripeErrorMessageFrame {
+  display: none;
+}
+

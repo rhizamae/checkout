@@ -1,0 +1,108 @@
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .labelView a.arrow {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/linkArrow@2x-i4iGYkwz3PXpnqutUwIlvQ.png");
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .popoverView>.content::before {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/popoverArrow@2x-3bLlxKlGpTOwYlWtjpWq4Q.png");
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .popoverView.reversed>.content::before {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/popoverArrowReversed@2x-AKqfniK8Uv9ivOgKf4obQ.png");
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .bitcoinAddressView>.addressContainer>.address>.buttons>a.scanButton>span.qrCode {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/qrCode@2x-lC40aO7PsJEyqx5Wlm3Q.png");
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .brandingLogoView {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/badges/stripe@2x-VFlGw5kKk2JsTpNDkfDTFQ.png");
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .bitcoinAddressView>.amount>span.arrowContainer>span.arrow {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/downArrow@2x-hC3bS1hqeA0TeGnood4K3w.png");
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .button>.inner>button>span>span.iconContinue {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/iconContinue@2x-htLeu96lWcutTt4Z4ELug.png");
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .tablet header>.content>.back {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/backArrowTablet@2x-jUShC02ZldMDryBn0vGuw.png");
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .input.cardCVCInput.prefill.three-dots>input {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/placeholders/cvc-dots-three@2x-FCJZvYKx3VQNH0IkWcbfg.png");
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .tablet header>.content>.close {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/closeButtonTablet@2x-9UiYiywvAHFNo4hmidzJg.png");
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .input.cardCVCInput.prefill.four-dots>input {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/placeholders/cvc-dots-four@2x-3Pbl8gQRhvryqOLlrGw.png");
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    header>.content>.image:after {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/icon-border@2x-OH98RZtULzpEg7W0EnWJw.png");
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .tablet .input.cardCVCInput.prefill>input {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/placeholders/cvcDotsTablet@2x-88eGv03CrcPCQENfimc1Nw.png");
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    header>.content>.back {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/backArrow@2x-VzbCRJGftqGWsqSjvGw3pA.png");
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .input.cardNumberInput>span.card.amex {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/cards/amex@2x-Im4rwQaMmOdUZ7GkDc7p1w.png");
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .input.cardNumberInput>span.card.diners {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/cards/diners@2x-YsoHAeUpmA3wX5cEsTmoKg.png");
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .input.cardNumberInput>span.card.discover {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/cards/discover@2x-Ht7GcwNzjvcmQSPh6K2cUA.png");
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .input.cardNumberInput>span.card.jcb {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/cards/jcb@2x-0JpAywvLOTRfVf23XMWMTQ.png");
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .input.cardNumberInput>span.card.mastercard {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/cards/mastercard@2x-i5mYl4TdEhnyRIf6tSjYWg.png");
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    .input.cardNumberInput>span.card.visa {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/cards/visa@2x-m9vontAoBuAB8u3G2nDSA.png");
+    }
+}

@@ -1,0 +1,2273 @@
+.tablet header>.content>.back>.trackingArea {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    left: -20px;
+    bottom: -20px;
+}
+
+.tablet header>.content>.image:after {
+    display: none;
+    background: transparent;
+}
+
+.tablet header>.content>.title {
+    padding-top: 20px;
+    padding-bottom: 25px;
+}
+.tablet header>.content>.title>h1 {
+    font-size: 24px;
+    color: #000;
+    height: 26px;
+    padding-top: 43px;
+}
+.tablet header>.content>.title>h2 {
+    font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    color: #000;
+    height: 19px;
+    padding-top: 3px;
+}
+header>.content>.image>img {
+    background: #fff;
+    width: 64px;
+    height: 64px;
+    display: block;
+    -webkit-border-radius: 32px;
+    -moz-border-radius: 32px;
+    -ms-border-radius: 32px;
+    -o-border-radius: 32px;
+    border-radius: 32px;
+    margin: 4px 6px 0;
+}
+header>.content>.title {
+    padding: 0 35px 13px 35px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+header>.content>.title>h1, header>.content>.title>h2 {
+    text-shadow: 0 1px 0 #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.1em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+header>.content>.title>h1 {
+    color: #000;
+    font-size: 17px;
+    font-weight: bold;
+    height: 22px;
+    padding-top: 53px;
+}
+header>.content>.title>h2 {
+    color: #5b5b65;
+    font-size: 13px;
+    font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+    font-weight: normal;
+    padding-bottom: 5px;
+}
+
+.desktop header.noImage>.content>.title>h1 {
+    padding-top: 30px;
+}
+.desktop header.noImage>.content>.title>h2 {
+    padding-bottom: 6px;
+}
+.ie8 header>.content>.image:after {
+    display: none;
+}
+.tablet.tab header>.close {
+    display: none;
+}
+
+.tablet header.noImage.noName.noDescription {
+    height: 0;
+    min-height: 0;
+    right: auto;
+}
+.tablet header.noImage {
+    border: 0;
+}
+.tablet header.noImage>.content>.title {
+    padding-top: 0;
+    padding-bottom: 35px;
+}
+
+
+.tablet header>.content>.background>.realBackground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 240px;
+    border: 0;
+    background: #fff;
+    border-bottom: 1px solid #d3d3d4;
+}
+.tablet header>.content>.close {
+    top: 16px;
+    left: 16px;
+    width: 11px;
+    height: 11px;
+    background: url("https://b.stripecdn.com/checkout/v3/images/closeButtonTablet-oZW6bX38566xxWjW3ru9ug.png") no-repeat;
+    background-size: 100% 100%
+}
+.tablet .input.cardCVCInput.prefill>input {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/placeholders/cvcDotsTablet-yIHPqCsWqUkrSmi7QlnVA.png");
+    background-size: 24px 6px;
+    background-repeat: no-repeat;
+    background-position: 40px 20px;
+}
+
+
+
+header>.content>.image {
+    width: 76px;
+    height: 75px;
+    position: absolute;
+    left: 50%;
+    margin-left: -38px;
+    top: -30px;
+}
+header>.content>.image:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: url("https://b.stripecdn.com/checkout/v3/images/icon-border-Uz9anqiDNVCgXMysAAWGQ.png") no-repeat;
+    background-size: 100% 100%
+}
+
+.tablet .input.cardCVCInput.prefill>input:not(.invalid):focus, .tablet .input.cardCVCInput.prefill>input:not(.invalid).focus, .tablet .input.cardCVCInput.prefill>input.invalid {
+    background-position: 39px 19px;
+}
+.mobile .input.cardNumberInput>span.card {
+    top: 12px;
+}
+.mobile .input.cardNumberInput.prefill>input {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/placeholders/black-dots-mobile@2x-cPJNO7HYixuHqDzu7Ppg.png");
+    background-size: 92px 5px;
+    background-repeat: no-repeat;
+    background-position: 1px 8px;
+    padding-left: 100px;
+}
+.input.cardNumberInput>span.card {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    display: block;
+    width: 32px;
+    height: 20px;
+    z-index: 20;
+    pointer-events: none;
+}
+.input.cardNumberInput>span.card.amex {
+    background: url("https://b.stripecdn.com/checkout/v3/images/cards/amex-rCwsUgG9VyC8v8BdohM3Rw.png");
+}
+.input.cardNumberInput>span.card.diners {
+    background: url("https://b.stripecdn.com/checkout/v3/images/cards/diners-rzdCy07VGt8190Sl9Vt7ag.png");
+}
+.input.cardNumberInput>span.card.discover {
+    background: url("https://b.stripecdn.com/checkout/v3/images/cards/discover-GhYYu271VuO3llRQeCQA.png");
+}
+.input.cardNumberInput>span.card.jcb {
+    background: url("https://b.stripecdn.com/checkout/v3/images/cards/jcb-oXQoEoicpg7Sh8tItANTpg.png");
+}
+
+.input.cardNumberInput>span.card.mastercard {
+    background: url("https://b.stripecdn.com/checkout/v3/images/cards/mastercard-HVnFbrioF3RgUWZV0DcA.png");
+}
+
+.input.cardNumberInput>span.card.visa {
+    background: url("https://b.stripecdn.com/checkout/v3/images/cards/visa-PN8VNASAyUCxB1J1kpg1fQ.png");
+}
+
+.input.cardNumberInput>span.card.amex, .input.cardNumberInput>span.card.diners, .input.cardNumberInput>span.card.discover, .input.cardNumberInput>span.card.jcb, .input.cardNumberInput>span.card.mastercard, .input.cardNumberInput>span.card.visa {
+    background-repeat: no-repeat;
+    background-size: 32px 20px;
+}
+.input.cardNumberInput.prefill>input {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/placeholders/black-dots-Slnufsf6VAuXQtzp4HP5A.png");
+    background-size: 96px 5px;
+    background-repeat: no-repeat;
+    background-position: 30px 15px;
+    padding-left: 133px;
+}
+.mobile .input.addressCityInput>.control {
+    left: 0;
+}
+.desktop .input.addressCityInput>.control {
+    padding-left: 10px;
+}
+.tablet .input.addressCityInput>.control {
+    padding-left: 13px;
+}
+.tablet .input.addressCityInput>.control:not(.invalid):focus, .tablet .input.addressCityInput>.control:not(.invalid).focus {
+    padding-left: 12px;
+}
+.tablet .input.addressCityInput>.control.invalid {
+    padding-left: 12px;
+}
+.mobile .input.cardCVCInput>.control {
+    left: 83px;
+}
+.mobile .input.cardCVCInput.prefill>.control {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/placeholders/black-dots-mobile@2x-cPJNO7HYixuHqDzu7Ppg.png");
+    background-size: 92px 5px;
+    background-repeat: no-repeat;
+    background-position: -72px 8px;
+}
+.input.cardCVCInput.prefill>input {
+    background-repeat: no-repeat;
+    background-position: 27px 16px;
+}
+.input.cardCVCInput.prefill.three-dots>input {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/placeholders/cvc-dots-three-RzT3D4hkZ8H1i988jHFxg.png");
+    background-size: 19px 5px;
+}
+.tablet header>.content>.close>.trackingArea {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    left: -20px;
+    bottom: -20px;
+}
+.tablet header>.content>.back {
+    top: 14px;
+    left: 15px;
+    width: 15px;
+    height: 13px;
+    background: url("https://b.stripecdn.com/checkout/v3/images/backArrowTablet-wwEScAcn5Arszd42dQaI1A.png") no-repeat;
+    background-size: 100% 100%
+}
+.input.cardCVCInput.prefill.four-dots>input {
+    background-image: url("https://b.stripecdn.com/checkout/v3/images/placeholders/cvc-dots-four-FIpc0GQ3Sk848cSVK4ogAw.png");
+    background-size: 26px 5px;
+}
+.preloader {
+    overflow: hidden;
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    height: 1px;
+    width: 1px;
+}
+.desktop .preloader {
+    background: url("https://b.stripecdn.com/checkout/v3/images/arrows-boaRCE0nxn24ZdeMxdCWTw.png"), url("https://b.stripecdn.com/checkout/v3/images/arrows_focus-Bs7dsRARcu9kmD1TXxjoDA.png"), url("https://b.stripecdn.com/checkout/v3/images/backArrow-FfWsVSMBFssJOu9t4wCfKw.png"), url("https://b.stripecdn.com/checkout/v3/images/badges/stripe-enyrqMtDOCgqEPSAWJlbg.png"), url("https://b.stripecdn.com/checkout/v3/images/cards/amex-rCwsUgG9VyC8v8BdohM3Rw.png"), url("https://b.stripecdn.com/checkout/v3/images/cards/diners-rzdCy07VGt8190Sl9Vt7ag.png"), url("https://b.stripecdn.com/checkout/v3/images/cards/discover-GhYYu271VuO3llRQeCQA.png"), url("https://b.stripecdn.com/checkout/v3/images/cards/jcb-oXQoEoicpg7Sh8tItANTpg.png"), url("https://b.stripecdn.com/checkout/v3/images/cards/mastercard-HVnFbrioF3RgUWZV0DcA.png"), url("https://b.stripecdn.com/checkout/v3/images/cards/visa-PN8VNASAyUCxB1J1kpg1fQ.png"), url("https://b.stripecdn.com/checkout/v3/images/checkbox-checkmark-sJufd3vtgUUj1aewNBursQ.png"), url("https://b.stripecdn.com/checkout/v3/images/checkbox-sHAICSKij5uZfwyaILUQZA.png"), url("https://b.stripecdn.com/checkout/v3/images/close-gbN3V5bjbhRxDClwGYFQ.png"), url("https://b.stripecdn.com/checkout/v3/images/downArrow-hhdX0GF31wl8OKkoryKZg.png"), url("https://b.stripecdn.com/checkout/v3/images/icon-border-Uz9anqiDNVCgXMysAAWGQ.png"), url("https://b.stripecdn.com/checkout/v3/images/iconContinue-BVf4xzVdpFV4nfKLGU3TiA.png"), url("https://b.stripecdn.com/checkout/v3/images/iconInfo-y6Q3Nbm7edVjK4jkR4K9Q.png"), url("https://b.stripecdn.com/checkout/v3/images/linkArrow-iCj3tVUbMNauUNAV1Xcfg.png"), url("https://b.stripecdn.com/checkout/v3/images/placeholderQrCode-qzPRMtNIytZMKq0CtXxFLA.png"), url("https://b.stripecdn.com/checkout/v3/images/placeholders/black-dots-Slnufsf6VAuXQtzp4HP5A.png"), url("https://b.stripecdn.com/checkout/v3/images/placeholders/cvc-dots-four-FIpc0GQ3Sk848cSVK4ogAw.png"), url("https://b.stripecdn.com/checkout/v3/images/placeholders/cvc-dots-three-RzT3D4hkZ8H1i988jHFxg.png"), url("https://b.stripecdn.com/checkout/v3/images/popoverArrow-TXFP5CcKnZqGNPdHD87tg.png"), url("https://b.stripecdn.com/checkout/v3/images/popoverArrowReversed-sLrCfPT6MZeUZEQ2128Rg.png"), url("https://b.stripecdn.com/checkout/v3/images/qrCode-rai703qQiVfdsK8URsfqEQ.png"), url("https://b.stripecdn.com/checkout/v3/images/segmentedControlAlipay-NVaQPACQ2BBIC7UQo7SiZg.png"), url("https://b.stripecdn.com/checkout/v3/images/segmentedControlAlipayZH-4FGF2zlXOmz1NHyRNhBw.png"), url("https://b.stripecdn.com/checkout/v3/images/segmentedControlAlipayActive-2eQ8hrjlkr5EQg6J0h795g.png"), url("https://b.stripecdn.com/checkout/v3/images/segmentedControlAlipayActiveZH-FYtgmj2PmY2eIqiNWebg.png");
+}
+
+.overlayView .brandingLogoView {
+    position: fixed;
+    left: 14px;
+    bottom: 14px;
+}
+.checkoutView .brandingLogoView {
+    position: absolute;
+    left: 50%;
+    top: 13px;
+    margin-left: -62px;
+    z-index: 20;
+}
+.mobile .buttonsView {
+    height: 67px;
+}
+.buttonsView {
+    position: absolute;
+    height: 37px;
+}
+.buttonsView>.button {
+    left: 0;
+    right: 0;
+}
+.buttonsView>.cancelButton {
+    left: 0;
+    right: 50%}
+.tablet .buttonsView {
+    height: 47px;
+}
+.mobile .cardPaymentView {
+    height: 91px;
+}
+.mobile .cardPaymentView>.cardExpiresInput {
+    top: 46px;
+    width: 178px;
+}
+.mobile .cardPaymentView>.cardCVCInput {
+    top: 46px;
+    left: 179px;
+    right: 0;
+    width: auto;
+}
+.mobile .cardPaymentView>.input.zipCodeInput {
+    top: 92px;
+    -webkit-transform: translateY(-46px);
+    -moz-transform: translateY(-46px);
+    -ms-transform: translateY(-46px);
+    -o-transform: translateY(-46px);
+    transform: translateY(-46px);
+    opacity: 0;
+}
+.mobile .cardPaymentView.withZipCode {
+    height: 137px;
+}
+.mobile .cardPaymentView.withZipCode>.input.zipCodeInput {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    opacity: 1;
+}
+.mobile .cardPaymentView>.separatorLineView.line1 {
+    top: 45px;
+}
+.mobile .cardPaymentView>.separatorLineView.line2 {
+    top: 91px;
+}
+.zh.mobile .cardPaymentView>.cardExpiresInput {
+    width: 191px;
+}
+.zh.mobile .cardPaymentView>.cardExpiresInput>.control {
+    left: 90px;
+}
+.zh.mobile .cardPaymentView>.cardCVCInput {
+    left: 190px;
+}
+.zh.mobile .cardPaymentView>.cardCVCInput>.control {
+    left: 90px;
+}
+.de.mobile .cardPaymentView>.input>.control {
+    left: 110px;
+}
+.de.mobile .cardPaymentView>.cardCVCInput>.control {
+    left: 90px;
+}
+.cardPaymentView {
+    position: absolute;
+    height: 73px;
+}
+.cardPaymentView>.input {
+    left: 0;
+    right: 0;
+}
+.cardPaymentView>.cardNumberInput {
+    z-index: 10;
+}
+.cardPaymentView>.cardExpiresInput {
+    ime-mode: disabled;
+    top: 36px;
+    right: auto;
+    width: 115px;
+    z-index: 9;
+}
+.cardPaymentView>.cardCVCInput {
+    top: 36px;
+    left: 114px;
+    right: 0;
+    width: auto;
+    z-index: 8;
+    border-left: 1px solid #e5e5e8;
+}
+.cardPaymentView>.input.zipCodeInput {
+    top: 72px;
+    -webkit-transform: translateY(-36px);
+    -moz-transform: translateY(-36px);
+    -ms-transform: translateY(-36px);
+    -o-transform: translateY(-36px);
+    transform: translateY(-36px);
+    -webkit-transition: all .28s cubic-bezier(0.41, 1.34, 0.51, 1.01);
+    -moz-transition: all .28s cubic-bezier(0.41, 1.34, 0.51, 1.01);
+    -ms-transition: all .28s cubic-bezier(0.41, 1.34, 0.51, 1.01);
+    -o-transition: all .28s cubic-bezier(0.41, 1.34, 0.51, 1.01);
+    transition: all .28s cubic-bezier(0.41, 1.34, 0.51, 1.01);
+    -webkit-transition-delay: .15s;
+    -moz-transition-delay: .15s;
+    -ms-transition-delay: .15s;
+    -o-transition-delay: .15s;
+    transition-delay: .15s;
+    z-index: 7;
+}
+.cardPaymentView.withZipCode {
+    height: 109px;
+}
+.cardPaymentView.withZipCode>.input.zipCodeInput {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+.zh .cardPaymentView>.cardExpiresInput {
+    width: 141px;
+}
+.zh .cardPaymentView>.cardCVCInput {
+    left: 140px;
+}
+.tablet .cardPaymentView {
+    height: 90px;
+}
+.tablet .cardPaymentView>.cardExpiresInput {
+    top: 45px;
+    width: 140px;
+}
+.tablet .cardPaymentView>.cardCVCInput {
+    top: 45px;
+    left: 138px;
+    right: 0;
+    width: auto;
+}
+.tablet .cardPaymentView>.input.zipCodeInput {
+    top: 90px;
+    -webkit-transform: translateY(-45px);
+    -moz-transform: translateY(-45px);
+    -ms-transform: translateY(-45px);
+    -o-transform: translateY(-45px);
+    transform: translateY(-45px);
+}
+.tablet .cardPaymentView.withZipCode {
+    height: 135px;
+}
+.tablet .cardPaymentView.withZipCode>.input.zipCodeInput {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+.tablet .cardPaymentView>.popoverView {
+    -webkit-transform: translateX(300px) translateY(4px);
+    -moz-transform: translateX(300px) translateY(4px);
+    -ms-transform: translateX(300px) translateY(4px);
+    -o-transform: translateX(300px) translateY(4px);
+    transform: translateX(300px) translateY(4px);
+}
+.zh.tablet .cardPaymentView>.cardExpiresInput {
+    width: 171px;
+}
+.zh.tablet .cardPaymentView>.cardCVCInput {
+    left: 170px;
+}
+.cardView>.layoutSubview>.expiredCardLabelView {
+    margin: 0 7px 9px;
+}
+.carouselView {
+    position: absolute;
+    overflow: hidden;
+    height: 100px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.carouselView>* {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.mobile .checkoutView {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    background: transparent;
+}
+.mobile .checkoutView.shake {
+    -webkit-animation: none;
+    -moz-animation: none;
+}
+.mobile .checkoutView>.bodyView {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    width: auto;
+    height: auto;
+    padding-bottom: 0;
+}
+.mobile .checkoutView>.bodyView>.contentView {
+    height: auto;
+    padding-bottom: 67px;
+    overflow-y: hidden;
+}
+.mobile .checkoutView>.bodyView>.contentView>.layoutSubview:first-child {
+    z-index: 10;
+}
+.mobile .checkoutView>.bodyView>.contentView>.layoutSubview>.layoutView {
+    padding-top: 10px;
+}
+.mobile .checkoutView>.bodyView>.contentView>.layoutSubview>.layoutView, .mobile .checkoutView>.bodyView>.contentView>.layoutSubview>.codeVerificationView {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.mobile .checkoutView>.bodyView>.contentView>.layoutSubview .alternateAction {
+    font-size: 15px;
+}
+.mobile .checkoutView>.buttonsView {
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.mobile .checkoutView>.loadingScreenView {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 200;
+}
+.desktop .checkoutView.noImage>.bodyView>.contentView>.layoutSubview>.layoutView, .desktop .checkoutView.noName.noDescription>.bodyView>.contentView>.layoutSubview>.layoutView, .desktop .checkoutView.noImage>.bodyView>.contentView>.layoutSubview>.codeVerificationView, .desktop .checkoutView.noName.noDescription>.bodyView>.contentView>.layoutSubview>.codeVerificationView, .desktop .checkoutView.noImage>.bodyView>.contentView>.layoutSubview>.QRCodeView, .desktop .checkoutView.noName.noDescription>.bodyView>.contentView>.layoutSubview>.QRCodeView, .desktop .checkoutView.noImage>.bodyView>.contentView>.layoutSubview>.loadingScreenView, .desktop .checkoutView.noName.noDescription>.bodyView>.contentView>.layoutSubview>.loadingScreenView {
+    top: 0;
+}
+.desktop .checkoutView.noImage>.bodyView>.contentView>.layoutSubview>.loggedBarView:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 36px;
+    right: 36px;
+    height: 1px;
+    background: rgba(124, 124, 127, 0.15);
+    -webkit-box-shadow: 0 1px 0 #fff;
+    -moz-box-shadow: 0 1px 0 #fff;
+    -ms-box-shadow: 0 1px 0 #fff;
+    -o-box-shadow: 0 1px 0 #fff;
+    box-shadow: 0 1px 0 #fff;
+}
+.desktop .checkoutView.noImage.noName.noDescription>.bodyView>.contentView>.layoutSubview>.loggedBarView:before {
+    display: none;
+}
+.checkoutView {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -240px 0 0 -151px;
+    padding-bottom: 45px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    width: 302px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 10;
+}
+.checkoutView.shake {
+    -webkit-animation-duration: 400ms;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: panelShakeAnimation;
+    -moz-animation-duration: 400ms;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-name: panelShakeAnimation;
+}
+.checkoutView>.bodyView {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding-bottom: 35px;
+}
+.checkoutView>.bodyView>.contentView {
+    position: relative;
+    left: 0;
+    right: 0;
+}
+.checkoutView>.bodyView>.contentView>.layoutSubview>header {
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+.checkoutView>.bodyView>.contentView>.layoutSubview>.layoutView, .checkoutView>.bodyView>.contentView>.layoutSubview>.codeVerificationView, .checkoutView>.bodyView>.contentView>.layoutSubview>.QRCodeView {
+    top: 35px;
+    left: 30px;
+    right: 30px;
+}
+.checkoutView>.bodyView>.contentView>.layoutSubview>.loadingScreenView {
+    top: 30px;
+    bottom: 0;
+    left: 30px;
+    right: 30px;
+}
+.checkoutView>.bodyView>.contentView>.layoutSubview>.buttonsView {
+    left: 37px;
+    right: 37px;
+    z-index: 101;
+}
+.checkoutView>.bodyView>.contentView>.layoutSubview .alternateAction {
+    position: absolute;
+    margin: 8px 0 12px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.overlayView {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 2147483647;
+    font-weight: 400;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.6);
+    perspective: 800;
+    -webkit-perspective: 800;
+    opacity: 0;
+}
+.overlayView.active {
+    opacity: 1;
+}
+.overlayView>.overlayView-ie8 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    filter: alpha(opacity = 60);
+}
+.overlayView>a.testMode {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    display: block;
+    background: #f7e633;
+    color: #363636;
+    font-weight: bold;
+    font-size: 11px;
+    text-decoration: none;
+    height: 26px;
+    padding: 0 9px;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    line-height: 26px;
+}
+.overlayView>a.testMode:active, .overlayView>a.testMode:focus {
+    outline: 0;
+}
+.overlayView>a.testMode:active {
+    background: #c5b729;
+}
+.tablet .overlayView {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: transparent;
+    opacity: 1;
+    z-index: 2;
+}
+.tablet .overlayView>a.poweredStripe {
+    display: none;
+}
+.paymentView>.segmentedControl {
+    margin-bottom: 8px;
+}
+.paymentView>.contentSwitcher>.inner {
+    height: 300px;
+}
+.paymentView>.contentSwitcher .layoutView {
+    left: 0;
+    right: 0;
+}
+.phoneCodeVerificationView.withButton {
+    margin-bottom: 35px;
+}
+.phoneCodeVerificationView.codeVerificationView>p.mainDescription {
+    margin: 0 20px;
+}
+.mobile .phoneVerificationView .verificationInstructions {
+    font-size: 15px;
+    top: 15px;
+    width: 100%}
+.mobile .phoneVerificationView .input.telInput {
+    overflow: visible;
+    top: 40px;
+}
+.mobile .phoneVerificationView .input.telInput>.flag {
+    top: 13px;
+}
+.mobile .phoneVerificationView .input.telInput:after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #e5e5e8;
+    margin: 0 40px;
+}
+.phoneVerificationView {
+    position: absolute;
+}
+.phoneVerificationView .verificationInstructions {
+    text-align: center;
+    font-size: 13px;
+}
+.phoneVerificationView .verificationInstructions strong {
+    font-weight: 600;
+}
+.phoneVerificationView .telInput {
+    top: 20px;
+    left: 0;
+    right: 0;
+}
+.phoneVerificationView p {
+    margin: 0 20px 13px;
+}
+.phoneVerificationView p:last-child {
+    margin-bottom: 4px;
+}
+.tablet .phoneVerificationView .verificationInstructions {
+    font-size: 16px;
+}
+.popoverView {
+    position: absolute;
+    -webkit-transform: translateX(246px);
+    -moz-transform: translateX(246px);
+    -ms-transform: translateX(246px);
+    -o-transform: translateX(246px);
+    transform: translateX(246px);
+}
+.popoverView>.content {
+    max-width: 165px;
+    padding: 9px 13px 9px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    font: 13px/18px "helvetica neue", helvetica, arial, sans-serif;
+    color: #707070;
+    -webkit-transform-origin: -8px 15px;
+    -moz-transform-origin: -8px 15px;
+    -ms-transform-origin: -8px 15px;
+    -o-transform-origin: -8px 15px;
+    transform-origin: -8px 15px;
+    z-index: 120;
+}
+.popoverView>.content>strong {
+    color: #000;
+    font-weight: normal;
+    font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+}
+.popoverView>.content>a {
+    cursor: pointer;
+    color: #0d80dc;
+    text-decoration: none;
+}
+.popoverView>.content>a:focus, .popoverView>.content>a:active {
+    outline: 0;
+}
+.popoverView>.content::before {
+    position: absolute;
+    content: "";
+    left: -10px;
+    top: 10px;
+    background: url("https://b.stripecdn.com/checkout/v3/images/popoverArrow-TXFP5CcKnZqGNPdHD87tg.png");
+    background-size: 100% 100%;
+    width: 10px;
+    height: 19px;
+}
+.mobile .addressView {
+    height: 153px;
+}
+.mobile .addressView>.addressAutocompleteView {
+    top: 13px;
+    left: 9px;
+    width: 301px;
+    height: 43px;
+}
+.mobile .addressView>.addressStreetInput {
+    top: 46px;
+}
+.mobile .addressView>.zipCodeInput {
+    top: 77px;
+}
+.mobile .addressView>.addressCityInput {
+    top: 77px;
+}
+.mobile .addressView>.addressCityInput.zipHidden {
+    border-left: 0;
+}
+.mobile .addressView>.addressCityInput.zipHidden>input.control {
+    padding-left: 99px;
+}
+.mobile .addressView>.addressCountrySelectInput {
+    top: 108px;
+}
+.mobile .addressView>.overBorders {
+    display: none;
+}
+.mobile .addressView>.separatorLineView.line1 {
+    top: 45px;
+}
+.addressView {
+    position: absolute;
+    height: 164px;
+}
+.addressView>.addressAutocompleteView {
+    z-index: 50;
+    top: 73px;
+    left: 1px;
+    width: 226px;
+    height: 71px;
+}
+.addressView>.input {
+    left: 0;
+    right: 0;
+}
+.addressView>.addressNameInput {
+    z-index: 10;
+}
+.addressView>.addressStreetInput {
+    top: 36px;
+    z-index: 9;
+}
+.addressView>.zipCodeInput {
+    top: 72px;
+    width: 92px;
+    z-index: 7;
+}
+.addressView>.addressCityInput {
+    top: 72px;
+    left: 91px;
+    z-index: 6;
+}
+.addressView>.addressCityInput.zipHidden {
+    border-left: 1px solid #cececf;
+}
+.addressView>.addressCityInput.zipHidden>input.control {
+    padding-left: 29px;
+}
+.addressView>.addressCountrySelectInput {
+    top: 108px;
+    z-index: 5;
+}
+.addressView>.overBorders {
+    position: absolute;
+    display: block;
+    left: 1px;
+    top: 72px;
+    height: 37px;
+    width: 27px;
+    background: #fff;
+    z-index: 9;
+}
+.addressView>.popoverView {
+    -webkit-transform: translateX(-100%) translateX(-18px) translateY(71px);
+    -moz-transform: translateX(-100%) translateX(-18px) translateY(71px);
+    -ms-transform: translateX(-100%) translateX(-18px) translateY(71px);
+    -o-transform: translateX(-100%) translateX(-18px) translateY(71px);
+    transform: translateX(-100%) translateX(-18px) translateY(71px);
+}
+.ie8 .addressView>.popoverView {
+    top: 71px;
+}
+.ie8 .addressView>.overBorders, .ie9 .addressView>.overBorders {
+    display: none;
+}
+.tablet .addressView {
+    height: 210px;
+}
+.tablet .addressView>.addressAutocompleteView {
+    top: 92px;
+    left: 0;
+    width: 280px;
+    height: 90px;
+}
+.tablet .addressView>.addressStreetInput {
+    top: 45px;
+}
+.tablet .addressView>.zipCodeInput {
+    top: 90px;
+}
+.tablet .addressView>.addressCityInput {
+    top: 90px;
+}
+.tablet .addressView>.addressCityInput.zipHidden>input.control {
+    padding-left: 35px;
+}
+.tablet .addressView>.addressCityInput.zipHidden>input.control:not(.invalid).focus, .tablet .addressView>.addressCityInput.zipHidden>input.control:not(.invalid):focus {
+    padding-left: 35px;
+}
+.tablet .addressView>.addressCountrySelectInput {
+    top: 135px;
+}
+.tablet .addressView>.overBorders {
+    top: 90px;
+    height: 50px;
+    width: 36px;
+}
+.tablet .addressView>.popoverView {
+    -webkit-transform: translateX(-100%) translateX(-20px) translateY(94px);
+    -moz-transform: translateX(-100%) translateX(-20px) translateY(94px);
+    -ms-transform: translateX(-100%) translateX(-20px) translateY(94px);
+    -o-transform: translateX(-100%) translateX(-20px) translateY(94px);
+    transform: translateX(-100%) translateX(-20px) translateY(94px);
+}
+.mobile .addressesView>.layoutSubview {
+    top: 0;
+}
+.mobile .addressesView .verificationInstructions {
+    padding-top: 30px;
+}
+.mobile .addressesView .verificationInstructions strong {
+    font-weight: 600;
+}
+.mobile .addressesView .verificationInstructions p {
+    margin: 0 20px 20px;
+}
+.desktop .addressesView>.layoutSubview>.addressSelector>.inner>.labelWithCheckbox, .tablet .addressesView>.layoutSubview>.addressSelector>.inner>.labelWithCheckbox {
+    left: 7px;
+    right: 7px;
+}
+.addressesView>.layoutSubview {
+    top: -10px;
+}
+.addressesView>.layoutSubview>.labelView.error {
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-bottom: 5px;
+}
+.addressesView .verificationInstructions {
+    text-align: center;
+    font-size: 13px;
+}
+.addressesView .verificationInstructions strong {
+    font-weight: 600;
+}
+.addressesView .verificationInstructions p {
+    margin: 0 20px 20px;
+}
+.mobile .alipayAccountLayoutView>.layoutSubview>.labelView {
+    padding-bottom: 0;
+}
+.alipayAccountLayoutView>.layoutSubview>.labelView {
+    padding: 0 14px 10px;
+}
+.alipayAccountLayoutView>.popoverView.unknown_user_id, .alipayAccountLayoutView>.popoverView.unsupported_user_id {
+    -webkit-transform: translateX(252px) translateY(27px);
+    -moz-transform: translateX(252px) translateY(27px);
+    -ms-transform: translateX(252px) translateY(27px);
+    -o-transform: translateX(252px) translateY(27px);
+    transform: translateX(252px) translateY(27px);
+}
+.tablet .alipayAccountLayoutView>.popoverView.unknown_user_id, .tablet .alipayAccountLayoutView>.popoverView.unsupported_user_id {
+    -webkit-transform: translateX(305px) translateY(34px);
+    -moz-transform: translateX(305px) translateY(34px);
+    -ms-transform: translateX(305px) translateY(34px);
+    -o-transform: translateX(305px) translateY(34px);
+    transform: translateX(305px) translateY(34px);
+}
+.alipayNavigationView {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.alipayNavigationView>.layoutSubview>.layoutView {
+    left: 0;
+    right: 0;
+}
+.mobile .alipayPaymentLayoutView>.layoutSubview>.codeInput {
+    left: 50%;
+    right: auto;
+    width: 252px;
+    margin-left: -126px;
+    margin-bottom: 10px;
+}
+.mobile .alipayPaymentLayoutView>.layoutSubview>.input.alipayIdCardInput {
+    left: 24px;
+    right: 24px;
+}
+.mobile .alipayPaymentLayoutView>.layoutSubview>.input.alipayIdCardInput input {
+    left: 120px;
+}
+.alipayPaymentLayoutView {
+    padding-bottom: 8px;
+}
+.alipayPaymentLayoutView>.layoutSubview>.carouselView {
+    left: 0;
+    right: 0;
+    pointer-events: none;
+}
+.alipayPaymentLayoutView>.layoutSubview>.carouselView>.labelView {
+    padding-top: 0;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.alipayPaymentLayoutView>.layoutSubview>.carouselView>.labelView span {
+    display: inline-block;
+}
+.alipayPaymentLayoutView>.layoutSubview>.codeInput {
+    left: 7px;
+    right: 7px;
+    margin-bottom: 18px;
+}
+.alipayPaymentLayoutView>.layoutSubview>.labelView {
+    width: 100%;
+    padding-bottom: 14px;
+    text-align: center;
+}
+.alipayPaymentLayoutView>.popoverView.alipay_decline {
+    -webkit-transform: translateX(252px) translateY(-10px);
+    -moz-transform: translateX(252px) translateY(-10px);
+    -ms-transform: translateX(252px) translateY(-10px);
+    -o-transform: translateX(252px) translateY(-10px);
+    transform: translateX(252px) translateY(-10px);
+}
+.alipayPaymentLayoutView>.popoverView.incorrect_sms_code, .alipayPaymentLayoutView>.popoverView.expired_sms_code {
+    -webkit-transform: translateX(252px) translateY(32px);
+    -moz-transform: translateX(252px) translateY(32px);
+    -ms-transform: translateX(252px) translateY(32px);
+    -o-transform: translateX(252px) translateY(32px);
+    transform: translateX(252px) translateY(32px);
+}
+.alipayPaymentLayoutView>.popoverView.incorrect_last5 {
+    -webkit-transform: translateX(252px) translateY(94px);
+    -moz-transform: translateX(252px) translateY(94px);
+    -ms-transform: translateX(252px) translateY(94px);
+    -o-transform: translateX(252px) translateY(94px);
+    transform: translateX(252px) translateY(94px);
+}
+.tablet .alipayPaymentLayoutView>.popoverView.alipay_decline {
+    -webkit-transform: translateX(305px) translateY(-10px);
+    -moz-transform: translateX(305px) translateY(-10px);
+    -ms-transform: translateX(305px) translateY(-10px);
+    -o-transform: translateX(305px) translateY(-10px);
+    transform: translateX(305px) translateY(-10px);
+}
+.tablet .alipayPaymentLayoutView>.popoverView.incorrect_sms_code, .tablet .alipayPaymentLayoutView>.popoverView.expired_sms_code {
+    -webkit-transform: translateX(305px) translateY(34px);
+    -moz-transform: translateX(305px) translateY(34px);
+    -ms-transform: translateX(305px) translateY(34px);
+    -o-transform: translateX(305px) translateY(34px);
+    transform: translateX(305px) translateY(34px);
+}
+.tablet .alipayPaymentLayoutView>.popoverView.incorrect_last5 {
+    -webkit-transform: translateX(305px) translateY(104px);
+    -moz-transform: translateX(305px) translateY(104px);
+    -ms-transform: translateX(305px) translateY(104px);
+    -o-transform: translateX(305px) translateY(104px);
+    transform: translateX(305px) translateY(104px);
+}
+.appView.mobile * {
+    -webkit-backface-visibility: hidden;
+}
+
+.labelView a:focus, .labelView a:active {
+    outline: 0;
+}
+.tablet .labelView {
+    font-size: 16px;
+    line-height: 22px;
+}
+.tablet .labelView a.arrow {
+    background-position: right 8px;
+}
+.mobile .layoutView>.layoutSubview>.input, .mobile .layoutView>.layoutSubview>.cardPaymentView, .mobile .layoutView>.layoutSubview>.addressView, .mobile .layoutView>.layoutSubview>.labelWithCheckbox, .mobile .layoutView>.layoutSubview>.addressSelector {
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+}
+.mobile .layoutView>.layoutSubview>.segmentedControl {
+    left: 15px;
+    right: 15px;
+}
+.mobile .layoutView>.layoutSubview>.addressSelector {
+    height: 45px;
+}
+.layoutView {
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+}
+.layoutView>.layoutSubview {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.layoutView>.layoutSubview>.addressSelector, .layoutView>.layoutSubview>.contentSwitcher {
+    left: 0;
+    right: 0;
+}
+.layoutView>.layoutSubview>.input, .layoutView>.layoutSubview>.cardPaymentView, .layoutView>.layoutSubview>.addressView, .layoutView>.layoutSubview>.labelWithCheckbox, .layoutView>.layoutSubview>.addressSelector {
+    left: 7px;
+    right: 7px;
+    margin-bottom: 18px;
+}
+.layoutView>.layoutSubview>.segmentedControl {
+    left: 7px;
+    right: 7px;
+    margin-bottom: 8px;
+}
+.layoutView>.layoutSubview>.addressSelector {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 32px;
+}
+.layoutView>.layoutSubview>.addressSelector>.inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.layoutView>.layoutSubview>.addressSelector>.inner>.segmentedControl {
+    left: 7px;
+    right: 7px;
+}
+.tablet .layoutView>.layoutSubview>.input, .tablet .layoutView>.layoutSubview>.cardPaymentView, .tablet .layoutView>.layoutSubview>.addressView, .tablet .layoutView>.layoutSubview>.addressSelector {
+    margin-bottom: 20px;
+}
+.tablet .layoutView>.layoutSubview>.addressSelector {
+    height: 41px;
+}
+.legalLinksView {
+    position: absolute;
+    top: 13px;
+    height: 50px;
+    width: 100%;
+    z-index: 20;
+    text-align: center;
+}
+.legalLinksView>span {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.legalLinksView>span.animated {
+    -webkit-transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -ms-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+}
+.legalLinksView>span.hidden {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transform: translateY(-14px);
+    -moz-transform: translateY(-14px);
+    -ms-transform: translateY(-14px);
+    -o-transform: translateY(-14px);
+    transform: translateY(-14px);
+}
+.legalLinksView>span>a {
+    color: #d2d2d3;
+    font-size: 12px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    padding: 0 10px;
+}
+.legalLinksView>span>a:first-child {
+    border-right: 1px solid #a1a1a5;
+}
+.tablet .legalLinksView>span>a {
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 14px;
+    padding-right: 14px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+}
+.tablet .legalLinksView>span>a:first-child {
+    border-right-color: #fff;
+}
+.mobile .loadingScreenView {
+    position: absolute;
+}
+.mobile .loadingScreenView>.loadingBackgroundView {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+.mobile .loadingScreenView>.svgSpinner {
+    left: 50%;
+    margin-left: -22px;
+    top: 106px;
+}
+.mobile .loadingScreenView>.labelView.titleView {
+    top: 170px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 21px;
+    color: #fff;
+    text-shadow: none;
+    line-height: 26px;
+    padding: 0 40px;
+}
+.mobile .loadingScreenView>.labelView.subtitleView {
+    top: 231px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 15px;
+    color: #bbb;
+    text-shadow: none;
+    line-height: 18px;
+    padding: 0 40px;
+}
+.mobile .loadingScreenView>.labelView.subtitleView>.labelView.linkView {
+    clear: both;
+    float: left;
+    position: static;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    text-shadow: none;
+    line-height: 18px;
+}
+.mobile .loadingScreenView>.closeButton {
+    position: absolute;
+    top: 387px;
+    left: 15px;
+    right: 15px;
+    display: block;
+    background: #fff;
+    color: #353535;
+    border-radius: 5px;
+    font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+    font-size: 15px;
+    height: 45px;
+    padding: 12px 0;
+    box-sizing: border-box;
+    text-align: center;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+}
+.mobile .loadingScreenView>.closeButton:active {
+    background: #000;
+    color: #fff;
+}
+.desktop .loadingScreenView, .tablet .loadingScreenView {
+    position: absolute;
+    text-align: center;
+}
+.desktop .loadingScreenView>.loadingBackgroundView, .tablet .loadingScreenView>.loadingBackgroundView {
+    position: absolute;
+    background: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid #dededf;
+    border-bottom: 1px solid #e5e5e5;
+    left: 7px;
+    right: 7px;
+    top: 0;
+    bottom: 0;
+}
+.desktop .loadingScreenView>.svgSpinner, .tablet .loadingScreenView>.svgSpinner {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0 13px 0;
+}
+.desktop .loadingScreenView>.labelView, .tablet .loadingScreenView>.labelView {
+    position: relative;
+    margin: 0 24px;
+    text-align: center;
+}
+.desktop .loadingScreenView>.labelView.titleView, .tablet .loadingScreenView>.labelView.titleView {
+    margin-bottom: 9px;
+    font-size: 17px;
+    color: #31313a;
+    text-shadow: none;
+    line-height: 20px;
+}
+.desktop .loadingScreenView>.labelView.subtitleView>.labelView.linkView, .tablet .loadingScreenView>.labelView.subtitleView>.labelView.linkView {
+    float: left;
+    clear: both;
+    width: 100%;
+    position: static;
+    cursor: pointer;
+}
+.desktop .loadingScreenView>.closeButton, .tablet .loadingScreenView>.closeButton {
+    display: none;
+}
+.tablet .loadingScreenView>.svgSpinner {
+    margin-top: 34px;
+}
+.mobile .loadingView {
+    width: 18px;
+    height: 18px;
+}
+.loadingView {
+    width: 16px;
+    height: 16px;
+}
+.tablet .loadingView {
+    width: 22px;
+    height: 22px;
+}
+.mobile .loggedBarView {
+    left: 0;
+    right: 0;
+    height: 45px;
+}
+.mobile .loggedBarView>.inner {
+    width: 100%;
+    height: 45px;
+    background: transparent;
+}
+.mobile .loggedBarView>.inner>.loggedBarContent {
+    font-size: 15px;
+    color: #000;
+    line-height: 45px;
+    text-shadow: none;
+    text-align: left;
+    background: #f4f4f5;
+}
+.mobile .loggedBarView>.inner>.loggedBarContent>.icon {
+    left: 1px;
+    top: 5px;
+}
+.mobile .loggedBarView>.inner>.loggedBarContent>span {
+    padding-left: 35px;
+    max-width: 190px;
+    height: 45px;
+}
+.mobile .loggedBarView>.inner>.loggedBarContent>a.logout {
+    float: right;
+    margin-right: 12px;
+    background: transparent;
+    margin-left: 9px;
+    height: 45px;
+}
+.fr.mobile .loggedBarView>.inner>.loggedBarContent.loggedIn>span {
+    max-width: 145px;
+}
+.es.mobile .loggedBarView>.inner>.loggedBarContent.loggedIn>span {
+    max-width: 160px;
+}
+.desktop .loggedBarView.alternateSimple {
+    height: 47px;
+    left: 37px;
+    right: 37px;
+}
+.desktop .loggedBarView.alternateSimple>.inner {
+    background: transparent;
+    height: 47px;
+}
+.desktop .loggedBarView.alternateSimple>.inner>.loggedBarContent {
+    line-height: 38px;
+}
+.desktop .loggedBarView.alternateSimple>.inner>.loggedBarContent>span, .desktop .loggedBarView.alternateSimple>.inner>.loggedBarContent>a.logout {
+    height: 38px;
+}
+.loggedBarView {
+    position: absolute;
+    top: 0;
+    left: 1px;
+    right: 1px;
+    display: block;
+    height: 27px;
+}
+.loggedBarView>.inner {
+    width: 100%;
+    height: 27px;
+    background-color: #dbdbde;
+    background-image: -webkit-linear-gradient(#f3f3f3, #f3f3f3);
+    background-image: -moz-linear-gradient(#f3f3f3, #f3f3f3);
+    background-image: -ms-linear-gradient(#f3f3f3, #f3f3f3);
+    background-image: -o-linear-gradient(#f3f3f3, #f3f3f3);
+    background-image: -webkit-linear-gradient(#e6e6e7, #dcdcdf);
+    background-image: -moz-linear-gradient(#e6e6e7, #dcdcdf);
+    background-image: -ms-linear-gradient(#e6e6e7, #dcdcdf);
+    background-image: -o-linear-gradient(#e6e6e7, #dcdcdf);
+    background-image: -webkit-linear-gradient(#bbbbbd, #bbbbbd);
+    background-image: -moz-linear-gradient(#bbbbbd, #bbbbbd);
+    background-image: -ms-linear-gradient(#bbbbbd, #bbbbbd);
+    background-image: -o-linear-gradient(#bbbbbd, #bbbbbd);
+    background-image: -webkit-linear-gradient(#fff, #fff);
+    background-image: -moz-linear-gradient(#fff, #fff);
+    background-image: -ms-linear-gradient(#fff, #fff);
+    background-image: -o-linear-gradient(#fff, #fff);
+    background-image: linear-gradient(#f3f3f3, #f3f3f3), linear-gradient(#e6e6e7, #dcdcdf), linear-gradient(#bbbbbd, #bbbbbd), linear-gradient(#fff, #fff);
+    background-image: -webkit-linear-gradient(#f3f3f3, #f3f3f3), -webkit-linear-gradient(#e6e6e7, #dcdcdf), -webkit-linear-gradient(#bbbbbd, #bbbbbd), -webkit-linear-gradient(#fff, #fff);
+    background-image: -moz-linear-gradient(#f3f3f3, #f3f3f3), -moz-linear-gradient(#e6e6e7, #dcdcdf), -moz-linear-gradient(#bbbbbd, #bbbbbd), -moz-linear-gradient(#fff, #fff);
+    background-repeat: repeat-x;
+    background-position: 0 0, 0 1px, 0 25px, 0 26px;
+    background-size: 100% 1px, 100% 24px, 100% 1px, 100% 1px;
+}
+.loggedBarView>.inner>.loggedBarContent {
+    font-size: 13px;
+    font-weight: bold;
+    color: #5b5b65;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    line-height: 25px;
+    text-align: center;
+    cursor: default;
+}
+.loggedBarView>.inner>.loggedBarContent>span {
+    display: inline-block;
+    max-width: 228px;
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.loggedBarView>.inner>.loggedBarContent>a.logout {
+    background-image: -webkit-linear-gradient(#aaaaad, #aaaaad);
+    background-image: -moz-linear-gradient(#aaaaad, #aaaaad);
+    background-image: -ms-linear-gradient(#aaaaad, #aaaaad);
+    background-image: -o-linear-gradient(#aaaaad, #aaaaad);
+    background-image: -webkit-linear-gradient(#b5b5b7, #b5b5b7);
+    background-image: -moz-linear-gradient(#b5b5b7, #b5b5b7);
+    background-image: -ms-linear-gradient(#b5b5b7, #b5b5b7);
+    background-image: -o-linear-gradient(#b5b5b7, #b5b5b7);
+    background-image: -webkit-linear-gradient(#fff, #fff);
+    background-image: -moz-linear-gradient(#fff, #fff);
+    background-image: -ms-linear-gradient(#fff, #fff);
+    background-image: -o-linear-gradient(#fff, #fff);
+    background-image: linear-gradient(#aaaaad, #aaaaad), linear-gradient(#b5b5b7, #b5b5b7), linear-gradient(#fff, #fff);
+    background-image: -webkit-linear-gradient(#aaaaad, #aaaaad), -webkit-linear-gradient(#b5b5b7, #b5b5b7), -webkit-linear-gradient(#fff, #fff);
+    background-image: -moz-linear-gradient(#aaaaad, #aaaaad), -moz-linear-gradient(#b5b5b7, #b5b5b7), -moz-linear-gradient(#fff, #fff);
+    background-repeat: no-repeat;
+    background-position: left 3px, left 4px, left 14px;
+    background-size: 1px 1px, 1px 10px, 1px 1px;
+    margin-left: 9px;
+    display: inline-block;
+    padding-left: 9px;
+    color: #0d80dc;
+    font-weight: 500;
+    cursor: pointer;
+    height: 25px;
+    vertical-align: top;
+}
+.loggedBarView>.inner>.loggedBarContent>a.logout:active {
+    color: #072c4c;
+}
+.loggedBarView>.inner>.loggedBarContent.loggedIn>span {
+    max-width: 148px;
+}
+.ja .loggedBarView>.inner>.loggedBarContent.loggedIn>span {
+    max-width: 140px;
+}
+.es .loggedBarView>.inner>.loggedBarContent.loggedIn>span, .fr .loggedBarView>.inner>.loggedBarContent.loggedIn>span {
+    max-width: 115px;
+}
+.tablet .loggedBarView {
+    height: 47px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+.tablet .loggedBarView>.inner {
+    position: relative;
+    top: -40px;
+    height: 87px;
+    background: rgba(155, 155, 164, 0.08);
+    border-bottom: 1px solid #c9c9ce;
+    box-sizing: border-box;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.tablet .loggedBarView>.inner>.loggedBarContent {
+    position: relative;
+    top: 40px;
+    font-size: 18px;
+    color: #000;
+    font-weight: normal;
+    font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+    text-shadow: none;
+    line-height: 45px;
+}
+.tablet .loggedBarView>.inner>.loggedBarContent>span {
+    max-width: 255px;
+}
+.tablet .loggedBarView>.inner>.loggedBarContent>span, .tablet .loggedBarView>.inner>.loggedBarContent>a.logout {
+    height: 45px;
+}
+.tablet .loggedBarView>.inner>.loggedBarContent>a.logout {
+    background-image: linear-gradient(#9b9ba4, #9b9ba4);
+    background-image: -webkit-linear-gradient(#9b9ba4, #9b9ba4);
+    background-image: -moz-linear-gradient(#9b9ba4, #9b9ba4);
+    background-repeat: no-repeat;
+    background-position: left 4px;
+    background-size: 1px 18px;
+    margin-left: 11px;
+    padding-top: 1px;
+    padding-left: 12px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #3ea8e5;
+}
+.tablet .loggedBarView>.inner>.loggedBarContent>a.logout:active {
+    color: #0c6294;
+}
+.tablet.smallScreen .loggedBarView>.inner>.loggedBarContent.loggedIn>span {
+    max-width: 200px;
+}
+.mobile .overlayView {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+    background: transparent;
+    opacity: 1;
+    z-index: 2;
+}
+.desktop .overlayView {
+    -webkit-transition: 200ms opacity ease;
+    -moz-transition: 200ms opacity ease;
+    -ms-transition: 200ms opacity ease;
+    -o-transition: 200ms opacity ease;
+    transition: 200ms opacity ease;
+}
+
+.bitcoinAddressView>.addressContainer>.address>.buttons>a.scanButton:active>span.qrCode {
+    background-position: left bottom;
+}
+.bitcoinAddressView>.actionButton {
+    top: 6px;
+    right: 12px;
+}
+.tablet .bitcoinAddressView.withoutAddress {
+    height: 47px;
+}
+.tablet .bitcoinAddressView.withoutAddress>.amount {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+.tablet .bitcoinAddressView>.amount {
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -ms-border-radius: 5px 5px 0 0;
+    -o-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    padding: 10px 0 0 37px;
+    height: 47px;
+    font-size: 19px;
+}
+.tablet .bitcoinAddressView>.amount>.icon {
+    top: 4px;
+}
+.tablet .bitcoinAddressView>.amount>.tick {
+    top: 9px;
+    right: 9px;
+}
+.tablet .bitcoinAddressView>.amount>.loadingView {
+    top: 11px;
+    right: 12px;
+}
+.tablet .bitcoinAddressView>.addressContainer>.address {
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    -ms-border-radius: 0 0 5px 5px;
+    -o-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+}
+.tablet .bitcoinAddressView>.addressContainer>.address>p.stringAddress {
+    height: 45px;
+    padding: 14px 7px 0;
+    font-size: 12px;
+}
+.tablet .bitcoinAddressView>.addressContainer>.address>.buttons {
+    height: 45px;
+}
+.tablet .bitcoinAddressView>.addressContainer>.address>.buttons>a {
+    font-size: 16px;
+    padding-top: 12px;
+}
+.tablet .bitcoinAddressView>.addressContainer>.address>.buttons>a:first-child:after {
+    top: 13px;
+    height: 18px;
+}
+.tablet .bitcoinAddressView>.addressContainer>.address>.buttons>a.scanButton>span.qrCode {
+    top: 0;
+}
+.tablet .bitcoinAddressView>.actionButton {
+    top: 8px;
+    right: 15px;
+}
+.mobile .bitcoinLayoutView>.layoutSubview>.carouselView>.labelView {
+    text-align: center;
+    padding-bottom: 12px;
+}
+.mobile .bitcoinLayoutView>.layoutSubview>.bitcoinAddressView, .mobile .bitcoinLayoutView>.layoutSubview>.carouselView {
+    left: 8px;
+    right: 8px;
+}
+.bitcoinLayoutView>.layoutSubview>.carouselView>.labelView {
+    padding: 0 11px 8px;
+}
+.bitcoinLayoutView>.layoutSubview>.bitcoinAddressView, .bitcoinLayoutView>.layoutSubview>.carouselView {
+    left: 0;
+    right: 0;
+}
+.bitcoinLoadingView>.popoverView {
+    top: 0;
+    -webkit-transform: translateX(44px) translateY(-10px);
+    -moz-transform: translateX(44px) translateY(-10px);
+    -ms-transform: translateX(44px) translateY(-10px);
+    -o-transform: translateX(44px) translateY(-10px);
+    transform: translateX(44px) translateY(-10px);
+}
+.bitcoinLoadingView>.popoverView>.content {
+    min-width: 165px;
+}
+.brandingLogoView {
+    display: block;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    outline: 0;
+    background: url("https://b.stripecdn.com/checkout/v3/images/badges/stripe-enyrqMtDOCgqEPSAWJlbg.png") no-repeat;
+    background-size: 100% 100%;
+    width: 123px;
+    height: 30px;
+}
+.bitcoinAddressView>.amount>span.btcPrice {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+}
+.bitcoinAddressView>.amount>span.originalPrice {
+    color: #797981;
+}
+.bitcoinAddressView>.amount>.icon {
+    position: absolute;
+    left: 1px;
+    top: 3px;
+}
+.bitcoinAddressView>.amount>.tick {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+}
+.bitcoinAddressView>.amount>.bitcoinLoadingView {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+}
+.bitcoinAddressView>.addressContainer {
+    position: relative;
+    margin: 0 7px;
+}
+.bitcoinAddressView>.addressContainer.hidden {
+    overflow: hidden;
+}
+.bitcoinAddressView>.addressContainer>.address {
+    border: 1px solid #dededf;
+    border-top: 0;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -ms-border-radius: 0 0 4px 4px;
+    -o-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    background: #fff;
+}
+.bitcoinAddressView>.addressContainer>.address>p.stringAddress {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid #e5e5e5;
+    background: #fcfcfc;
+    height: 35px;
+    word-wrap: nowrap;
+    text-overflow: ellipsis;
+    padding: 11px 7px 0;
+    margin: 0;
+    font-family: Monaco, Consolas, "Lucida Console", monospace;
+    font-size: 10px;
+    color: #31313a;
+    text-align: center;
+}
+.bitcoinAddressView>.addressContainer>.address>p.stringAddress>span {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+}
+.bitcoinAddressView>.addressContainer>.address>.buttons {
+    height: 35px;
+}
+.bitcoinAddressView>.addressContainer>.address>.buttons>a {
+    position: relative;
+    display: inline-block;
+    color: #2a8cc9;
+    font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+    font-size: 13px;
+    width: 50%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 9px 0;
+    cursor: pointer;
+    vertical-align: top;
+}
+.bitcoinAddressView>.addressContainer>.address>.buttons>a:active {
+    color: #0c6393;
+}
+.bitcoinAddressView>.addressContainer>.address>.buttons>a:first-child:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 1px;
+    height: 14px;
+    background: #e5e5e5;
+}
+.bitcoinAddressView>.addressContainer>.address>.buttons>a.openWalletButton>.svgSpinner {
+    left: 50%;
+    margin-left: -7px;
+    top: 10px;
+}
+.bitcoinAddressView>.addressContainer>.address>.buttons>a.scanButton>span {
+    display: inline-block;
+    vertical-align: top;
+}
+.bitcoinAddressView>.addressContainer>.address>.buttons>a.scanButton>span:first-child {
+    padding-right: 7px;
+}
+.bitcoinAddressView>.addressContainer>.address>.buttons>a.scanButton>span.qrCode {
+    position: relative;
+    display: inline-block;
+    top: -2px;
+    width: 21px;
+    height: 21px;
+    background: url("https://b.stripecdn.com/checkout/v3/images/qrCode-rai703qQiVfdsK8URsfqEQ.png") no-repeat;
+    background-size: 21px 42px;
+    background-position: left top;
+    pointer-events: none;
+}
+
+
+
+.tablet.iframe .checkoutView {
+    top: 50px;
+    margin-top: 0;
+}
+.tablet.smallScreen .checkoutView {
+    margin-left: -150px;
+    width: 300px;
+}
+.tablet.smallScreen .checkoutView>.bodyView {
+    left: 0;
+    width: 300px;
+}
+.tablet.smallScreen .checkoutView>.bodyView>.contentView>.layoutSubview>.layoutView, .tablet.smallScreen .checkoutView>.bodyView>.contentView>.layoutSubview>.codeVerificationView {
+    left: 3px;
+    right: 3px;
+}
+.tablet.smallScreen .checkoutView>.bodyView>.contentView>.layoutSubview>.buttonsView {
+    left: 10px;
+    right: 10px;
+}
+.tablet.chromeiOS .checkoutView {
+    top: 100px;
+    margin-top: 0;
+}
+.tablet .checkoutView {
+    margin-left: -180px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    width: 360px;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.tablet .checkoutView>.bodyView>.yieldLoggedBar {
+    height: 60px;
+}
+.tablet .checkoutView>.bodyView>.contentView>.layoutSubview>.layoutView, .tablet .checkoutView>.bodyView>.contentView>.layoutSubview>.codeVerificationView {
+    left: 33px;
+    right: 33px;
+}
+.tablet .checkoutView>.bodyView>.contentView>.layoutSubview>.buttonsView {
+    left: 40px;
+    right: 40px;
+}
+.tablet .checkoutView>.bodyView>.contentView>.layoutSubview .alternateAction {
+    font-size: 16px;
+}
+.mobile .closeView {
+    margin: 15px;
+    position: absolute;
+    min-height: 300px;
+}
+.mobile .closeView .labelView {
+    font-size: 15px;
+    color: #000;
+    font-weight: normal;
+    text-shadow: 0 1px 0 #fff;
+    line-height: 21px;
+    text-align: center;
+    width: 100%}
+.mobile .closeView .closeHeader {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.mobile .contentSwitcher.animating>.inner {
+    overflow: visible;
+}
+.contentSwitcher {
+    position: absolute;
+}
+.contentSwitcher.animating>.inner {
+    overflow: hidden;
+}
+.contentSwitcher>.inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.contentSwitcher>.inner>.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.contentSwitcher>.inner>.content>.layoutView, .contentSwitcher>.inner>.content>.baseRow, .contentSwitcher>.inner>.content>.addressView, .contentSwitcher>.inner>.content>.cardPaymentView {
+    left: 0;
+    right: 0;
+}
+.desktop .contentSwitcher>.inner, .tablet .contentSwitcher>.inner {
+    top: -10px;
+    left: -29px;
+    right: -29px;
+    height: 200px;
+}
+.desktop .contentSwitcher>.inner>.content, .tablet .contentSwitcher>.inner>.content {
+    top: 10px;
+    left: 29px;
+    right: 29px;
+}
+.desktop .contentSwitcher>.inner>.content>.addressView, .tablet .contentSwitcher>.inner>.content>.addressView, .desktop .contentSwitcher>.inner>.content>.cardPaymentView, .tablet .contentSwitcher>.inner>.content>.cardPaymentView {
+    left: 7px;
+    right: 7px;
+}
+.iOS5 .contentSwitcher>.inner>.content {
+    -webkit-transform: translateZ(0);
+}
+.actionButton {
+    position: absolute;
+    height: 25px;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+    font-size: 13px;
+    text-align: center;
+    color: #5b5b65;
+    text-shadow: 0 1px 0 #fff;
+    cursor: default;
+    background-image: -webkit-linear-gradient(#fefefe, #f5f5f7);
+    background-image: -moz-linear-gradient(#fefefe, #f5f5f7);
+    background-image: -ms-linear-gradient(#fefefe, #f5f5f7);
+    background-image: -o-linear-gradient(#fefefe, #f5f5f7);
+    background-image: -webkit-linear-gradient(#fefefe, #f5f5f7);
+    background-image: -moz-linear-gradient(#fefefe, #f5f5f7);
+    background-image: -ms-linear-gradient(#fefefe, #f5f5f7);
+    background-image: -o-linear-gradient(#fefefe, #f5f5f7);
+    background-image: linear-gradient(#fefefe, #f5f5f7);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0);
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0);
+    -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0);
+    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+.actionButton>span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #b9b9bb;
+    line-height: 24px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    padding: 0 7px;
+}
+.actionButton.selected, .actionButton:active {
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    background: #c4c4c7;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0.3);
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0.3);
+    -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0.3);
+    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0.3);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0.3);
+}
+.actionButton.selected>span, .actionButton:active>span {
+    border-color: #a4a4a8;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+.actionButton:active, .actionButton:active.selected {
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    background: #b5b5b8;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0.4);
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0.4);
+    -ms-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0.4);
+    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0.4);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 1px rgba(84, 84, 89, 0.4);
+}
+.actionButton:active>span, .actionButton:active.selected>span {
+    border-color: #8c8c90;
+    border-color: rgba(0, 0, 0, 0.15);
+}
+.actionButton>.svgSpinner {
+    top: 5px;
+    left: 50%;
+    margin-left: -7px;
+}
+.tablet .actionButton {
+    height: 31px;
+    font-size: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+.tablet .actionButton>span {
+    line-height: 29px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.tablet .actionButton>.svgSpinner {
+    top: 7px;
+    left: 50%;
+    margin-left: -9px;
+}
+.mobile.iOS9 .button .inner {
+    left: 0;
+    right: 0;
+}
+.mobile .button {
+    height: 67px;
+    perspective: 800;
+    -webkit-perspective: 800;
+}
+.mobile .button.cancel>.inner {
+    left: 0;
+    right: 0;
+}
+.mobile .button.cancel>.inner>button {
+    color: #4b4b56;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background: #e3e3e6;
+}
+.mobile .button.cancel:not(.disabled)>.inner>button:not(:disabled):active, .mobile .button.cancel:not(.disabled)>.inner>button.active {
+    background: #b2b2bd;
+}
+.mobile .button>.inner {
+    left: -40px;
+    right: -40px;
+    height: 100%;
+    overflow: hidden;
+}
+.mobile .button>.inner>button {
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -30px;
+    width: 100%;
+    height: auto;
+    background: #3ea8e5;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    font-weight: bold;
+    font-size: 21px;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(46, 86, 153, 0.15);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+}
+.mobile .button>.inner>button>span {
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    padding: 0;
+}
+.mobile .button>.inner>button>span>span {
+    line-height: 65px;
+}
+.mobile .button>.inner>button>span>span.iconContinue {
+    background: transparent;
+}
+.mobile .button>.inner>button>span>span.iconContinue>span.iconB {
+    position: relative;
+    top: 5px;
+    margin-left: 9px;
+    display: inline-block;
+    background: url("https://b.stripecdn.com/checkout/v3/images/iconContinueMobile@2x-tk1U4iNoADY0vOfwUW4Jw.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 23px;
+    height: 24px;
+}
+.mobile .button>.inner>button>span>span.iconTick {
+    background: transparent;
+}
+.mobile .button>.inner>button>span>span.iconTick>span.iconA {
+    position: relative;
+    top: 5px;
+    margin-right: 9px;
+    display: inline-block;
+    background: url("https://b.stripecdn.com/checkout/v3/images/iconTickMobile@2x-2UwYI8h4FilUERLTuMylEA.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 23px;
+    height: 24px;
+}
+.mobile .button>.inner>button>.spinnerContainer {
+    top: 22px;
+    margin-left: -11px;
+}
+.mobile .button>.inner>.tick {
+    top: 21px;
+    margin-left: -12px;
+}
+.mobile .button.success>.inner>button, .mobile .button.pending.success>.inner>button {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+}
+.button {
+    position: absolute;
+    height: 37px;
+}
+.button.animated>.inner>button {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.button.animated>.inner>button>span {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.button.disabled>.inner>button {
+    cursor: default;
+    background: #e6e6e8;
+    background-image: -webkit-linear-gradient(#e6e6e8, #e4e4e6);
+    background-image: -moz-linear-gradient(#e6e6e8, #e4e4e6);
+    background-image: -ms-linear-gradient(#e6e6e8, #e4e4e6);
+    background-image: -o-linear-gradient(#e6e6e8, #e4e4e6);
+    background-image: -webkit-linear-gradient(#e6e6e8, #e4e4e6);
+    background-image: -moz-linear-gradient(#e6e6e8, #e4e4e6);
+    background-image: -ms-linear-gradient(#e6e6e8, #e4e4e6);
+    background-image: -o-linear-gradient(#e6e6e8, #e4e4e6);
+    background-image: linear-gradient(#e6e6e8, #e4e4e6);
+    text-shadow: 0 1px 0 rgba(124, 124, 127, 0.25);
+    -webkit-box-shadow: 0 1px 0 0 #fff, inset 0 1px 0 0 rgba(124, 124, 127, 0.12);
+    -moz-box-shadow: 0 1px 0 0 #fff, inset 0 1px 0 0 rgba(124, 124, 127, 0.12);
+    -ms-box-shadow: 0 1px 0 0 #fff, inset 0 1px 0 0 rgba(124, 124, 127, 0.12);
+    -o-box-shadow: 0 1px 0 0 #fff, inset 0 1px 0 0 rgba(124, 124, 127, 0.12);
+    box-shadow: 0 1px 0 0 #fff, inset 0 1px 0 0 rgba(124, 124, 127, 0.12);
+}
+.button.disabled>.inner>button>span {
+    border: 1px solid #dadadb;
+    border-color: rgba(124, 124, 127, 0.12);
+}
+.button>.inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 37px;
+}
+.button>.inner>button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 37px;
+    border: 0;
+    text-decoration: none;
+    background: #45b1e8;
+    background-image: -webkit-linear-gradient(#45b1e8, #3097de);
+    background-image: -moz-linear-gradient(#45b1e8, #3097de);
+    background-image: -ms-linear-gradient(#45b1e8, #3097de);
+    background-image: -o-linear-gradient(#45b1e8, #3097de);
+    background-image: -webkit-linear-gradient(#45b1e8, #3097de);
+    background-image: -moz-linear-gradient(#45b1e8, #3097de);
+    background-image: -ms-linear-gradient(#45b1e8, #3097de);
+    background-image: -o-linear-gradient(#45b1e8, #3097de);
+    background-image: linear-gradient(#45b1e8, #3097de);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(46, 86, 153, 0.3);
+    -webkit-box-shadow: 0 1px 0 rgba(46, 86, 153, 0.15), 0 0 4px rgba(86, 149, 219, 0), inset 0 2px 0 rgba(41, 102, 20, 0);
+    -moz-box-shadow: 0 1px 0 rgba(46, 86, 153, 0.15), 0 0 4px rgba(86, 149, 219, 0), inset 0 2px 0 rgba(41, 102, 20, 0);
+    -ms-box-shadow: 0 1px 0 rgba(46, 86, 153, 0.15), 0 0 4px rgba(86, 149, 219, 0), inset 0 2px 0 rgba(41, 102, 20, 0);
+    -o-box-shadow: 0 1px 0 rgba(46, 86, 153, 0.15), 0 0 4px rgba(86, 149, 219, 0), inset 0 2px 0 rgba(41, 102, 20, 0);
+    box-shadow: 0 1px 0 rgba(46, 86, 153, 0.15), 0 0 4px rgba(86, 149, 219, 0), inset 0 2px 0 rgba(41, 102, 20, 0);
+    -webkit-transition: box-shadow .15s linear;
+    -moz-transition: box-shadow .15s linear;
+    -ms-transition: box-shadow .15s linear;
+    -o-transition: box-shadow .15s linear;
+    transition: box-shadow .15s linear;
+}
+.button>.inner>button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+.button>.inner>button>span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #3ca0dd;
+    border-color: rgba(46, 86, 153, 0.1);
+    border-bottom-color: #2e7cc1;
+    border-bottom-color: rgba(46, 86, 153, 0.4);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    padding-top: 6px;
+}
+.button>.inner>button>span>span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    line-height: 34px;
+    overflow: hidden;
+}
+.button>.inner>button>span>span.iconContinue {
+    background: url("https://b.stripecdn.com/checkout/v3/images/iconContinue-BVf4xzVdpFV4nfKLGU3TiA.png");
+    background-repeat: no-repeat;
+    background-position: 197px 8px;
+    background-size: 19px 20px;
+}
+
+
