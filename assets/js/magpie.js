@@ -6,7 +6,7 @@ var iframe;
 
 var Magpie = Magpie || {
 
-  loadFrameView: function loadFrameView() {
+  loadFrameView: function() {
 
     iframe = document.createElement('iframe');
 
@@ -20,7 +20,6 @@ var Magpie = Magpie || {
     iframe.setAttribute("name", Date.now());
     iframe.setAttribute("id", "magpie-checkout-app");
     iframe.setAttribute("style", "position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;");
-
 
     //document.getElementById('checkout-view').appendChild(iframe);
     $("body").append(iframe);
@@ -41,9 +40,9 @@ var Magpie = Magpie || {
 
   },
 
-  closeFrameView: function closeFrameView() {
-    console.log("-----remove23");
-    $("#magpie-checkout-app").hide();
+  closeFrameView: function() {
+    $(".stripeInFrame .overlayView").removeClass("active");
+    $(".stripeInFrame .overlayView").addClass("unactive");
   },
 
 
