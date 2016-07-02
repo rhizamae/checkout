@@ -1893,7 +1893,7 @@ header>.content>.image:after {
     top: -10px;
     left: -29px;
     right: -29px;
-    height: 200px;
+    /* height: 200px;*/
 }
 .desktop .contentSwitcher>.inner>.content, .tablet .contentSwitcher>.inner>.content {
     top: 10px;

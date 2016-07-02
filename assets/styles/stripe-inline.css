@@ -1,0 +1,184 @@
+.stripeInFrame .preloader div {
+  background-image: url(&quot;https://stripe.com/img/documentation/checkout/marketplace.png&quot;)
+}
+
+form.checkoutView {
+  opacity: 1; 
+  transition: none; 
+  transform: translateY(0px) scale(1); 
+  /*margin-top: -279px; */
+  margin-top: -200px;
+  position: absolute;
+}
+
+form.checkoutView .backgroundBottom div {
+  height: 950px; 
+  transition: none; 
+  transform: translateY(-470px);
+}
+
+form.checkoutView .layoutSubview {
+  z-index: 100; 
+  height: 110px; 
+  transform: translateY(0px); 
+  opacity: 1; 
+  transition: none;
+}
+
+form.checkoutView .layoutSubview .close {
+  opacity: 1; transition: none;
+}
+
+form.checkoutView .layoutSubview .back {
+  display: none; 
+  opacity: 0; 
+  transition: none;
+}
+
+form.checkoutView .layoutSubview.profileSetting {
+  display: none; 
+  opacity: 0; 
+  height: 27px; 
+  transform: translateY(110px); 
+  transition: none;
+}
+
+form.checkoutView .loggedIn .logout {
+  display: inline;
+}
+
+form.checkoutView .layoutSubview.payButton {
+  z-index: 100; 
+  height: 37px; 
+  transform: translateY(358px); 
+  opacity: 1; 
+  transition: none;
+}
+
+form.checkoutView .layoutSubview.payButton .button.submit {
+  transform-origin: 100% 50% 0px;
+}
+
+form.checkoutView .layoutSubview.payButton #payAmount {
+  opacity: 1; 
+  transform: translateX(0px); 
+  transition: none;
+}
+
+form.checkoutView .layoutSubview.payButton .spinnerContainer {
+  opacity: 0; 
+  display: none; 
+  transition: none;
+}
+
+form.checkoutView .layoutSubview.payButton .svgSpinner {
+  width: 18px; 
+  height: 19px;
+}
+
+form.checkoutView .layoutSubview.inputPayment {
+  height: 248px; 
+  transform: translateY(110px); 
+  opacity: 1; 
+  transition: none;
+}
+
+form.checkoutView .layoutSubview.inputPayment .layoutView.paymentView {
+  opacity: 1; 
+  /* height: 248px; */
+  transition: none; 
+  transform: translateX(0px); 
+  overflow: inherit;
+}
+
+form.checkoutView .layoutSubview.inputPayment .layoutSubview.inputEmail {
+  height: 55px; 
+  transform: translateY(0px); 
+  opacity: 1; 
+  transition: none;
+}
+
+form.checkoutView .layoutSubview.inputPayment .emailInput .spinnerContainer {
+  display: none;
+}
+
+form.checkoutView .layoutSubview.inputPayment .emailInput .spinnerContainer .svgSpinner {
+  width: 14px; 
+  height: 15px;
+}
+
+form.checkoutView .layoutSubview.inputPayment .emailInput .svg {
+  width: 30px; 
+  height: 30px;
+}
+
+form.checkoutView .layoutSubview.inputCardNumber {
+  height: 158px; 
+  transform: translateY(55px); 
+  opacity: 1; 
+  transition: none;
+}
+
+form.checkoutView .layoutSubview.inputCardNumber .layoutView.cardView {
+  opacity: 1; 
+  transform: translateX(0px); 
+  display: block; 
+  transition: none; 
+  height: 158px;
+}
+
+form.checkoutView .layoutSubview.inputCardNumber .layoutView.cardView .layoutSubview.cardDetails {
+  height: 91px; 
+  transform: translateY(0px); 
+  opacity: 1; 
+  transition: none;
+}
+
+form.checkoutView .layoutSubview.inputCardNumber .layoutView.cardView #cc-exp-year {
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0px 0px 0px 0px); 
+  height: 1px; 
+  width: 1px; 
+  margin: -1px; 
+  padding: 0px; 
+  border: 0px;
+}
+
+form.checkoutView .layoutSubview.inputCardNumber .layoutView.cardView #cc-exp-month {
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0px 0px 0px 0px); 
+  height: 1px; 
+  width: 1px; 
+  margin: -1px; 
+  padding: 0px; 
+  border: 0px;
+}
+
+form.checkoutView .layoutSubview.inputCardNumber .layoutView.cardView .layoutSubview.rememberDetails {
+  height: 67px; 
+  transform: translateY(91px); 
+  opacity: 1; 
+  transition: none;
+}
+
+form.checkoutView .layoutSubview.inputCardNumber .layoutView.cardView .layoutSubview.rememberDetails .expandedContainer .expanded {
+  opacity: 0; 
+  transform: rotateX(-60deg); 
+  display: none;
+}
+
+form.checkoutView .layoutSubview.inputCardNumber .layoutView.cardView .layoutSubview.rememberCheckbox {
+  display: none; 
+  opacity: 0; 
+  height: 69px; 
+  transform: translateY(158px); 
+  transition: none;
+}
+
+
+
+
+
+

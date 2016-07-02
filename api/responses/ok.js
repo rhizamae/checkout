@@ -18,6 +18,9 @@ module.exports = function sendOK (data, options) {
   var res = this.res;
   var sails = req._sails;
 
+  res.req.url = res.req.url.replace(/\/$/, '');
+  Logger.log('debug', res.req.method + ' ' + res.req.url + ' response', data);
+
   sails.log.silly('res.ok() :: Sending 200 ("OK") response');
 
   // Set status code

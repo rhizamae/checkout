@@ -21,4 +21,8 @@ module.exports = {
   //   connection: 'someMongodbServer'
   // }
 
+  magpie: {
+    url: "https://sandbox.api.magpie.im"
+  }
+
 };

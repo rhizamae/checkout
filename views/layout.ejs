@@ -6,6 +6,20 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+
+   
+    
+    <style>
+     
+      #checkout-view iframe {
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        margin:auto;
+      }
+    </style>
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/animation.css">
     <link rel="stylesheet" href="/styles/base.css">
@@ -13,16 +27,26 @@
     <link rel="stylesheet" href="/styles/checkout.css">
     <link rel="stylesheet" href="/styles/error.css">
     <link rel="stylesheet" href="/styles/media.css">
+    <link rel="stylesheet" href="/styles/stripe-inline.css">
     <!--STYLES END-->
-    
   </head>
 
   <body>
-    <%- body %>
 
+    
+    <%- body %>
     <!--SCRIPTS-->
     <script src="/js/dependencies/checkout.min.js"></script>
+    <script src="/js/magpie.js"></script>
+    <script src="/js/checkout/main.js"></script>
+    <script src="/js/checkout/function.js"></script>
+    <script src="/js/checkout/cardCvcInput.js"></script>
+    <script src="/js/checkout/cardExpiresInput.js"></script>
+    <script src="/js/checkout/cardNumberInput.js"></script>
+    <script src="/js/checkout/cardUtils.js"></script>
     <script src="/js/checkout.js"></script>
+    <script src="/js/functions/payment.js"></script>
+    <script src="/js/functions/validation.js"></script>
     <script src="/js/main.js"></script>
     <!--SCRIPTS END-->
   </body>
