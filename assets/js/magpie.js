@@ -2,13 +2,13 @@
 var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 var eventer = window[eventMethod];
 var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-
+var iframe;
 
 var Magpie = Magpie || {
 
   loadFrameView: function loadFrameView() {
 
-    var iframe = document.createElement('iframe');
+    iframe = document.createElement('iframe');
 
     iframe.width = "100%";
     iframe.height = "100%";
@@ -19,9 +19,13 @@ var Magpie = Magpie || {
     iframe.setAttribute("src","http://localhost:1337/checkout.html");
     iframe.setAttribute("name", Date.now());
     iframe.setAttribute("id", "magpie-checkout-app");
+    iframe.setAttribute("style", "position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;");
 
-    document.getElementById('checkout-view').appendChild(iframe);
+
+    //document.getElementById('checkout-view').appendChild(iframe);
+    $("body").append(iframe);
     
+    console.log(iframe);
     iframe.onload = function() {
       iframe.contentWindow.postMessage(JSON.stringify(Magpie.billing), "*");
     }
@@ -38,20 +42,8 @@ var Magpie = Magpie || {
   },
 
   closeFrameView: function closeFrameView() {
-    console.log("-----remove1");
-    $("#magpie-checkout-app").remove();
-
-    var iframe = document.getElementById("magpie-checkout-app");
-    iframe.contentWindow.document.close();
-
-    // var fram = $("#magpie-checkout-app").get(0);
-    // fram.parentNode.removeChild(fram);
-
-   //$("#magpie-checkout-app").contentWindow.document.close();
-    // frame.parentElement.removeChild(frame);
-
-  //   var fram = $("iframe").get(0);
-  // fram.parentNode.removeChild(fram);
+    console.log("-----remove23");
+    $("#magpie-checkout-app").hide();
   },
 
 
