@@ -22,9 +22,9 @@ var Magpie = Magpie || {
     iframe.setAttribute("style", "position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;");
 
     //document.getElementById('checkout-view').appendChild(iframe);
-    $("body").append(iframe);
-    
-    console.log(iframe);
+    //$("body").append(iframe);
+    document.body.appendChild(iframe);
+
     iframe.onload = function() {
       iframe.contentWindow.postMessage(JSON.stringify(Magpie.billing), "*");
     }

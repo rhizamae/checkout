@@ -11,6 +11,19 @@ $.payment.fn.formatCardNumber = function() {
   return this;
 };
 
+$.payment.validateCardNumber = function(num) {
+  var card, _ref;
+  num = (num + "").replace(/\s+|-/g, "");
+  if (!/^\d+$/.test(num)) {
+      return false
+  }
+  card = cardFromNumber(num);
+  if (!card) {
+      return false
+  }
+  return (_ref = num.length, __indexOf.call(card.length, _ref) >= 0) && (card.luhn === false || luhnCheck(num))
+};
+
 $.payment.formatCardNumber = function(num) {
   var card, groups, upperLength, _ref;
   num = num.replace(/\D/g, "");

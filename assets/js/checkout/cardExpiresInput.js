@@ -14,6 +14,42 @@ $.payment.fn.cardExpiryVal = function() {
   return $.payment.cardExpiryVal($(this).val())
 };
 
+$.payment.validateCardExpiry = function(month, year) {
+  var currentTime, expiry, _ref;
+  if (typeof month === "object" && "month" in month) {
+      _ref = month, month = _ref.month, year = _ref.year
+  }
+  if (!(month && year)) {
+      return false
+  }
+  month = $.trim(month);
+  year = $.trim(year);
+  if (!/^\d+$/.test(month)) {
+      return false
+  }
+  if (!/^\d+$/.test(year)) {
+      return false
+  }
+  if (!(1 <= month && month <= 12)) {
+      return false
+  }
+  if (year.length === 2) {
+      if (year < 70) {
+          year = "20" + year
+      } else {
+          year = "19" + year
+      }
+  }
+  if (year.length !== 4) {
+      return false
+  }
+  expiry = new Date(year, month);
+  currentTime = new Date;
+  expiry.setMonth(expiry.getMonth() - 1);
+  expiry.setMonth(expiry.getMonth() + 1, 1);
+  return expiry > currentTime
+};
+
 $.payment.cardExpiryVal = function(value) {
   var month, prefix, year, _ref;
   _ref = value.split(/[\s\/]+/, 2), month = _ref[0], year = _ref[1];

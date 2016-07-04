@@ -16,7 +16,7 @@ var init = function init(data) {
     e.preventDefault();
 
     var valid_form = validateForm('.paymentView');
-    valid_form = true;
+    //valid_form = true;
     if (valid_form) {
       // get values of card info
       var key = client.key;
