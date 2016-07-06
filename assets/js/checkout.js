@@ -12,7 +12,7 @@ var Checkout = Checkout || (function(window, document) {
       dataType: "json",
       success: function (result) {
         response_success(result);
-        Magpie.closeFrameView();
+        // Magpie.closeFrameView();
       },
       error: function(error) {
         response_error(error);
@@ -22,11 +22,12 @@ var Checkout = Checkout || (function(window, document) {
     });
   }
 
-  var getToken = function getToken(key, email, cardNumber, cvv, expiry) {
+  var getToken = function getToken(key, email, cardNumber, cvv, expiry, msisdn) {
     return new Promise(function getTokenPromise(resolve, reject) {
       expiry = expiry.split("/");
       var obj = {
         key: key,
+        msisdn: msisdn,
         card: {
           name: email,
           number: cardNumber.replace(/ /g, ''),
@@ -39,8 +40,15 @@ var Checkout = Checkout || (function(window, document) {
     });
   }
 
+  var remember = function remember(email) {
+    return new Promise(function rememberPromise(resolve, reject) {
+      apiRequest("GET", "/v1/remember/" + email, {}, resolve, reject);
+    });
+  }
+
   return {
-    getToken: getToken
+    getToken: getToken,
+    remember: remember
   }
 
 })(window, document);

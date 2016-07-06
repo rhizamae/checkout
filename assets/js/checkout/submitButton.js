@@ -69,7 +69,7 @@ function setSuccess(success) {
   // });
 
   if (success == null) {
-      success = true
+    success = true
   }
   // setPending(false, {
   //     labelOpacity: false

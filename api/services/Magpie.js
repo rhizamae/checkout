@@ -2,12 +2,102 @@ var TAG = '[Magpie]';
 
 module.exports = {
 
+  request: function(options, cb) {
+    var ACTION = '[request]';
+    var _this = this;
+    var ref_num = Utility.getRefNum();
+    options.json = true,
+    options.headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + options.authorization
+    };
+
+    var requestclient = new RequestClient();
+    requestclient.request.bind(requestclient);
+    requestclient.request('MAGPIE', options, ref_num, function(err, result) {
+      if (err) {
+        cb(_this.parseError(err, ref_num));
+      } else {
+        cb(null, result);
+      }
+    });
+  },
+
   getToken: function(options, cb) {
     var ACTION = '[getToken]';
     var _this = this;
     var ref_num = Utility.getRefNum();
     options.url = sails.config.magpie.url + '/v1/tokens';
     options.method = 'POST';
+    options.json = true,
+    options.headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + options.authorization
+    };
+
+    var requestclient = new RequestClient();
+    requestclient.request.bind(requestclient);
+    requestclient.request('MAGPIE', options, ref_num, function(err, result) {
+      if (err) {
+        cb(_this.parseError(err, ref_num));
+      } else {
+        cb(null, result);
+      }
+    });
+  },
+
+  createCustomer: function(options, cb) {
+    var ACTION = '[createCustomer]';
+    var _this = this;
+    var ref_num = Utility.getRefNum();
+    options.url = sails.config.magpie.url + '/v1/customers';
+    options.method = 'POST';
+    options.json = true,
+    options.headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + options.authorization
+    };
+
+    var requestclient = new RequestClient();
+    requestclient.request.bind(requestclient);
+    requestclient.request('MAGPIE', options, ref_num, function(err, result) {
+      if (err) {
+        cb(_this.parseError(err, ref_num));
+      } else {
+        cb(null, result);
+      }
+    });
+  },
+
+  getCustomer: function(options, cb) {
+    var ACTION = '[getCustomer]';
+    var _this = this;
+    var ref_num = Utility.getRefNum();
+    options.url = sails.config.magpie.url + '/v1/customers/' + options.customer_id;
+    options.method = 'GET';
+    options.json = true,
+    options.headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + options.authorization
+    };
+
+    var requestclient = new RequestClient();
+    requestclient.request.bind(requestclient);
+    requestclient.request('MAGPIE', options, ref_num, function(err, result) {
+      if (err) {
+        cb(_this.parseError(err, ref_num));
+      } else {
+        cb(null, result);
+      }
+    });
+  },
+
+  updateCustomer: function(options, cb) {
+    var ACTION = '[updateCustomer]';
+    var _this = this;
+    var ref_num = Utility.getRefNum();
+    options.url = sails.config.magpie.url + '/v1/customers/' + options.customer_id;
+    options.method = 'PUT';
     options.json = true,
     options.headers = {
       'Content-Type': 'application/json',

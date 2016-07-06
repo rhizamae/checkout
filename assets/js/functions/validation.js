@@ -41,9 +41,9 @@ function validateForm(form) {
   //$(form + " input[type=text], "+ form + " input[type=password], " + form + " select, " + form + " textarea").each(function() {
   $(form + " input, "+ form + " select, " + form + " textarea").each(function() {
     if ($(this).css('display') != 'none' && $(this).css('visibility') != 'hidden' && !$(this).hasClass('optional')) {
-      invalid = true;
+      invalid = false;
       if (!$.trim($(this).val()).length) {
-        setInvalid(this, invalid);
+        setInvalid(this, true);
         valid = valid && false;
       } else {  
         if ($(this).attr("id") == "email") {
@@ -58,12 +58,14 @@ function validateForm(form) {
         if ($(this).attr("id") == "cc-csc") {
           invalid = !$.payment.validateCardCVC($(this).val());
         }
+        if ($(this).attr("id") == "msisdn" && $(".checkbox-remember-me").hasClass("checked")) {
+          invalid = !$(this).mobilePhoneNumber("validate");
+        }
         setInvalid(this, invalid);
       }
     }
   });
   if (!valid) shake(); 
-  console.log("-------valid: " + valid);
   return valid;
 }
 

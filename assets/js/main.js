@@ -7,10 +7,26 @@ var init = function init(data) {
   //var merchant = data.merchant;
   var client = data.client;
   var vault = Checkout.getToken;
+  var remember = Checkout.remember;
 
   $("#payAmount").html("Pay ₱"+client.amount);
   $("#checkoutName").html(client.name);
   $("#checkoutDescription").html(client.description);
+
+  $('#email').on("change", function(e) { 
+    console.log($(this).val());
+    // request to magpie api
+    var email = $('.paymentView #email').val();
+    remember(email)
+      .then(function(token) {
+        // invoke callback
+
+        window.parent.postMessage(token, "*");
+      }).catch(function(error) {
+        // display alert error
+        alert(error);
+      });
+  });
 
   $('#payAmount').on("click", function(e) {
     e.preventDefault();
@@ -24,11 +40,16 @@ var init = function init(data) {
       var cardNumber = $('.paymentView #card-number').val();
       var cvv = $('.paymentView #cc-csc').val();
       var expiry = $('.paymentView #card-exp').val();
+      
+      if ($(".checkbox-remember-me").hasClass("checked")) {
+        var msisdn = $('.paymentView #msisdn').val();
+      }
 
       // request to magpie api
-      vault(key, email, cardNumber, cvv, expiry)
+      vault(key, email, cardNumber, cvv, expiry, msisdn)
         .then(function(token) {
           // invoke callback
+          Magpie.closeFrameView();
           window.parent.postMessage(token, "*");
         }).catch(function(error) {
           // display alert error

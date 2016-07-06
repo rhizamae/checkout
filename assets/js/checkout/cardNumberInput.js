@@ -1,3 +1,124 @@
+var CardNumberInput, Input, easingCurves, helpers, i18n, svgPaths, variants, __bind = function(fn, me) {
+        return function() {
+            return fn.apply(me, arguments)
+        }
+    },
+    __hasProp = {}.hasOwnProperty,
+    __cardNumberInputExtends = function(child, parent) {
+        for (var key in parent) {
+          if (__hasProp.call(parent, key)) child[key] = parent[key]
+        }
+
+        function ctor() {
+            this.constructor = child
+        }
+        ctor.prototype = parent.prototype;
+        child.prototype = new ctor;
+        child.__super__ = parent.prototype;
+        return child
+    };
+// CardNumberInput = function(_super) {
+//     __cardNumberInputExtends(CardNumberInput, _super);
+    CardNumberInput.prototype.className = "cardNumberInput";
+    CardNumberInput.prototype.inputId = "card-number";
+    CardNumberInput.prototype.inputType = "tel";
+    CardNumberInput.prototype.inputAutocomplete = "cc-number";
+    CardNumberInput.prototype.fieldName = "number";
+
+    function CardNumberInput() {
+        this.$input = $("#card-number");
+        this.$el = $(".cardNumberInput");
+        this.validateFormat = __bind(this.validateFormat, this);
+        this.onCardTypeChanged = __bind(this.onCardTypeChanged, this);
+        this.setCardType = __bind(this.setCardType, this);
+        this.clear = __bind(this.clear, this);
+        this.setVal = __bind(this.setVal, this);
+        this.bindEvents = __bind(this.bindEvents, this);
+        
+        //CardNumberInput.__super__.constructor.apply(this, arguments);
+        
+        //this.setIcon(svgPaths.getIcon("card", this.options.appType));
+        // if (this.options.appType.isMobile()) {
+        //     this.setLabel(i18n.loc("input.card")());
+        //     this.setPlaceholder("â€¢â€¢â€¢â€¢ â€¢â€¢â€¢â€¢ â€¢â€¢â€¢â€¢ â€¢â€¢â€¢â€¢")
+        // } else {
+        //     this.setLabel(i18n.loc("input.payment.cardNumber")())
+        // }
+        this.$input.payment("formatCardNumber");
+    }
+    CardNumberInput.prototype.bindEvents = function() {
+        CardNumberInput.__super__.bindEvents.apply(this, arguments);
+        return this.$input.on("payment.cardType", this.onCardTypeChanged)
+    };
+    CardNumberInput.prototype.setVal = function(val, options) {
+        var type;
+        if (options == null) {
+            options = {}
+        }
+        //CardNumberInput.__super__.setVal.apply(this, arguments);
+        this.$input.val(val);
+        if (options.type != null) {
+            type = cardUtils.extractCardType(options.type);
+            this.setCardType(type)
+        }
+        return this.$el.toggleClass("prefill", options.prefill)
+    };
+    CardNumberInput.prototype.clear = function() {
+        CardNumberInput.__super__.clear.apply(this, arguments);
+        this.setCardType("unknown");
+        return this.$el.removeClass("prefill")
+    };
+    CardNumberInput.prototype.setCardType = function(type, animated) {
+        var $oldCard;
+        if (animated == null) {
+            animated = true
+        }
+        if (type === this.currentCardType) {
+            return
+        }
+        this.currentCardType = type;
+        if (this.$card) {
+            $oldCard = this.$card;
+            $oldCard.gfx({
+                opacity: 0
+            }, {
+                duration: 250,
+                easing: "ease-in-out",
+                animated: animated,
+                complete: function() {
+                    return $oldCard.detach()
+                }
+            })
+        }
+        if (!cardUtils.extractCardType(type)) {
+            this.$card = null;
+            return
+        }
+        this.$card = $("<span>").addClass("card").addClass(type);
+        this.$card.transform({
+            opacity: 0,
+            translateX: -35
+        });
+        this.$el.append(this.$card);
+        this.$card.redraw();
+        return this.$card.gfx({
+            opacity: 1,
+            translateX: 0
+        }, {
+            duration: 300,
+            easing: easingCurves.LAZY_BOUNCE,
+            animated: animated
+        })
+    };
+    CardNumberInput.prototype.onCardTypeChanged = function(e, type) {
+        return this.setCardType(type)
+    };
+    CardNumberInput.prototype.validateFormat = function() {
+        return $.payment.validateCardNumber(this.val())
+    };
+//     return CardNumberInput()
+// };
+
 $.payment.fn.formatCardNumber = function() {
   this.on("keypress", restrictNumeric);
   this.on("keypress", restrictCardNumber);
@@ -9,6 +130,14 @@ $.payment.fn.formatCardNumber = function() {
   this.on("input", reFormatCardNumber);
   this.on("input", setCardType);
   return this;
+};
+
+$.payment.fn.restrictNumeric = function() {
+  this.on("keypress", restrictNumeric);
+  this.on("paste", reFormatNumeric);
+  this.on("change", reFormatNumeric);
+  this.on("input", reFormatNumeric);
+  return this
 };
 
 $.payment.validateCardNumber = function(num) {
@@ -56,6 +185,20 @@ $.payment.cardType = function(num) {
   return ((_ref = cardFromNumber(num)) != null ? _ref.type : void 0) || null
 };
 
+cardNumberInputSetVal = function(val, options) {
+  var type;
+  if (options == null) {
+      options = {}
+  }
+  //CardNumberInput.__super__.setVal.apply(this, arguments);
+  if (options.type != null) {
+
+      type = cardUtils.extractCardType(options.type);
+      this.setCardType(type)
+  }
+  return this.$el.toggleClass("prefill", options.prefill)
+};
+
 cardFromNumber = function(num) {
   var card, p, pattern, _i, _j, _len, _len1, _ref;
   num = (num + "").replace(/\D/g, "");
@@ -89,6 +232,18 @@ restrictCardNumber = function(e) {
   } else {
     return value.length <= 16
   }
+};
+
+reFormatNumeric = function(e) {
+  var $target;
+  $target = $(e.currentTarget);
+  return setTimeout(function() {
+      var value;
+      value = $target.val();
+      value = replaceFullWidthChars(value);
+      value = value.replace(/\D/g, "");
+      return safeVal(value, $target)
+  })
 };
 
 formatCardNumber = function(e) {

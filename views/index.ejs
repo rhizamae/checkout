@@ -20,7 +20,8 @@
     -->
 
     <a class="testMode" href="#" target="_blank" tabindex="-1">TEST MODE</a> 
-      
+     
+
     <form class="checkoutView" method="POST" novalidate="true">
       <div class="backgroundView" style="height: 660px;">
         <div class="backgroundTop"><div></div></div>
@@ -70,7 +71,34 @@
               </div>
             </div>
           </div>
-          <div class="layoutSubview inputPayment">
+          <div class="layoutSubview" style="display:none;height: 280px; transform: translateY(110px); opacity: 1; transition: none;">
+            <div class="codeVerificationView" style="opacity: 1; transform: translateX(0px); transition: none; overflow: inherit;">
+              <p class="mainDescription"><em>Enter the verification code <span>to use the payment info you stored with Stripe.</span></em></p>
+              <div class="codeInput">
+                <div class="container index0">
+                  <input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit1"><input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit2"><input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit3">
+                </div>
+                <div class="container index1"><input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit4"><input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit5"><input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit6"></div>
+                <input class="controlInput" type="tel" data-numeric="true" name="code-control-input" style="left: 0px; width: 232px; opacity: 1; transform: translateX(0px);"><span class="dash"></span>
+              </div>
+              <div class="carouselView">
+                <span class="stateSentInfo verificationStatusIndicator" style="opacity: 1; transform: translateY(0px); display: inline; transition: none;">
+                  <p class="line1">We just sent a text message to:</p>
+                  <p class="line2">
+                  <div class="svg phoneIcon" style="width: 24px; height: 34px;">
+                    <svg version="1.1" viewBox="0 0 24 34" width="24" height="34" focusable="false">
+                      <g fill-rule="evenodd">
+                        <path d="M2.50700176,0 C1.12242292,0 0,1.12201312 0,2.50291944 L0,11.4970806 C0,12.8794048 1.12165891,14 2.50700176,14 L6.49299824,14 C7.87757708,14 9,12.8779869 9,11.4970806 L9,2.50291944 C9,1.1205952 7.87834109,0 6.49299824,0 L2.50700176,0 Z M2.00292933,3 C1.44902676,3 1,3.45303631 1,3.99703014 L1,10.0029699 C1,10.5536144 1.43788135,11 2.00292933,11 L6.99707067,11 C7.55097324,11 8,10.5469637 8,10.0029699 L8,3.99703014 C8,3.4463856 7.56211865,3 6.99707067,3 L2.00292933,3 Z M4,12 L4,13 L5,13 L5,12 L4,12 Z M3.5,1 L3.5,2 L5.5,2 L5.5,1 L3.5,1 Z M3.5,1" style="fill:#b7acab"></path>
+                      </g>
+                    </svg>
+                  </div>
+                  <span>+6• ••• ••• 1425</span></p>
+                </span>
+              </div>
+              <a href="#" class="codeNotReceived" style="opacity: 1; transition: none;"><span class="verificationStatusIndicator">Didn't receive the code?</span><br><span>Fill in your card details manually.</span></a>
+            </div>
+          </div>
+          <div class="layoutSubview inputPayment" >
             <div class="layoutView paymentView">
               <div class="layoutSubview inputEmail">
                 <div class="emailInput input">
@@ -109,7 +137,7 @@
                               </div>
                             </div>
                         </div>
-                        <!--
+                       
                         <div class="layoutSubview rememberDetails">
                           <div class="rememberMe">
                             <a class="stripeLink"></a>
@@ -128,7 +156,7 @@
                                   For security, please enter your <strong>mobile phone number</strong>:
                                 </p>
                                 <div class="telInput input">
-                                  <input class="control" type="tel" x-autocompletetype="phone-full" autocompletetype="phone-full" autocorrect="off" spellcheck="off" autocapitalize="off" name="phone" placeholder="(555) 123-1234">
+                                  <input id="msisdn" class="control" type="tel" x-autocompletetype="phone-full" autocompletetype="phone-full" autocorrect="off" spellcheck="off" autocapitalize="off" name="phone" placeholder="(555) 123-1234">
                                   <span class="flag"></span>
                                   <% include /partials/_msisdn %>
                                 </div>
@@ -147,7 +175,7 @@
                             </div>
                           </div>
                         </div>
-                        -->
+                        
                       </div>
                     </div>
                   </div>
@@ -164,5 +192,6 @@
         </span>
       </div>
     </form>
+
   </div>
 </div>

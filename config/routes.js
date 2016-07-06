@@ -32,7 +32,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'POST /v1/tokens' : 'v1/Token.create',
+  'POST /v1/tokens'          : 'v1/Token.create',
+
+  'GET  /v1/remember/:email' : 'v1/Remember.email',
 
   '/checkout.html': {
     view: 'index'

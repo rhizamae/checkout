@@ -1,3 +1,17 @@
+setSpinnerVisibility = function(visible) {
+    if (this.spinnerVisible === visible) {
+        return
+    }
+    this.spinnerVisible = visible;
+    if (this.spinnerVisible) {
+        this.$spinnerContainer.show();
+        return this.spinner.startAnimating()
+    } else {
+        this.$spinnerContainer.hide();
+        return this.spinner.stopAnimating()
+    }
+};
+
 luhnCheck = function(num) {
   var digit, digits, odd, sum, _i, _len;
   odd = true;

@@ -3,8 +3,22 @@ module.exports = {
     var errors = {
       MISSING_INVALID_PARAMS: { status: 400, error: { code: -1, msg: 'Missing/invalid parameters.', 'params': [] }},
       UNAUTHORIZED: { status: 401, error: { code: -2, msg: 'Unauthorized.', spiel: this.getSpiel('UNAUTHORIZED') }},
-      ACCOUNT_NOT_FOUND: { status: 404, error: { code: -3, msg: 'Account Not found.', spiel: this.getSpiel('ACCOUNT_NOT_FOUND') }},
-      INTERNAL_SERVER_ERROR: { status: 500, error: { code: -4, msg: 'Internal server error.', spiel: this.getSpiel('SERVICE_ERROR') }},
+      GENERIC_NOT_FOUND: { 
+        status: 404, 
+        error: { 
+          code: -3, 
+          msg: 'Not found.', 
+          spiel: 'Sorry, we can\'t seem to find what you are looking for.'
+        }
+      },
+      INTERNAL_SERVER_ERROR: { 
+        status: 500, 
+        error: { 
+          code: -4, 
+          msg: 'Internal server error.', 
+          spiel: this.getSpiel('SERVICE_ERROR') 
+        }
+      },
       DB_ERROR: { 
         status: 503, 
         error: { 
