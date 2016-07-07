@@ -71,15 +71,12 @@
               </div>
             </div>
           </div>
-          <div class="layoutSubview" style="display:none;height: 280px; transform: translateY(110px); opacity: 1; transition: none;">
+          <div class="layoutSubview codeVerification" style="display:none;height: 280px; transform: translateY(110px); opacity: 1; transition: none;">
             <div class="codeVerificationView" style="opacity: 1; transform: translateX(0px); transition: none; overflow: inherit;">
               <p class="mainDescription"><em>Enter the verification code <span>to use the payment info you stored with Stripe.</span></em></p>
               <div class="codeInput">
-                <div class="container index0">
-                  <input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit1"><input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit2"><input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit3">
-                </div>
-                <div class="container index1"><input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit4"><input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit5"><input type="tel" data-numeric="true" maxlength="1" readonly="readonly" class="digit digit6"></div>
-                <input class="controlInput" type="tel" data-numeric="true" name="code-control-input" style="left: 0px; width: 232px; opacity: 1; transform: translateX(0px);"><span class="dash"></span>
+                
+                <input class="controlInput" id="vcode" type="tel" data-numeric="true" name="code-control-input" style="left: 0px; width: 232px; opacity: 1; transform: translateX(0px);"><span class="dash"></span>
               </div>
               <div class="carouselView">
                 <span class="stateSentInfo verificationStatusIndicator" style="opacity: 1; transform: translateY(0px); display: inline; transition: none;">

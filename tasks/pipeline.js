@@ -32,7 +32,7 @@ var jsFilesToInject = [
   
   '/js/magpie.js',
 
-  '/js/checkout/main.js',
+  '/js/checkout/payment.js',
   '/js/checkout/function.js',
   '/js/checkout/*.js',
 

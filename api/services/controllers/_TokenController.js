@@ -55,7 +55,8 @@ _TokenController.prototype.rememberMe = function(cb, result) {
   if (!this.req.body.msisdn) return cb();
   if (result.findEmail) return cb();
   Remember.create({
-    msisdn: _this.req.body.msisdn,
+    id: Utility.getRefNum(),
+    msisdn: _this.req.body.msisdn.replace("+", "").replace(/ /g, ""),
     email: _this.req.body.card.name,
     customer_id: result.createCustomer.customer.id
   }, function(err, data) {

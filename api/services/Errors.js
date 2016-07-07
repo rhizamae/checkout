@@ -51,6 +51,46 @@ module.exports = {
           spiel: this.getSpiel('SERVICE_ERROR')
         }
       },
+      EXPIRED_CODE: {
+        status: 400,
+        error: {
+          code: -9, 
+          msg: 'Expired verification code.', 
+          spiel: 'Incorrect/Expired verification code.'
+        }
+      },
+      INCORRECT_CODE: {
+        status: 400,
+        error: {
+          code: -10, 
+          msg: 'Incorrect verification code.', 
+          spiel: 'Incorrect/Expired verification code.'
+        }
+      },
+      NO_PENDING_CODE: {
+        status: 404,
+        error: {
+          code: -11,
+          msg: 'No pending transaction with the verification code.',
+          spiel: 'We had a problem processing your request, please try again later.'
+        }
+      },
+      MAX_INCORRECT_VCODE: {
+        status: 401,
+        error: {
+          code: -12,
+          msg: 'Maximum number of incorrect verification attempt has been reached.',
+          spiel: 'Maximum number of incorrect verification attempt has been reached. Please try again later.'
+        }
+      },
+      TWILIO_SERVICE_ERROR: {
+        status: 503,
+        error: {
+          code: -13,
+          msg: 'SMS service error or unavailable.',
+          spiel: this.getSpiel('SERVICE_ERROR')
+        }
+      },
     };
     return errors[tag];
   },

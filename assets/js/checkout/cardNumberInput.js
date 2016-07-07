@@ -64,9 +64,10 @@ var CardNumberInput, Input, easingCurves, helpers, i18n, svgPaths, variants, __b
         return this.$el.toggleClass("prefill", options.prefill)
     };
     CardNumberInput.prototype.clear = function() {
-        CardNumberInput.__super__.clear.apply(this, arguments);
+        //CardNumberInput.__super__.clear.apply(this, arguments);
+        this.$input.val("");
         this.setCardType("unknown");
-        return this.$el.removeClass("prefill")
+        return this.$el.removeClass("prefill");
     };
     CardNumberInput.prototype.setCardType = function(type, animated) {
         var $oldCard;
@@ -118,27 +119,6 @@ var CardNumberInput, Input, easingCurves, helpers, i18n, svgPaths, variants, __b
     };
 //     return CardNumberInput()
 // };
-
-$.payment.fn.formatCardNumber = function() {
-  this.on("keypress", restrictNumeric);
-  this.on("keypress", restrictCardNumber);
-  this.on("keypress", formatCardNumber);
-  this.on("keydown", formatBackCardNumber);
-  this.on("keyup", setCardType);
-  this.on("paste", reFormatCardNumber);
-  this.on("change", reFormatCardNumber);
-  this.on("input", reFormatCardNumber);
-  this.on("input", setCardType);
-  return this;
-};
-
-$.payment.fn.restrictNumeric = function() {
-  this.on("keypress", restrictNumeric);
-  this.on("paste", reFormatNumeric);
-  this.on("change", reFormatNumeric);
-  this.on("input", reFormatNumeric);
-  return this
-};
 
 $.payment.validateCardNumber = function(num) {
   var card, _ref;

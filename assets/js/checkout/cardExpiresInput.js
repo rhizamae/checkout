@@ -44,6 +44,9 @@ var CardExpiresInput, Input, helpers, i18n, svgPaths, __bind = function(fn, me) 
       this.$input.payment("formatCardExpiry");
       //this.patchAutofill()
   }
+  CardExpiresInput.prototype.clear = function() {
+      return this.$input.val("");
+  };
   CardExpiresInput.prototype.setVal = function(val, options) {
       return this.$input.val(val);
   };

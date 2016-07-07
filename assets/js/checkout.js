@@ -4,7 +4,6 @@ var Checkout = Checkout || (function(window, document) {
 
   var apiRequest = function apiRequest(method, url, data, response_success, response_error) {
     console.log(arguments); // for debugging only
-    
     $.ajax({
       type: method,
       url: url,
@@ -12,7 +11,6 @@ var Checkout = Checkout || (function(window, document) {
       dataType: "json",
       success: function (result) {
         response_success(result);
-        // Magpie.closeFrameView();
       },
       error: function(error) {
         response_error(error);
@@ -46,9 +44,31 @@ var Checkout = Checkout || (function(window, document) {
     });
   }
 
+  var getVcode = function getVcode(email) {
+    return new Promise(function rememberPromise(resolve, reject) {
+      var obj = {
+        email: email
+      };
+      console.log(obj);
+      apiRequest("POST", "/v1/verifications" , obj, resolve, reject);
+    });
+  }
+
+  var verifyVcode = function verifyVcode(request_reference_num, vcode) {
+    return new Promise(function rememberPromise(resolve, reject) {
+      var obj = {
+        request_reference_num: request_reference_num,
+        vcode: vcode
+      };
+      apiRequest("POST", "/v1/verifications/verify" , obj, resolve, reject);
+    });
+  }
+
   return {
     getToken: getToken,
-    remember: remember
+    remember: remember,
+    getVcode: getVcode,
+    verifyVcode: verifyVcode
   }
 
 })(window, document);

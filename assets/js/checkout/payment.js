@@ -1,11 +1,33 @@
 var $ = window.jQuery || window.Zepto || window.$;
 $.payment = {};
 $.payment.fn = {};
+  var cardPaymentViewIntance;
 
 $.fn.payment = function() {
   var args, method;
   method = arguments[0], args = (2 <= arguments.length ) ? __slice.call(arguments, 1) : [];
   return $.payment.fn[method].apply(this, args)
+};
+
+$.payment.fn.formatCardNumber = function() {
+  this.on("keypress", restrictNumeric);
+  this.on("keypress", restrictCardNumber);
+  this.on("keypress", formatCardNumber);
+  this.on("keydown", formatBackCardNumber);
+  this.on("keyup", setCardType);
+  this.on("paste", reFormatCardNumber);
+  this.on("change", reFormatCardNumber);
+  this.on("input", reFormatCardNumber);
+  this.on("input", setCardType);
+  return this;
+};
+
+$.payment.fn.restrictNumeric = function() {
+  this.on("keypress", restrictNumeric);
+  this.on("paste", reFormatNumeric);
+  this.on("change", reFormatNumeric);
+  this.on("input", reFormatNumeric);
+  return this;
 };
 
 defaultFormat = /(\d{1,4})/g;

@@ -1,7 +1,5 @@
-
-
 .stripeInFrame .preloader div {
-  background-image: url(&quot;https://stripe.com/img/documentation/checkout/marketplace.png&quot;)
+  background-image: url(https://stripe.com/img/documentation/checkout/marketplace.png)
 }
 
 form.checkoutView {
@@ -45,6 +43,10 @@ form.checkoutView .layoutSubview.profileSetting {
   transition: none;
 }
 
+/*form.checkoutView .loggedIn span {
+  cursor: pointer;
+}*/
+
 form.checkoutView .loggedIn .logout {
   display: inline;
 }
@@ -79,7 +81,8 @@ form.checkoutView .layoutSubview.payButton .svgSpinner {
 }
 
 form.checkoutView .layoutSubview.inputPayment {
-  height: 248px; 
+  /*height: 248px; */
+  height: 0;
   transform: translateY(110px); 
   opacity: 1; 
   transition: none;
@@ -115,7 +118,8 @@ form.checkoutView .layoutSubview.inputPayment .emailInput .svg {
 }
 
 form.checkoutView .layoutSubview.inputCardNumber {
-  height: 158px; 
+  /*height: 158px;*/
+  height: 0; 
   transform: translateY(55px); 
   opacity: 1; 
   transition: none;
@@ -126,7 +130,8 @@ form.checkoutView .layoutSubview.inputCardNumber .layoutView.cardView {
   transform: translateX(0px); 
   display: block; 
   transition: none; 
-  height: 158px;
+  /*height: 158px;*/
+  height: 0;
 }
 
 form.checkoutView .layoutSubview.inputCardNumber .layoutView.cardView .layoutSubview.cardDetails {

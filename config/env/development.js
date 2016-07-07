@@ -1,15 +1,3 @@
-/**
- * Development environment settings
- *
- * This file can include shared settings for a development team,
- * such as API keys or remote database passwords.  If you're using
- * a version control solution for your Sails app, this file will
- * be committed to your repository unless you add it to your .gitignore
- * file.  If your repository will be publicly viewable, don't add
- * any private information to this file!
- *
- */
-
 module.exports = {
 
   /***************************************************************************
@@ -21,8 +9,15 @@ module.exports = {
   //   connection: 'someMongodbServer'
   // }
 
+  twilio: {
+    sender: '+16177149958',
+    sid: 'AC54f7e49415ea54235d5e67cef3f8f620',
+    token: 'e71042d7d8437fa14b7a6ccacebb63aa'
+  },
+
   magpie: {
-    url: "https://sandbox.api.magpie.im"
+    url: "https://sandbox.api.magpie.im",
+    secret_key: "sk_test_DneFEolPcJVCKfQMzDjhWQ"
   }
 
 };

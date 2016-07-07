@@ -58,9 +58,9 @@ __extendsCardPaymentView = function(child, parent) {
         this.numberInput = new CardNumberInput();
         this.expiresInput = new CardExpiresInput();
         this.cvcInput = new CardCVCInput();
-        // this.numberInput = new CardNumberInput($.extend({}, this.options, {
-        //     className: "top"
-        // }));
+        this.views = [this.numberInput];
+        this.views.push(this.expiresInput);
+        this.views.push(this.cvcInput);
     };
 
     CardPaymentView.prototype.setCard = function(card) {
@@ -75,6 +75,17 @@ __extendsCardPaymentView = function(child, parent) {
             prefill: true,
             type: this.card.type || this.card.brand
         })
+    };
+
+    CardPaymentView.prototype.clear = function() {
+        var input, _i, _len, _ref, _results;
+        _ref = this.views;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            input = _ref[_i];
+            _results.push(typeof input.clear === "function" ? input.clear() : void 0)
+        }
+        return _results;
     };
 
     CardPaymentView.prototype.valueFromCard = function(input, card) {

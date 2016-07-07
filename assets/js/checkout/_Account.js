@@ -1,3 +1,54 @@
+accountCheckCode = function(vcode) {
+  //backVerifyCode();
+  verifyVerificationCode(vcode);
+  console.log("verifyVcode: " + vcode);
+  return;
+}
+accountLogin = function(email) {
+  $(".profileSetting .logout").css("display", "inline");
+  $(".profileSetting").show();
+  $(".rememberDetails").hide();
+  $(".inputEmail").hide();
+  $(".profileSetting").css("opacity", "1");
+  $(".profileSetting .loggedIn span").html(email);
+  $(".backgroundBottom div").css("transform", "translateY(-565px)");
+  $(".payButton").css("transform", "translateY(263px)");
+  $(".inputCardNumber").css("transform", "translateY(25px)");
+}
+
+accountLogout = function() {
+  $(".profileSetting").hide();
+  $(".rememberDetails").show();
+  $(".inputEmail").show();
+  $(".profileSetting").css("opacity", "0");
+  $(".backgroundBottom div").css("transform", "translateY(-470px)");
+  $(".payButton").css("transform", "translateY(358px)");
+  $(".inputCardNumber").css("transform", "translateY(55px)");
+  $(".inputEmail #email").val("");
+}
+
+verifyCodeView = function() {
+  //translateY(-527px) --- sending vcode
+  //translateY(-475px)
+  $(".inputPayment").hide();
+  $(".payButton").hide();
+  $(".codeVerification").show();
+  $(".backgroundBottom div").css("transform", "translateY(-527px)");
+  $("header .close").hide();
+  $("header .back").show();
+  $("header .back").css("opacity", "1");
+}
+
+backVerifyCode = function() {
+  $(".inputPayment").show();
+  $(".payButton").show();
+  $(".codeVerification").hide();
+  $(".backgroundBottom div").css("transform", "translateY(-470px)");
+  $("header .close").show();
+  $("header .back").hide();
+  $("header .back").css("opacity", "0");
+}
+
 // var API, Account, EventDispatcher, VerificatorStatus, addressHelper, currentVerification, newAccountToken, newStripeJSToken, pixel, sharedAccount, tracker, translateAccountResponse, zipCode, _;
 //     API = require("lib/api");
 //     EventDispatcher = require("lib/eventDispatcher");

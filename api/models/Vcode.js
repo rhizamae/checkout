@@ -1,10 +1,11 @@
 module.exports = {
   autoCreatedAt: false,
   autoUpdatedAt: false,
-  connection: 'postgresql',
+  connection: 'redis',
   attributes: {
     id: {
       type: 'string',
+      primaryKey: true,
       required: true,
       unique: true
     },
@@ -15,6 +16,14 @@ module.exports = {
     vcode: {
       type: 'string',
       required: false
+    },
+    details: { 
+      type: 'json',
+      defaultsTo: {}
+    },
+    incorrect_attempts : {
+      type: 'integer',
+      defaultsTo: 0
     },
     created_at: {
       type: 'datetime',

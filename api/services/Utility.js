@@ -74,7 +74,7 @@ module.exports = {
   },
 
   generateCode: function() {
-    var activationCode = new Array(5);
+    var activationCode = new Array(sails.config.vcode.count);
     for (var i = 0; i < activationCode.length; i++) {
       activationCode[i] = Math.floor(Math.random() * (9 - 0 + 1) + 0);
     }

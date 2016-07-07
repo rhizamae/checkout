@@ -36,6 +36,9 @@ module.exports.routes = {
 
   'GET  /v1/remember/:email' : 'v1/Remember.email',
 
+  'POST  /v1/verifications'         : 'v1/Vcode.create',
+  'POST  /v1/verifications/verify'  : 'v1/Vcode.verify',
+
   '/checkout.html': {
     view: 'index'
   },

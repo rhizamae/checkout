@@ -32,7 +32,6 @@ luhnCheck = function(num) {
 };
 
 restrictNumeric = function(e) {
-  // console.log("------ restrict: " + e.which);
   var input;
   if(e.metaKey || e.ctrlKey) {
       return true

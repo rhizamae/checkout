@@ -61,7 +61,8 @@ var CardCVCInput, Input, cardUtils, helpers, i18n, svgPaths, __bind = function(f
   };
   CardCVCInput.prototype.clear = function() {
       //CardCVCInput.__super__.clear.apply(this, arguments);
-      return this.$el.removeClass("prefill")
+      this.$input.val("");
+      return this.$el.removeClass("prefill");
   };
   CardCVCInput.prototype.validateFormat = function() {
       return $.payment.validateCardCVC(this.val())
