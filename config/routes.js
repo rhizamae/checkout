@@ -32,16 +32,16 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'POST /v1/tokens'          : 'v1/Token.create',
+  'POST /v1/tokens'                 : 'v1/Token.create',
 
-  'GET  /v1/remember/:email' : 'v1/Remember.email',
+  'GET  /v1/remember/:email'        : 'v1/Remember.email',
 
   'POST  /v1/verifications'         : 'v1/Vcode.create',
   'POST  /v1/verifications/verify'  : 'v1/Vcode.verify',
 
-  '/checkout.html': {
-    view: 'index'
-  },
+  'DELETE /v1/sessions'             : 'v1/Session.delete',
+
+  '/checkout.html'                  : 'v1/Page.checkout',
 
   /***************************************************************************
   *                                                                          *

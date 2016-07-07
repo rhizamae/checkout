@@ -1,7 +1,6 @@
 accountCheckCode = function(vcode) {
   //backVerifyCode();
   verifyVerificationCode(vcode);
-  console.log("verifyVcode: " + vcode);
   return;
 }
 accountLogin = function(email) {

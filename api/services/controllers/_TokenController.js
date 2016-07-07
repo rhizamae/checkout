@@ -34,7 +34,6 @@ _TokenController.prototype.getCustomer = function(cb, result) {
 
 _TokenController.prototype.createCustomer = function(cb, result) {
   var ACTION = "[createCustomer]";
-  console.log("createCustomer--------");
   if (!this.req.body.msisdn) return cb();
   if (result.findEmail) return cb();
   var obj = {
@@ -54,6 +53,7 @@ _TokenController.prototype.rememberMe = function(cb, result) {
   var _this = this;
   if (!this.req.body.msisdn) return cb();
   if (result.findEmail) return cb();
+
   Remember.create({
     id: Utility.getRefNum(),
     msisdn: _this.req.body.msisdn.replace("+", "").replace(/ /g, ""),
@@ -70,7 +70,6 @@ _TokenController.prototype.rememberMe = function(cb, result) {
 
 _TokenController.prototype.createToken = function(cb, result) {
   var ACTION = "[createToken]";
-  console.log("createToken-------");
   if (result.findEmail) return cb();
   var obj = {
     authorization: this.public_key,
@@ -83,7 +82,6 @@ _TokenController.prototype.createToken = function(cb, result) {
 
 _TokenController.prototype.updateCustomer = function(cb, result) {
   var ACTION = "[updateCustomer]";
-  console.log("updateCustomer--------");
   if (!this.req.body.msisdn) return cb();
   if (result.findEmail) return cb();
   var obj = {
@@ -95,5 +93,19 @@ _TokenController.prototype.updateCustomer = function(cb, result) {
     return cb(err, data);
   });
 }
+
+_TokenController.prototype.createSession = function(cb, result) {
+  var ACTION = "[createSession]";
+  if (!this.req.body.msisdn) return cb();
+  if (result.findEmail) return cb();
+  this.req.session.authenticated = {
+    email: this.req.body.card.name,
+    card: result.updateCustomer.customer.sources[0]
+  };
+  console.log(this.req.session.authenticated);
+  cb();
+}
+
+
 
 module.exports = _TokenController;

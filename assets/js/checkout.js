@@ -45,7 +45,7 @@ var Checkout = Checkout || (function(window, document) {
   }
 
   var getVcode = function getVcode(email) {
-    return new Promise(function rememberPromise(resolve, reject) {
+    return new Promise(function getVcodePromise(resolve, reject) {
       var obj = {
         email: email
       };
@@ -55,7 +55,7 @@ var Checkout = Checkout || (function(window, document) {
   }
 
   var verifyVcode = function verifyVcode(request_reference_num, vcode) {
-    return new Promise(function rememberPromise(resolve, reject) {
+    return new Promise(function verifyVcodePromise(resolve, reject) {
       var obj = {
         request_reference_num: request_reference_num,
         vcode: vcode
@@ -64,11 +64,18 @@ var Checkout = Checkout || (function(window, document) {
     });
   }
 
+  var logout = function logout(request_reference_num, vcode) {
+    return new Promise(function logoutPromise(resolve, reject) {
+      apiRequest("DELETE", "/v1/sessions" , {}, resolve, reject);
+    });
+  }
+
   return {
     getToken: getToken,
     remember: remember,
     getVcode: getVcode,
-    verifyVcode: verifyVcode
+    verifyVcode: verifyVcode,
+    logout: logout
   }
 
 })(window, document);

@@ -1,20 +1,24 @@
-var request_reference_num, email, msisdn, client;
+var session, request_reference_num, email, msisdn, client, card;
 var vault = Checkout.getToken;
 var remember = Checkout.remember;
+
+$(document).ready(function() {
+  
+});
 
 var init = function init(data) {
 
   client = data.client;
   initializeCheckoutView(client);
-  cardPaymentViewIntance = new CardPaymentView();
+  cardPaymentViewIntance =  cardPaymentViewIntance ? new CardPaymentView() : cardPaymentViewIntance;
 
   $('#email').on("change", function(e) {
     var email = $('.paymentView #email').val();
     Checkout.remember(email)
-      .then(function(card) {
-        if (card.customer && card.customer.sources.length > 0) {
-          // console.log(card);
+      .then(function(data) {
+        if (data.customer && data.customer.sources.length > 0) {
           //accountLogin(email);
+          // card = data;
           codeInputInstance = new CodeInput({});
           verifyCodeView();
           getVerificationCode();
@@ -27,8 +31,10 @@ var init = function init(data) {
 
   $('#payAmount').on("click", function(e) {
     e.preventDefault();
-    var valid_form = validateForm('.paymentView');
-    if (valid_form) {
+    //var valid_form = validateForm('.paymentView');
+    if ($(".profileSetting").css("display") == "block") {
+      window.parent.postMessage(card, "*");
+    } else if (validateForm('.paymentView')) {
       var key = client.key;
       var email = $('.paymentView #email').val();
       var cardNumber = $('.paymentView #card-number').val();
@@ -54,6 +60,23 @@ var init = function init(data) {
 
 }
 
+login = function(session) {
+  card = session.card;
+  cardPaymentViewIntance =  new CardPaymentView();
+  accountLogin(session.email);
+  cardPaymentViewIntance.setCard(session.card);
+}
+
+logout = function(session) {
+  Checkout.logout($('.paymentView #email').val())
+    .then(function(data) {
+      accountLogout();
+      cardPaymentViewIntance.clear();
+    }).catch(function(error) {
+      console.log(error);
+    });
+}
+
 initializeCheckoutView = function(client) {
   $("#payAmount").html("Pay ₱"+client.amount);
   $("#checkoutName").html(client.name);
@@ -64,7 +87,6 @@ getVerificationCode = function() {
   Checkout.getVcode($('.paymentView #email').val())
     .then(function(data) {
       request_reference_num = data.request_reference_num;
-      console.log(data);
     }).catch(function(error) {
       console.log(error);
     });
@@ -73,7 +95,7 @@ getVerificationCode = function() {
 verifyVerificationCode = function(vcode) {
   Checkout.verifyVcode(request_reference_num, vcode)
     .then(function(data) {
-      console.log(data);
+      card = data;
       backVerifyCode();
       accountLogin($('.paymentView #email').val());
       cardPaymentViewIntance.setCard(data.card);

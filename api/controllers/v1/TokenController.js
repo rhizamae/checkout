@@ -17,6 +17,7 @@ module.exports = {
       createCustomer  : [ "createToken", _token.createCustomer.bind(_token)],
       rememberMe      : [ "createCustomer", _token.rememberMe.bind(_token)],
       updateCustomer  : [ "createCustomer", "createToken", _token.updateCustomer.bind(_token)],
+      createSession   : [ "updateCustomer", _token.createSession.bind(_token)],
     }, function(err, results) {
       if (err) return res.error(err);
       var response = results.getCustomer || results.createToken;

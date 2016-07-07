@@ -23,6 +23,9 @@ module.exports.session = {
   ***************************************************************************/
   secret: '41b1597b6aa9f1c5421b21a9c6cc8a60',
 
+  key: 'checkout.sid',
+
+  proxy: true,
 
   /***************************************************************************
   *                                                                          *
@@ -31,9 +34,11 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // cookie: {
-  //   maxAge: 24 * 60 * 60 * 1000
-  // },
+  cookie: {
+    //maxAge: 24 * 60 * 60 * 1000
+    maxAge: 30 * 60 * 1000, // 30 mins
+    //secure: true
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -41,7 +46,7 @@ module.exports.session = {
   * session store that can be shared across multiple Sails.js servers        *
   ***************************************************************************/
 
-  // adapter: 'redis',
+  adapter: 'redis',
 
   /***************************************************************************
   *                                                                          *
@@ -52,12 +57,12 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // host: 'localhost',
-  // port: 6379,
-  // ttl: <redis session TTL in seconds>,
-  // db: 0,
-  // pass: <redis auth password>,
-  // prefix: 'sess:',
+  host: 'localhost',
+  port: 6379,
+  //ttl: <redis session TTL in seconds>,
+  db: 0,
+  //pass: <redis auth password>,
+  prefix: 'checkout:',
 
 
   /***************************************************************************

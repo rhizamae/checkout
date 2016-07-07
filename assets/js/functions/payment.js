@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
- 
+
+  //cardPaymentViewIntance.setCard(data.card);
   // var cardPaymentView = new CardPaymentView();
 
   //$("#card-exp").payment('formatCardExpiry');
@@ -23,8 +24,7 @@ $(document).ready(function() {
   });
 
   $(".logout").on("click", function() {
-    accountLogout();
-    cardPaymentViewIntance.clear();
+    logout();
   });
 
   $(".back").on("click", function() {

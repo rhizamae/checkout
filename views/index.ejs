@@ -192,3 +192,11 @@
 
   </div>
 </div>
+<script>
+$(document).ready(function() {
+  if ('<%- session %>') {
+    login(JSON.parse('<%- JSON.stringify(session) %>'));
+  }  
+});
+
+</script>
