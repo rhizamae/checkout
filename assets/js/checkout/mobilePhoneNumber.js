@@ -234,9 +234,6 @@ mobilePhoneNumber.val = function() {
 mobilePhoneNumber.validate = function() {
     var format, val;
     val = this.mobilePhoneNumber("val");
-    console.log("-------------valdiate");
-    console.log(val);
-    console.log(this.data("defaultPrefix"));
     format = formatForPhone_(val, this.data("defaultPrefix"));
     if (!format) {
         return true
@@ -254,7 +251,7 @@ mobilePhoneNumber.prefix = function() {
     var countryCode;
     countryCode = this.mobilePhoneNumber("country");
     if (countryCode == null) {
-        return ""
+        return "";
     }
     return $.mobilePhoneNumberPrefixFromCountryCode(countryCode)
 };

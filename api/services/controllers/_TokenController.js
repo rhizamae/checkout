@@ -57,7 +57,7 @@ _TokenController.prototype.rememberMe = function(cb, result) {
   Remember.create({
     id: Utility.getRefNum(),
     msisdn: _this.req.body.msisdn.replace("+", "").replace(/ /g, ""),
-    email: _this.req.body.card.name,
+    email: _this.req.body.email,
     customer_id: result.createCustomer.customer.id
   }, function(err, data) {
     if (err) {
@@ -98,11 +98,15 @@ _TokenController.prototype.createSession = function(cb, result) {
   var ACTION = "[createSession]";
   if (!this.req.body.msisdn) return cb();
   if (result.findEmail) return cb();
-  this.req.session.authenticated = {
-    email: this.req.body.card.name,
+  // this.req.session.authenticated = {
+  //   email: this.req.body.card.name,
+  //   card: result.updateCustomer.customer.sources[0]
+  // };
+  var obj = {
+    email: this.req.body.email, 
     card: result.updateCustomer.customer.sources[0]
   };
-  console.log(this.req.session.authenticated);
+  Session.create(this.req, obj);
   cb();
 }
 

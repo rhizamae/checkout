@@ -31,11 +31,15 @@ module.exports = {
     var _vcode = new _VcodeController(req);
     
     async.auto({
-      verifyCode       : _vcode.verifyCode.bind(_vcode),
-      getCustomerCard  : [ "verifyCode", _vcode.getCustomerCard.bind(_vcode)],
+      verifyCode      : _vcode.verifyCode.bind(_vcode),
+      getCustomer     : [ "verifyCode", _vcode.getCustomer.bind(_vcode)],
+      createSession   : [ "getCustomer", _vcode.createSession.bind(_vcode)],
     }, function(err, results) {
       if (err) return res.error(err);
-      res.ok(results.getCustomerCard);
+      var response = {
+        card: results.getCustomer.customer.sources[0]
+      };
+      res.ok(response);
     });
   },
 

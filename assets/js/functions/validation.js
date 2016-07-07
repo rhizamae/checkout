@@ -45,7 +45,7 @@ function validateForm(form) {
       if (!$.trim($(this).val()).length) {
         setInvalid(this, true);
         valid = valid && false;
-      } else {  
+      } else {
         if ($(this).attr("id") == "email") {
           invalid = !validateEmail($(this).val());
         }
@@ -61,10 +61,12 @@ function validateForm(form) {
         if ($(this).attr("id") == "msisdn" && $(".checkbox-remember-me").hasClass("checked")) {
           invalid = !$(this).mobilePhoneNumber("validate");
         }
+        valid = valid && !invalid;
         setInvalid(this, invalid);
       }
     }
   });
+  console.log("validate--------" +valid);
   if (!valid) shake(); 
   return valid;
 }

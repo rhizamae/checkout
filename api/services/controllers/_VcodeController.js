@@ -60,7 +60,7 @@ _VcodeController.prototype.verifyCode = function(cb, result) {
   });
 }
 
-_VcodeController.prototype.getCustomerCard = function(cb, result) {
+_VcodeController.prototype.getCustomer = function(cb, result) {
   var ACTION = "[getCustomer]";
   var obj = {
     authorization: this.secret_key,
@@ -70,10 +70,21 @@ _VcodeController.prototype.getCustomerCard = function(cb, result) {
   Magpie.request(obj, function(err, data) {
     if (err) return cb(err); 
     if (data.customer && data.customer.sources.length > 0) {
-      return cb(null, {card: data.customer.sources[0]});
+      //return cb(null, {card: data.customer.sources[0]});
+      return cb(null, data);
     }
     cb(Errors.raise('INTERNAL_SERVER_ERROR'));
   });
+}
+
+_VcodeController.prototype.createSession = function(cb, result) {
+  var ACTION = "[createSession]";
+  var obj = {
+    email: result.getCustomer.customer.email, 
+    card: result.getCustomer.customer.sources[0]
+  };
+  Session.create(this.req, obj);
+  cb();
 }
 
 

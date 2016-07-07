@@ -1,7 +1,6 @@
 var $ = window.jQuery || window.Zepto || window.$;
 $.payment = {};
 $.payment.fn = {};
-  var cardPaymentViewIntance;
 
 $.fn.payment = function() {
   var args, method;

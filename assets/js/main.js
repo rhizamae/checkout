@@ -1,4 +1,4 @@
-var session, request_reference_num, email, msisdn, client, card;
+var session, request_reference_num, email, msisdn, client, card, cardPaymentViewIntance;
 var vault = Checkout.getToken;
 var remember = Checkout.remember;
 
@@ -10,7 +10,7 @@ var init = function init(data) {
 
   client = data.client;
   initializeCheckoutView(client);
-  cardPaymentViewIntance =  cardPaymentViewIntance ? new CardPaymentView() : cardPaymentViewIntance;
+  cardPaymentViewIntance =  cardPaymentViewIntance ? cardPaymentViewIntance : new CardPaymentView() ;
 
   $('#email').on("change", function(e) {
     var email = $('.paymentView #email').val();
@@ -33,6 +33,7 @@ var init = function init(data) {
     e.preventDefault();
     //var valid_form = validateForm('.paymentView');
     if ($(".profileSetting").css("display") == "block") {
+      Magpie.closeFrameView();
       window.parent.postMessage(card, "*");
     } else if (validateForm('.paymentView')) {
       var key = client.key;

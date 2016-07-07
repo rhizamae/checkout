@@ -26,6 +26,7 @@ var Checkout = Checkout || (function(window, document) {
       var obj = {
         key: key,
         msisdn: msisdn,
+        email: email,
         card: {
           name: email,
           number: cardNumber.replace(/ /g, ''),
@@ -49,7 +50,6 @@ var Checkout = Checkout || (function(window, document) {
       var obj = {
         email: email
       };
-      console.log(obj);
       apiRequest("POST", "/v1/verifications" , obj, resolve, reject);
     });
   }
