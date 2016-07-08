@@ -8,7 +8,7 @@ module.exports = {
       email: obj.email,
       card: obj.card
     };
-    console.log(req.session.authenticated);
+    //console.log(req.session.authenticated);
     Logger.log("debug", TAG + ACTION + " session created ", {email: obj.email});
     return true;
   },

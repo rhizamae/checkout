@@ -25,12 +25,11 @@ function validate() {
 
 function shake() {
   this.$el = $(".checkoutView");
-
   this.$el.removeClass("shake");
   return setTimeout(function(_this) {
-      return function() {
-          return _this.$el.addClass("shake")
-      }
+    return function() {
+      return _this.$el.addClass("shake")
+    }
   }(this), 1)
 }
 
@@ -66,7 +65,6 @@ function validateForm(form) {
       }
     }
   });
-  console.log("validate--------" +valid);
   if (!valid) shake(); 
   return valid;
 }

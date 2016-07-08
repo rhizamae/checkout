@@ -13,8 +13,6 @@ _TokenController.prototype.findEmail = function(cb, result) {
       Logger.log('error', TAG + ACTION, err);
       return cb(Errors.raise('DB_ERROR'));
     }
-    console.log("findEmail---------");
-    console.log(data);
     cb(null, data);
   });
 }
@@ -32,10 +30,20 @@ _TokenController.prototype.getCustomer = function(cb, result) {
   });
 }
 
+_TokenController.prototype.createToken = function(cb, result) {
+  var ACTION = "[createToken]";
+  var obj = {
+    authorization: this.public_key,
+    body: { card: this.req.body.card }
+  };
+  Magpie.getToken(obj, function(err, data) {
+    return cb(err, data);
+  });
+}
+
 _TokenController.prototype.createCustomer = function(cb, result) {
   var ACTION = "[createCustomer]";
   if (!this.req.body.msisdn) return cb();
-  if (result.findEmail) return cb();
   var obj = {
     authorization: this.secret_key,
     body: {
@@ -52,8 +60,6 @@ _TokenController.prototype.rememberMe = function(cb, result) {
   var ACTION = "[rememberMe]";
   var _this = this;
   if (!this.req.body.msisdn) return cb();
-  if (result.findEmail) return cb();
-
   Remember.create({
     id: Utility.getRefNum(),
     msisdn: _this.req.body.msisdn.replace("+", "").replace(/ /g, ""),
@@ -68,22 +74,9 @@ _TokenController.prototype.rememberMe = function(cb, result) {
   });
 }
 
-_TokenController.prototype.createToken = function(cb, result) {
-  var ACTION = "[createToken]";
-  if (result.findEmail) return cb();
-  var obj = {
-    authorization: this.public_key,
-    body: { card: this.req.body.card }
-  };
-  Magpie.getToken(obj, function(err, data) {
-    return cb(err, data);
-  });
-}
-
 _TokenController.prototype.updateCustomer = function(cb, result) {
   var ACTION = "[updateCustomer]";
   if (!this.req.body.msisdn) return cb();
-  if (result.findEmail) return cb();
   var obj = {
     authorization: this.secret_key,
     customer_id: result.createCustomer.customer.id,
@@ -97,11 +90,6 @@ _TokenController.prototype.updateCustomer = function(cb, result) {
 _TokenController.prototype.createSession = function(cb, result) {
   var ACTION = "[createSession]";
   if (!this.req.body.msisdn) return cb();
-  if (result.findEmail) return cb();
-  // this.req.session.authenticated = {
-  //   email: this.req.body.card.name,
-  //   card: result.updateCustomer.customer.sources[0]
-  // };
   var obj = {
     email: this.req.body.email, 
     card: result.updateCustomer.customer.sources[0]

@@ -2,13 +2,11 @@ var session, request_reference_num, email, msisdn, client, card, cardPaymentView
 var vault = Checkout.getToken;
 var remember = Checkout.remember;
 
-$(document).ready(function() {
-  
-});
+$(document).ready(function() {});
 
-var init = function init(data) {
-
-  client = data.client;
+var init = function init(client) {
+  console.log(client);
+  this.client = client;
   initializeCheckoutView(client);
   cardPaymentViewIntance =  cardPaymentViewIntance ? cardPaymentViewIntance : new CardPaymentView() ;
 
@@ -33,8 +31,8 @@ var init = function init(data) {
     e.preventDefault();
     //var valid_form = validateForm('.paymentView');
     if ($(".profileSetting").css("display") == "block") {
-      Magpie.closeFrameView();
-      window.parent.postMessage(card, "*");
+      Magpie.close();
+      window.parent.postMessage({card: card}, "*");
     } else if (validateForm('.paymentView')) {
       var key = client.key;
       var email = $('.paymentView #email').val();
@@ -47,7 +45,7 @@ var init = function init(data) {
       }
       Checkout.getToken(key, email, cardNumber, cvv, expiry, msisdn)
         .then(function(token) {
-          Magpie.closeFrameView();
+          Magpie.close();
           window.parent.postMessage(token, "*");
         }).catch(function(error) {
           console.log(error);
@@ -56,7 +54,7 @@ var init = function init(data) {
   });
 
   $(".checkoutView .close").on("click", function() {
-    Magpie.closeFrameView();
+    Magpie.close();
   });
 
 }
@@ -79,6 +77,7 @@ logout = function(session) {
 }
 
 initializeCheckoutView = function(client) {
+  if (client.image) $("#image-logo").attr("src", client.image);
   $("#payAmount").html("Pay ₱"+client.amount);
   $("#checkoutName").html(client.name);
   $("#checkoutDescription").html(client.description);

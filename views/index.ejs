@@ -20,7 +20,6 @@
     -->
 
     <a class="testMode" href="#" target="_blank" tabindex="-1">TEST MODE</a> 
-     
 
     <form class="checkoutView" method="POST" novalidate="true">
       <div class="backgroundView" style="height: 660px;">
@@ -38,7 +37,7 @@
                 <a class="close"></a>
                 <a class="back"></a>
                 <div class="image">
-                  <img src="https://stripe.com/img/documentation/checkout/marketplace.png">
+                  <img id="image-logo">
                 </div>
                 <div class="title">
                   <h1 id="checkoutName"></h1>
@@ -172,7 +171,6 @@
                             </div>
                           </div>
                         </div>
-                        
                       </div>
                     </div>
                   </div>
@@ -198,5 +196,4 @@ $(document).ready(function() {
     login(JSON.parse('<%- JSON.stringify(session) %>'));
   }  
 });
-
 </script>
