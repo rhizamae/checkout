@@ -1,4 +1,4 @@
-var Account, AccountLookup, accountLookupHelper, appType, i18n, popoverManager, support, tracker, validation, __bind = function(fn, me) {
+var AccountLookup, accountLookupHelper, i18n, popoverManager, __bind = function(fn, me) {
   return function() {
     return fn.apply(me, arguments)
   }

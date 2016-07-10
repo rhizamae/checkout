@@ -1,10 +1,10 @@
-var CardNumberInput, Input, easingCurves, helpers, i18n, svgPaths, variants, __bind = function(fn, me) {
+var CardNumberInput, __bind = function(fn, me) {
         return function() {
             return fn.apply(me, arguments)
         }
     },
     __hasProp = {}.hasOwnProperty,
-    __cardNumberInputExtends = function(child, parent) {
+    __extendsCardNumberInput = function(child, parent) {
         for (var key in parent) {
           if (__hasProp.call(parent, key)) child[key] = parent[key]
         }
@@ -17,8 +17,9 @@ var CardNumberInput, Input, easingCurves, helpers, i18n, svgPaths, variants, __b
         child.__super__ = parent.prototype;
         return child
     };
-// CardNumberInput = function(_super) {
-//     __cardNumberInputExtends(CardNumberInput, _super);
+
+CardNumberInput = (function(_super) {
+    __extendsCardNumberInput(CardNumberInput, _super);
     CardNumberInput.prototype.className = "cardNumberInput";
     CardNumberInput.prototype.inputId = "card-number";
     CardNumberInput.prototype.inputType = "tel";
@@ -34,7 +35,6 @@ var CardNumberInput, Input, easingCurves, helpers, i18n, svgPaths, variants, __b
         this.clear = __bind(this.clear, this);
         this.setVal = __bind(this.setVal, this);
         this.bindEvents = __bind(this.bindEvents, this);
-        
         //CardNumberInput.__super__.constructor.apply(this, arguments);
         
         //this.setIcon(svgPaths.getIcon("card", this.options.appType));
@@ -44,7 +44,10 @@ var CardNumberInput, Input, easingCurves, helpers, i18n, svgPaths, variants, __b
         // } else {
         //     this.setLabel(i18n.loc("input.payment.cardNumber")())
         // }
+        //console.log("CardNumberInput----");
+        //console.log(this.$input);
         this.$input.payment("formatCardNumber");
+         //$("#card-number").payment("formatCardNumber");
     }
     CardNumberInput.prototype.bindEvents = function() {
         CardNumberInput.__super__.bindEvents.apply(this, arguments);
@@ -55,7 +58,7 @@ var CardNumberInput, Input, easingCurves, helpers, i18n, svgPaths, variants, __b
         if (options == null) {
             options = {}
         }
-        //CardNumberInput.__super__.setVal.apply(this, arguments);
+        CardNumberInput.__super__.setVal.apply(this, arguments);
         this.$input.val(val);
         if (options.type != null) {
             type = cardUtils.extractCardType(options.type);
@@ -64,7 +67,7 @@ var CardNumberInput, Input, easingCurves, helpers, i18n, svgPaths, variants, __b
         return this.$el.toggleClass("prefill", options.prefill)
     };
     CardNumberInput.prototype.clear = function() {
-        //CardNumberInput.__super__.clear.apply(this, arguments);
+        CardNumberInput.__super__.clear.apply(this, arguments);
         this.$input.val("");
         this.setCardType("unknown");
         return this.$el.removeClass("prefill");
@@ -87,7 +90,7 @@ var CardNumberInput, Input, easingCurves, helpers, i18n, svgPaths, variants, __b
                 easing: "ease-in-out",
                 animated: animated,
                 complete: function() {
-                    return $oldCard.detach()
+                  return $oldCard.detach()
                 }
             })
         }
@@ -117,8 +120,8 @@ var CardNumberInput, Input, easingCurves, helpers, i18n, svgPaths, variants, __b
     CardNumberInput.prototype.validateFormat = function() {
         return $.payment.validateCardNumber(this.val())
     };
-//     return CardNumberInput()
-// };
+    return CardNumberInput;
+})(Input);
 
 $.payment.validateCardNumber = function(num) {
   var card, _ref;
@@ -134,6 +137,7 @@ $.payment.validateCardNumber = function(num) {
 };
 
 $.payment.formatCardNumber = function(num) {
+
   var card, groups, upperLength, _ref;
   num = num.replace(/\D/g, "");
   card = cardFromNumber(num);
@@ -163,6 +167,24 @@ $.payment.cardType = function(num) {
     return null;
   }
   return ((_ref = cardFromNumber(num)) != null ? _ref.type : void 0) || null
+};
+
+restrictNumeric = function(e) {
+  var input;
+  if(e.metaKey || e.ctrlKey) {
+      return true
+  }
+  if(e.which === 32) {
+      return false
+  }
+  if(e.which === 0) {
+      return true
+  }
+  if(e.which < 33) {
+      return true
+  }
+  input = String.fromCharCode(e.which);
+  return!!/[\d\s]/.test(input)
 };
 
 cardNumberInputSetVal = function(val, options) {
@@ -265,6 +287,7 @@ formatCardNumber = function(e) {
 };
 
 reFormatCardNumber = function(e) {
+  onInputValueDidChange(this);
   var $target;
   $target = $(e.currentTarget);
   return setTimeout(function() {

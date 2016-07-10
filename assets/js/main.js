@@ -1,47 +1,84 @@
 var session, request_reference_num, email, msisdn, client, card, cardPaymentViewIntance;
 var vault = Checkout.getToken;
 var remember = Checkout.remember;
+var md = new MobileDetect(window.navigator.userAgent);
+var init;
 
-$(document).ready(function() {});
+initializeView = function(client) {
+  
+  appBootstrap();
+  var options = {};
+  options.appType = appType;
+  options.image = null;
+  //console.log(appType);
+  //var checkoutControllerInstance = new CheckoutController(options);
 
-var init = function init(client) {
-  console.log(client);
+  cardPaymentViewIntance =  cardPaymentViewIntance ? cardPaymentViewIntance : new CardPaymentView(options) ;
+  
+  if (client.image) $("#image-logo").attr("src", client.image);
+  if (appType.isMobile()) {
+    $("#payAmount").html("<span class='iconA'></span>Pay ₱650.00<span class='iconB'></span>");
+    $("header .close").hide();
+  } else {
+    $("#payAmount").html("Pay ₱"+client.amount);
+  }
+  
+  $("#checkoutName").html(client.name);
+  $("#checkoutDescription").html(client.description);
+  
+  if (md.mobile() != null) {
+    // window.open("http://localhost:1337/mobile.html");
+    window.open("http://localhost:1337/checkout.html");
+  } else {
+    window.parent.postMessage("open_iframe", "*");
+    $(".overlayView").show();
+    $(".stripeInFrame .overlayView").removeClass("unactive");
+    $(".stripeInFrame .overlayView").addClass("active");
+  }
+};
+
+init = function(client) {
+  //console.log(client);
   this.client = client;
-  initializeCheckoutView(client);
-  cardPaymentViewIntance =  cardPaymentViewIntance ? cardPaymentViewIntance : new CardPaymentView() ;
+  initializeView(client);
 
   $('#email').on("change", function(e) {
-    var email = $('.paymentView #email').val();
-    Checkout.remember(email)
-      .then(function(data) {
-        if (data.customer && data.customer.sources.length > 0) {
-          //accountLogin(email);
-          // card = data;
-          codeInputInstance = new CodeInput({});
-          verifyCodeView();
-          getVerificationCode();
-          //cardPaymentViewIntance.setCard(card.customer.sources[0]);
-        }
-      }).catch(function(error) {
-        console.log(error);
-      });
+    var valid = validateEmail($('.paymentView #email').val());
+    if (valid) {
+      var email = $('.paymentView #email').val();
+      Checkout.remember(email)
+        .then(function(data) {
+          if (data.customer && data.customer.sources.length > 0) {
+            //accountLogin(email);
+            // card = data;
+            verifyCodeView();
+            codeInputInstance = new CodeInput({});
+            
+            getVerificationCode();
+            //cardPaymentViewIntance.setCard(card.customer.sources[0]);
+          }
+        }).catch(function(error) {
+          console.log(error);
+        });
+    }
   });
 
-  $('#payAmount').on("click", function(e) {
+  $('.buttonsView').on("click", "#payAmount", function(e) {
     e.preventDefault();
     //var valid_form = validateForm('.paymentView');
+    //console.log("payAmount");
     if ($(".profileSetting").css("display") == "block") {
       Magpie.close();
       window.parent.postMessage({card: card}, "*");
     } else if (validateForm('.paymentView')) {
-      var key = client.key;
+      var key = "pk_test_aBTnnTX5QaO2AblZ5wNq2A" || client.key;
       var email = $('.paymentView #email').val();
       var cardNumber = $('.paymentView #card-number').val();
       var cvv = $('.paymentView #cc-csc').val();
       var expiry = $('.paymentView #card-exp').val();
       
       if ($(".checkbox-remember-me").hasClass("checked")) {
-        var msisdn = $('.paymentView #msisdn').val();
+        var msisdn = $('.paymentView #msisdn').val().replace("+", "").replace(/ /g, "");
       }
       Checkout.getToken(key, email, cardNumber, cvv, expiry, msisdn)
         .then(function(token) {
@@ -59,6 +96,13 @@ var init = function init(client) {
 
 }
 
+// CALL INITIALIZE
+init({});
+// if (md.mobile() != null) { // if not mobile
+//   console.log("initializee-------");
+//   init({});
+// }
+
 login = function(session) {
   card = session.card;
   cardPaymentViewIntance =  new CardPaymentView();
@@ -75,13 +119,6 @@ logout = function(session) {
       console.log(error);
     });
 }
-
-initializeCheckoutView = function(client) {
-  if (client.image) $("#image-logo").attr("src", client.image);
-  $("#payAmount").html("Pay ₱"+client.amount);
-  $("#checkoutName").html(client.name);
-  $("#checkoutDescription").html(client.description);
-};
 
 getVerificationCode = function() {
   Checkout.getVcode($('.paymentView #email').val())

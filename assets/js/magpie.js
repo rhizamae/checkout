@@ -4,6 +4,7 @@ var eventer = window[eventMethod];
 var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 var iframe = document.createElement('iframe');
 var options;
+var iframeOnload;
 
 var Magpie = Magpie || {
 
@@ -14,27 +15,41 @@ var Magpie = Magpie || {
     iframe.seamless = true;
     iframe.frameBorder = 0;
     iframe.setAttribute("id", "magpie-checkout-app");
-    iframe.setAttribute("style", "position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;");
+    iframe.setAttribute("style", "position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;display:none;");
     iframe.setAttribute("name", Date.now());
     iframe.setAttribute("src","http://localhost:1337/checkout.html");
-    document.body.appendChild(iframe);
+    
     eventer(messageEvent,function(e) {
       var key = e.message ? "message" : "data";
       var data = e[key];
-      options.token(data);
+      if (data == "close_iframe") {
+        $("iframe#magpie-checkout-app").css("display", "none");
+      } else if (data == "open_iframe") {
+        $("iframe#magpie-checkout-app").css("display", "block");
+      } else {
+        options.token(data);
+      }
     }, false);
   },
 
   open: function(options) {
     var obj = this.concat(this.options, options);
-    iframe.onload = function() {
+    document.body.appendChild(iframe);
+    if (iframeOnload) {
       iframe.contentWindow.postMessage(JSON.stringify(obj), "*");
     }
+    iframe.onload = function() {
+      iframeOnload = true;
+      iframe.contentWindow.postMessage(JSON.stringify(obj), "*");
+    }
+    return;
   },
 
-  close: function() {
+  close: function() { 
+    $(".overlayView").hide();
     $(".stripeInFrame .overlayView").removeClass("active");
     $(".stripeInFrame .overlayView").addClass("unactive");
+    window.parent.postMessage("close_iframe", "*");
   },
 
   concat: function(o1, o2) {

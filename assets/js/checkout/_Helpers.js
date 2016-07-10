@@ -117,7 +117,7 @@ helpers = {
         return window.cordova != null || /GSA\/\d+\.\d+/.test(helpers.userAgent)
     },
     isSupportedMobileOS: function() {
-        return helpers.isiOS() || helpers.isAndroidDevice()
+        return helpers.isiOS() || helpers.isAndroidDevice();
     },
     isAndroidWebapp: function() {
         var metaTag;

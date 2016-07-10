@@ -470,6 +470,7 @@ header>.content>.image:after {
 }
 .mobile .checkoutView {
     position: static;
+    height: 100% !important;
     left: auto;
     right: auto;
     top: auto;
@@ -1544,7 +1545,7 @@ header>.content>.image:after {
     left: auto;
     top: auto;
     width: auto;
-    height: auto;
+    height: 100%;
     min-height: 100%;
     overflow: visible;
     background: transparent;

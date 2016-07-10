@@ -1,5 +1,12 @@
 var emailDomains = ["gmail.com", "hotmail.com", "yahoo.com", "live.com", "aol.com", "hotmail.co.uk", "mail.ru", "naver.com", "me.com", "comcast.net", "outlook.com", "yandex.ru", "msn.com", "hotmail.fr", "yahoo.co.uk", "googlemail.com", "live.co.uk", "ymail.com", "mac.com", "icloud.com", "sbcglobal.net", "live.dk", "seznam.cz", "btinternet.com"];
 
+$('#email').on("keyup", function(e) {
+  var valid = validateEmail($('.paymentView #email').val());
+  if (!valid) {
+    onInputValueDidChange(this);
+  }
+});
+
 // var EmailInput, Input, SvgSpinner, emailDomains, i18n, support, svgPaths, validation, variants, __bind = function(fn, me) {
 //       return function() {
 //           return fn.apply(me, arguments)

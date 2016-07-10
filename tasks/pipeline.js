@@ -32,6 +32,29 @@ var jsFilesToInject = [
   
   '/js/magpie.js',
 
+  '/js/checkout/_SvgPaths.js',
+  '/js/checkout/_Uuid.js',
+  '/js/checkout/_Tracker.js',
+  '/js/checkout/_Helpers.js',
+  '/js/checkout/_Cache.js',
+  '/js/checkout/_Pixel.js',
+  '/js/checkout/_Support.js',
+
+  '/js/checkout/_App.js',
+  '/js/checkout/_AppType.js',
+  
+  '/js/checkout/_Base64.js',
+  
+  '/js/checkout/_Tick.js',
+
+  '/js/checkout/_EventDispatcher.js',
+  '/js/checkout/_View.js',
+  '/js/checkout/_Svg.js',
+
+  '/js/checkout/_Controller.js',
+  '/js/checkout/_StepController.js',
+  '/js/checkout/_Input.js',
+
   '/js/checkout/payment.js',
   '/js/checkout/function.js',
   '/js/checkout/*.js',

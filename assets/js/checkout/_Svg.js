@@ -1,26 +1,26 @@
-var Svg, View, support, __bind = function(fn, me) {
+var Svg, __bind = function(fn, me) {
         return function() {
             return fn.apply(me, arguments)
         }
     },
     __hasProp = {}.hasOwnProperty,
-    // __extends = function(child, parent) {
-    //     for (var key in parent) {
-    //         if (__hasProp.call(parent, key)) child[key] = parent[key]
-    //     }
+    __extendsSvg = function(child, parent) {
+        for (var key in parent) {
+            if (__hasProp.call(parent, key)) child[key] = parent[key]
+        }
 
-    //     function ctor() {
-    //         this.constructor = child
-    //     }
-    //     ctor.prototype = parent.prototype;
-    //     child.prototype = new ctor;
-    //     child.__super__ = parent.prototype;
-    //     return child
-    // };
+        function ctor() {
+            this.constructor = child
+        }
+        ctor.prototype = parent.prototype;
+        child.prototype = new ctor;
+        child.__super__ = parent.prototype;
+        return child
+    };
 // View = require("lib/view");
 // support = require("lib/support");
-Svg = function(_super) {
-    // __extends(Svg, _super);
+Svg = (function(_super) {
+    __extendsSvg(Svg, _super);
     Svg.prototype.className = "svg";
     Svg.prototype.xmlns = "http://www.w3.org/2000/svg";
 
@@ -35,7 +35,7 @@ Svg = function(_super) {
         this.setTranslate = __bind(this.setTranslate, this);
         this.setColor = __bind(this.setColor, this);
         this.setPath = __bind(this.setPath, this);
-        //Svg.__super__.constructor.apply(this, arguments);
+        Svg.__super__.constructor.apply(this, arguments);
         this.options = $.extend({}, {
             size: {
               width: 10,
@@ -135,5 +135,5 @@ Svg = function(_super) {
         return $(p)
     };
     return Svg
-}();
+})(View);
 

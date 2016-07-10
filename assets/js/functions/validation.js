@@ -1,3 +1,5 @@
+var errorIconContainer = {}, errorIcon = {};
+
 var error_messages = {
   required: 'Required.'
 };
@@ -21,6 +23,84 @@ function validate() {
     this.setInvalid(false);
     return [];
   }
+};
+
+setErrorIconContainer = function(id) {
+  errorIconContainer[id] = undefined;
+  errorIcon[id] = undefined;
+
+  if (appType.isMobile()) {
+      errorIconContainer[id] = $("<div>").addClass("errorIconContainer");
+      errorIcon[id] = new Svg($.extend({}, svgPaths.getIcon("error", appType), {
+          color: "red",
+          className: "errorIcon"
+      }));
+      errorIcon[id].$el.transform({
+          opacity: 0,
+          translateX: 20
+      });
+      return errorIconContainer[id].append(errorIcon[id].$el)
+  } else {
+    return false;
+  }
+}
+
+setErrorIconVisible = function(visible, element, id) {
+  this.$el = element;
+  setErrorIconContainer(id);
+  if (!errorIcon[id]) {
+      return;
+  }
+  if (visible) {
+      if (this.$el.find(".errorIconContainer").length > 0) {
+        return;
+      }
+      this.$el.append(errorIconContainer[id]);
+      errorIcon[id].redraw();
+      // console.log("setErrorIconVisible-----------setErrorIconVisible");
+      // console.log(errorIcon[id]);
+      return errorIcon[id].$el.gfx({
+          opacity: 1,
+          translateX: -7
+      }, {
+          duration: 250,
+          easing: "ease-in-out",
+          complete: function(_this) {
+              return function() {
+                  return errorIcon[id].$el.addClass("animated")
+              }
+          }(this)
+      })
+  } else {
+      //console.log("not visibleeee1");
+      errorIcon[id].$el.removeClass("animated");
+      return errorIcon[id].$el.gfx({
+          opacity: 0,
+          translateX: 20
+      }, {
+          duration: 250,
+          easing: "ease-in-out",
+          complete: function(_this) {
+              // console.log("setErrorIconVisible-----------");
+              // console.log(errorIcon[id]);
+              return function() {
+                  return $("#" + id).parent(".input").find(".errorIconContainer").detach();
+              }
+          }(this)
+      });
+  }
+};
+
+onInputValueDidChange = function(element, visible) {
+  // console.log("onInputValueDidChange-----");
+  // console.log($(element).parent(".input"));
+  // console.log($(element).attr("id"));
+  setErrorIconVisible(visible, $(element).parent(".input"), $(element).attr("id"));
+  // if (this.popover) {
+  //     popoverManager.closePopover(this.popover);
+  //     return this.popover = null
+  // }
+  return true;
 };
 
 function shake() {
@@ -70,9 +150,11 @@ function validateForm(form) {
 }
 
 function setInvalid(element, invalid) {
+  //console.log("validateeeeee");
   if (invalid) {
     $(element).addClass("invalid");
     $(element).parent(".input").addClass("invalid");
+    setErrorIconVisible(invalid, $(element).parent(".input"), $(element).attr("id"));
   } else {
     $(element).removeClass("invalid");
     $(element).parent(".input").removeClass("invalid");
@@ -84,5 +166,11 @@ function setInvalid(element, invalid) {
 
 function validateEmail(email) {
   return /^.+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+var validation = {
+  validateEmail: function(email) {
+    return /^.+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
 }
 

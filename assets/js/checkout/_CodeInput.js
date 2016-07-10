@@ -1,4 +1,4 @@
-var CodeInput, DIGIT_COUNT, View, helpers, support, __bind = function(fn, me) {
+var CodeInput, DIGIT_COUNT, __bind = function(fn, me) {
     return function() {
         return fn.apply(me, arguments)
     }

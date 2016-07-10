@@ -1,4 +1,4 @@
-var CardCVCInput, CardExpiresInput, CardNumberInput, CardPaymentView, SeparatorLineView, View, ZipCodeInput, binRanges, helpers, i18n, popoverManager, support, variants, _, __bind = function(fn, me) {
+var CardCVCInput, CardExpiresInput, CardNumberInput, CardPaymentView, SeparatorLineView, ZipCodeInput, binRanges, i18n, popoverManager, variants, _, __bind = function(fn, me) {
     return function() {
         return fn.apply(me, arguments)
     }
@@ -19,9 +19,9 @@ __extendsCardPaymentView = function(child, parent) {
 };
 
 
-// CardPaymentView = function(_super) {
-    //console.log(_super);
-    //__extendsCardPaymentView(CardPaymentView, _super);
+CardPaymentView = (function(_super) {
+   
+    __extendsCardPaymentView(CardPaymentView, _super);
     CardPaymentView.prototype.className = "cardPaymentView";
     CardPaymentView.editionStates = {
         NORMAL: "normal",
@@ -30,7 +30,8 @@ __extendsCardPaymentView = function(child, parent) {
         CHANGING: "changing"
     };
     //CardPaymentView();
-    function CardPaymentView() {
+    function CardPaymentView(options) {
+        this.options = options;
         //this.onKeyUp = __bind(this.onKeyUp, this);
         // this.checkAppropriateZipCodeVisibility = __bind(this.checkAppropriateZipCodeVisibility, this);
         // this.hasChanged = __bind(this.hasChanged, this);
@@ -45,7 +46,7 @@ __extendsCardPaymentView = function(child, parent) {
         // this.focus = __bind(this.focus, this);
         // this.bindEvents = __bind(this.bindEvents, this);
         // this.render = __bind(this.render, this);
-        //CardPaymentView.__super__.constructor.apply(this, arguments);
+        CardPaymentView.__super__.constructor.apply(this, arguments);
         // if (this.options.zipCode) {
         //     binRanges.preload()
         // }
@@ -55,9 +56,10 @@ __extendsCardPaymentView = function(child, parent) {
 
     CardPaymentView.prototype.render = function() {
         var view, zipCodePlaceholder, _i, _len, _ref;
-        this.numberInput = new CardNumberInput();
-        this.expiresInput = new CardExpiresInput();
-        this.cvcInput = new CardCVCInput();
+       
+        this.numberInput = new CardNumberInput(this.options);
+        this.expiresInput = new CardExpiresInput(this.options);
+        this.cvcInput = new CardCVCInput(this.options);
         this.views = [this.numberInput];
         this.views.push(this.expiresInput);
         this.views.push(this.cvcInput);
@@ -69,7 +71,6 @@ __extendsCardPaymentView = function(child, parent) {
             prefill: true,
             type: this.card.type || this.card.brand
         });
-        //console.log(this.valueFromCard(this.expiresInput, this.card));
         this.expiresInput.setVal(this.valueFromCard(this.expiresInput, this.card));
         return this.cvcInput.setVal(this.valueFromCard(this.cvcInput, this.card), {
             prefill: true,
@@ -97,24 +98,5 @@ __extendsCardPaymentView = function(child, parent) {
             return "    "
         }
     };
-//     return CardPaymentView;
-// };
-
-
-var helpers = {
-    pad: function(number, width, padding) {
-        var leading;
-        if (width == null) {
-            width = 2
-        }
-        if (padding == null) {
-            padding = "0"
-        }
-        number = number + "";
-        if (number.length > width) {
-            return number
-        }
-        leading = new Array(width - number.length + 1).join(padding);
-        return leading + number
-    },
-}
+    return CardPaymentView;
+})(View);

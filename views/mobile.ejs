@@ -1,0 +1,248 @@
+<div class="overlayView active">
+  <form class="checkoutView" method="POST" novalidate="true">
+    <div class="bodyView">
+      <div class="layoutView contentView" style="height: 396px;">
+
+        <div class="layoutSubview" style="z-index: 100; height: 136px; transform: translateY(0px); opacity: 1; transition: none;">
+          <header style="transform: translateY(0px); transition: none;">
+            <div class="content">
+              <div class="background">
+                <div class="realBackground" style="background: rgb(144, 13, 12);"></div>
+              </div>
+              <a class="close"></a>
+              <a class="back" style="display: none; opacity: 0; transition: none;"></a>
+              <div class="image" style="opacity: 1; transform: scale(1); transition: none;">
+                <img id="image-logo">
+              </div>
+              <div class="title">
+                <h1 id="checkoutName">Single Session</h1>
+                <h2 id="checkoutDescription">One Session</h2>
+              </div>
+            </div>
+          </header>
+        </div>
+
+
+        <div class="layoutSubview profileSetting" style="height: 45px; transform: translateY(136px); opacity: 0; transition: none; display: none;">
+          <div class="loggedBarView">
+            <div class="inner">
+              <div class="loggedBarContent loggedIn" style="opacity: 1; transform: translateY(0px); transition: none;">
+                <% include /partials/_login %>
+                <span>rhiza.talavera@gmail.com</span><a class="logout" style="display: inline;">Log out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="layoutSubview inputPayment" style="height: 193px; transform: translateY(136px); opacity: 1; transition: none;">
+          
+          <div class="layoutView paymentView" style="opacity: 1; height: 193px; transition: none; transform: translateX(0px); overflow: inherit;">
+
+            <div class="layoutSubview inputEmail" style="height: 45px; transform: translateY(0px); opacity: 1; transition: none;">
+              <div class="emailInput input">
+                <input tabindex="1" class="control" id="email" type="email" x-autocompletetype="email" autocompletetype="email" autocorrect="off" spellcheck="off" autocapitalize="off" placeholder="you@email.com">
+                <span class="spinnerContainer" style="display: none;">
+                  <div class="svgSpinner" style="width: 14px; height: 15px;">
+                    <% include /partials/_svgspinner %>
+                  </div>
+                </span>
+                <% include /partials/_email_mob %>
+                <label>Email</label>
+              </div>
+            </div>
+
+            <div class="layoutSubview separatorPayment" style="height: 1px; transform: translateY(45px); opacity: 1; transition: none;">
+              <div class="separatorLineView"><span class="line"></span></div>
+            </div>
+
+            <div class="layoutSubview inputCardNumber" style="height: 137px; transform: translateY(46px); opacity: 1; transition: none;">
+              <div class="contentSwitcher">
+                <div class="inner">
+                  <div class="content">
+                    <div class="layoutView cardView" style="opacity: 1; transform: translateX(0px); display: block; transition: none; height: 137px;">
+
+                      <div class="layoutSubview" style="height: 91px; transform: translateY(0px); opacity: 1; transition: none;">
+                        <div class="cardPaymentView">
+                          
+                          <div class="cardNumberInput input top" style="opacity: 1; transform: translateY(0px); transition: none;">
+                            <input tabindex="1" class="control" id="card-number" type="tel" autocomplete="off" autocorrect="off" spellcheck="off" autocapitalize="off" placeholder="•••• •••• •••• ••••">
+                            <% include /partials/_cardnumber_mob %>
+                            <label>Card</label>
+                          </div>
+
+                          <div class="separatorLineView line1" style="opacity: 1; transform: translateY(0px); transition: none;">  <span class="line"></span>
+                          </div>
+
+                          <div class="cardExpiresInput input left bottom" style="opacity: 1; transform: translateY(0px); transition: none;">
+                            <input tabindex="1" class="control" id="card-exp" type="tel" autocomplete="off" autocorrect="off" spellcheck="off" autocapitalize="off" placeholder="MM / YY" x-autocompletetype="off" autocompletetype="off">
+                            <% include /partials/_cardexpiry_mob %>
+                            <label>Expiry</label>
+                          </div>
+
+                          <div class="cardCVCInput input right bottom three-dots" style="opacity: 1; transform: translateY(0px); transition: none;">
+                            <input tabindex="1" class="control" id="cc-csc" type="tel" autocomplete="off" autocorrect="off" spellcheck="off" autocapitalize="off" placeholder="123" maxlength="4">
+                            <% include /partials/_cardcvc_mob %>
+                            <label>CVC</label>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="layoutSubview separator" style="height: 1px; transform: translateY(91px); opacity: 1; transition: none;">
+                        <div class="separatorLineView">
+                          <span class="line"></span>
+                        </div>
+                      </div>
+
+                      <div class="layoutSubview rememberDetails" style="height: 45px; transform: translateY(92px); opacity: 1; transition: none;">
+                        <div class="rememberMe">
+                          <div class="labelWithCheckbox">
+                            <div class="inner">
+                              <% include /partials/_email_mob %>
+
+                              <div class="switchControl checkbox-remember-me">
+                                <div class="trackingArea">
+                                  <div class="inner">
+                                    <span class="track"></span>
+                                    <span class="blueTrack">
+                                      <span class="left"></span>
+                                      <span class="right">
+                                        <span></span>
+                                      </span>
+                                    </span>
+                                    <span class="switch">
+                                      <span class="trackingArea"></span>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <label>Remember me</label>
+                            </div>
+                          </div>
+                          <div class="separatorLineView line1" style="display: none; opacity: 0;"><span class="line"></span></div>
+                          <div class="separatorLineView line2" style="display: none; opacity: 0;"><span class="line"></span></div>
+
+                          <div class="expandedContainer">
+                            <div class="expanded">
+                              <p style="display: none; opacity: 0;">
+                                <strong>Magpie</strong> stores your payment info for quick checkout on this site and others. We use your mobile phone number for security. <a href="/-/remember-me" target="_blank" tabindex="-1">More info</a>
+                              </p>
+                              <div class="telInput input" style="display: none; opacity: 0;">
+                                <input id="msisdn" tabindex="1" class="control" type="tel" x-autocompletetype="phone-full" autocompletetype="phone-full" autocorrect="off" spellcheck="off" autocapitalize="off" name="phone" placeholder="(555) 123-1234"><span class="flag"></span>
+                                <% include /partials/_msisdn_mob %>
+                                <label>Phone</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="layoutSubview rememberCheckbox" style="display: none; opacity: 0; height: 45px; transform: translateY(137px); transition: none;">
+                        <div class="labelWithCheckbox">
+                          <div class="inner">
+                            <% include /partials/_remember_mob %>
+                            <div class="switchControl">
+                              <div class="trackingArea">
+                                <div class="inner">
+                                  <span class="track"></span>
+                                  <span class="blueTrack" style="opacity: 1; transition: none;">
+                                    <span class="left"></span>
+                                    <span class="right">
+                                      <span style="transition: none; transform: translateX(0px);"></span>
+                                    </span>
+                                  </span>
+                                  <span class="switch" style="transition: none; transform: translateX(25px);">
+                                    <span class="trackingArea"></span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <label>Keep me logged in</label>
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="codeVerificationView" style="display:none; opacity: 1; transform: translateX(0px); transition: none; overflow: inherit;">
+            <p class="mainDescription">
+              <em>Enter the verification code <span>to use the payment info you stored with Stripe.</span></em>
+            </p>
+            <div class="codeInput">
+             
+              <input class="controlInput" type="tel" data-numeric="true" name="code-control-input" style="left: 0px; width: 244px;">
+              
+            </div>
+            <div class="carouselView">
+              <span class="stateSentInfo verificationStatusIndicator" style="opacity: 1; transform: translateY(0px); display: inline; transition: none;">
+                <p class="line1">We just sent a text message to:</p>
+                <p class="line2">
+                <% include /partials/_msisdn_phone_mob %>
+                <span>+6• ••• ••• 1425</span></p>
+              </span>
+            </div>
+            <a href="#" class="codeNotReceived" style="opacity: 1; transition: none;">
+              <span class="verificationStatusIndicator">Didn't receive the code?</span>
+              <br>
+              <span>Fill in your card details manually.</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="buttonsView" style="overflow: visible;">
+      <div class="button submitButton" style="transform-origin: 100% 50% 0px; display: block; transition: none; transform: translateY(0px); overflow: hidden;">
+        <div class="inner" style="overflow: hidden;">
+          <button tabindex="2"  style="transition: none; transform: translateY(0px);">
+            <span>
+              <span class="iconTick" id="payAmount" style="opacity: 1; transform: scale(1); transition: none;">
+                <span class="iconA"></span>
+                <!-- Pay ₱650.00 -->
+                <span class="iconB"></span>
+              </span>
+            </span>
+            <div class="spinnerContainer" style="opacity: 0; display: none; transition: none;">
+              <div class="svgSpinner" style="width: 22px; height: 23px;">
+                <% include /partials/_svgspinner_button %>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="button cancelButton cancel" style="display:none; transform-origin: 0px 50% 0px; transform: scaleX(1); transition: none;">
+        <div class="inner">
+          <button tabindex="2" type="button">
+            <span><span class="" style="opacity: 1; transform: translateX(0px); transition: none;"><span class="iconA"></span>Cancel<span class="iconB"></span></span></span>
+            <div class="spinnerContainer" style="opacity: 0; display: none;">
+              <div class="svgSpinner" style="width: 22px; height: 23px;">
+                <% include /partials/_svgspinner_button %>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+   
+  </form>
+</div>
+<script>
+$(document).ready(function() {
+  if ('<%- session %>') {
+    login(JSON.parse('<%- JSON.stringify(session) %>'));
+  }  
+});
+</script>

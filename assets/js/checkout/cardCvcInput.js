@@ -1,4 +1,4 @@
-var CardCVCInput, Input, cardUtils, helpers, i18n, svgPaths, __bind = function(fn, me) {
+var CardCVCInput, __bind = function(fn, me) {
       return function() {
           return fn.apply(me, arguments)
       }
@@ -23,8 +23,8 @@ var CardCVCInput, Input, cardUtils, helpers, i18n, svgPaths, __bind = function(f
 // cardUtils = require("lib/cardUtils");
 // i18n = require("lib/i18n");
 
-// CardCVCInput = function(_super) {
-//   __cardCVCInputExtends(CardCVCInput, _super);
+CardCVCInput = (function(_super) {
+  __cardCVCInputExtends(CardCVCInput, _super);
   CardCVCInput.prototype.className = "cardCVCInput";
   CardCVCInput.prototype.inputId = "cc-csc";
   CardCVCInput.prototype.inputAutocomplete = "cc-csc";
@@ -43,7 +43,8 @@ var CardCVCInput, Input, cardUtils, helpers, i18n, svgPaths, __bind = function(f
       //this.setLabel(i18n.loc("input.payment.cardCVC")());
       //this.setPlaceholder("123");
       this.$input.attr("maxlength", "4");
-      this.$input.payment("restrictNumeric");
+      //this.$input.payment("restrictNumeric");
+      this.$input.payment("formatCardCVC");
   }
   CardCVCInput.prototype.setVal = function(val, options) {
       var toggleClass;
@@ -67,8 +68,8 @@ var CardCVCInput, Input, cardUtils, helpers, i18n, svgPaths, __bind = function(f
   CardCVCInput.prototype.validateFormat = function() {
       return $.payment.validateCardCVC(this.val())
   };
-//   return CardCVCInput
-// }(Input);
+  return CardCVCInput;
+})(Input);
 
 $.payment.fn.formatCardCVC = function() {
   this.on("keypress", restrictNumeric);
@@ -108,6 +109,7 @@ restrictCVC = function(e) {
 };
 
 reFormatCVC = function(e) {
+  onInputValueDidChange(this);
   var $target;
   $target = $(e.currentTarget);
   return setTimeout(function() {

@@ -1,3 +1,7 @@
+.stripeInFrame .overlayView, #magpie-checkout-app {
+  display: none;
+}
+
 .stripeInitialSpinner {
   position: absolute;
   top: 35%;

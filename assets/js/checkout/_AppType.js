@@ -1,6 +1,6 @@
 var appType;
 appType = {};
-appType.types = ["desktop"];
+appType.types = [];
 appType.setTypes = function(types) {
     return appType.types = types
 };

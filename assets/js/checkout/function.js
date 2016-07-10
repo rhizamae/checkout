@@ -31,24 +31,6 @@ luhnCheck = function(num) {
   return sum % 10 === 0
 };
 
-restrictNumeric = function(e) {
-  var input;
-  if(e.metaKey || e.ctrlKey) {
-      return true
-  }
-  if(e.which === 32) {
-      return false
-  }
-  if(e.which === 0) {
-      return true
-  }
-  if(e.which < 33) {
-      return true
-  }
-  input = String.fromCharCode(e.which);
-  return!!/[\d\s]/.test(input)
-};
-
 patchAutofill = function(element) {
   $el = element;
   var $option, hiddenFieldStyles, month, months, year, years, _i, _j, _len, _len1;

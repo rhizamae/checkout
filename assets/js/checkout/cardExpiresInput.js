@@ -21,8 +21,8 @@ var CardExpiresInput, Input, helpers, i18n, svgPaths, __bind = function(fn, me) 
 // helpers = require("lib/helpers");
 // i18n = require("lib/i18n");
 
-// CardExpiresInput = function(_super) {
-//   __cardExpiresInputExtends(CardExpiresInput, _super);
+CardExpiresInput = (function(_super) {
+  __cardExpiresInputExtends(CardExpiresInput, _super);
   CardExpiresInput.prototype.className = "cardExpiresInput";
   CardExpiresInput.prototype.inputId = "cc-exp";
   CardExpiresInput.prototype.inputAutocomplete = "cc-exp";
@@ -167,10 +167,11 @@ var CardExpiresInput, Input, helpers, i18n, svgPaths, __bind = function(fn, me) 
           }
       }(this)()
   };
-//     return CardExpiresInput
-// } (Input);
+  return CardExpiresInput;
+})(Input);
 
 $.payment.fn.formatCardExpiry = function() {
+  //console.log("formatCardExpiry---123");
   this.on("keypress", restrictNumeric);
   this.on("keypress", restrictExpiry);
   this.on("keypress", formatExpiry);
@@ -179,6 +180,8 @@ $.payment.fn.formatCardExpiry = function() {
   this.on("keydown", formatBackExpiry);
   this.on("change", reFormatExpiry);
   this.on("input", reFormatExpiry);
+  // this.on("change", onInputValueDidChange);
+
   return this;
 };
 
@@ -351,6 +354,7 @@ restrictExpiry = function(e) {
 };
 
 reFormatExpiry = function(e) {
+    onInputValueDidChange(this);
     var $target;
     $target = $(e.currentTarget);
     return setTimeout(function() {

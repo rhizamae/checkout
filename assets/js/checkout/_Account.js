@@ -13,6 +13,14 @@ accountLogin = function(email) {
   $(".backgroundBottom div").css("transform", "translateY(-565px)");
   $(".payButton").css("transform", "translateY(263px)");
   $(".inputCardNumber").css("transform", "translateY(25px)");
+
+  if (appType.isMobile()) {
+    $(".paymentView .layoutSubview.separatorPayment").hide();
+    $(".inputPayment").css("transform", "translateY(181px)");
+    $(".inputCardNumber").css("transform", "translateY(0)");
+  } else {
+
+  }
 }
 
 accountLogout = function() {
@@ -24,28 +32,55 @@ accountLogout = function() {
   $(".payButton").css("transform", "translateY(358px)");
   $(".inputCardNumber").css("transform", "translateY(55px)");
   $(".inputEmail #email").val("");
+
+  if (appType.isMobile()) {
+    $(".paymentView .layoutSubview.separatorPayment").show();
+    $(".inputPayment").css("transform", "translateY(136px)");
+    $(".inputCardNumber").css("transform", "translateY(46px)");
+  } else {
+    
+  }
 }
 
 verifyCodeView = function() {
   //translateY(-527px) --- sending vcode
   //translateY(-475px)
-  $(".inputPayment").hide();
-  $(".payButton").hide();
-  $(".codeVerification").show();
-  $(".backgroundBottom div").css("transform", "translateY(-527px)");
-  $("header .close").hide();
+  $(".codeInput .container").detach();
+  $(".codeInput .dash").detach();
+
   $("header .back").show();
   $("header .back").css("opacity", "1");
+  
+  if (appType.isMobile()) {
+    $(".paymentView").hide();
+    $(".codeVerificationView").show();
+    $(".buttonsView").hide();
+  } else {
+    $("header .close").hide();
+    $(".inputPayment").hide();
+    $(".codeVerification").show();
+    $(".payButton").hide();
+    $(".backgroundBottom div").css("transform", "translateY(-527px)");
+  }
+  
 }
 
 backVerifyCode = function() {
-  $(".inputPayment").show();
-  $(".payButton").show();
-  $(".codeVerification").hide();
-  $(".backgroundBottom div").css("transform", "translateY(-470px)");
-  $("header .close").show();
+   
   $("header .back").hide();
   $("header .back").css("opacity", "0");
+
+  if (appType.isMobile()) {
+    $(".paymentView").show();
+    $(".codeVerificationView").hide();
+    $(".buttonsView").show();
+  } else {
+    $("header .close").show();
+    $(".inputPayment").show();
+    $(".codeVerification").hide();
+    $(".payButton").show();
+    $(".backgroundBottom div").css("transform", "translateY(-470px)");
+  }
 }
 
 // var API, Account, EventDispatcher, VerificatorStatus, addressHelper, currentVerification, newAccountToken, newStripeJSToken, pixel, sharedAccount, tracker, translateAccountResponse, zipCode, _;

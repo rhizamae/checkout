@@ -1,22 +1,122 @@
-setRememberMeDetails = function (set) {
+saveMobileNumber = function() {
+    msisdn = $("#msisdn").val();
+    $("#save-msisdn").attr("id", "payAmount");
+    viewRememberMeDetails(false);
+}
 
+updateRememberCheckbox = function(toggle) {
+    var element = $(".checkbox-remember-me");
+    if (toggle) {
+        element.toggleClass("checked");
+    }
+    if (appType.isMobile()) {
+        if (element.hasClass("checked")) {
+            $(".switchControl .blueTrack").css("opacity", "1");
+            $(".switchControl .blueTrack .right span").css("transform", "translateX(0px)");
+            $(".switchControl .switch").css("transform", "translateX(25px)");
+            $("#payAmount").attr("id", "save-msisdn");
+        } else {
+            msisdn = undefined;
+            $(".switchControl .blueTrack").css("opacity", "0");
+            $(".switchControl .blueTrack .right span").css("transform", "translateX(0)");
+            $(".switchControl .switch").css("transform", "translateX(0)");
+            $("#save-msisdn").attr("id", "payAmount");
+        }
+    }
+    viewRememberMeDetails(element.hasClass("checked"));
+
+}
+
+viewRememberMeDetails = function (set) {
   if (set) {
-    //$(".backgroundView").css("height", "749px");
-    //$(".backgroundBottom").css("height", "900px");
-    //$(".backgroundBottom div").css("height", "950px");
-    //$(".backgroundBottom div").css("transition", "none");
-    $(".backgroundBottom div").css("transform", "translateY(-381px)");
-    $(".payButton").css("transform", "translateY(447px)");
-    $(".expanded").css("opacity", "1");
-    $(".expanded").css("transform", "rotateX(0deg)");
-    $(".expanded").css("transition", "none");
-    $(".expanded").css("display", "block");
+    if (appType.isMobile()) {
+        $("#save-msisdn").removeClass("iconTick");
+        $("#save-msisdn").html("<span class='iconA'></span>Save<span class='iconB'></span>");
+  
+        $(".rememberMe").addClass("withExpand");
+        $(".paymentView .emailInput").hide();
+        $(".rememberMe.withExpand .labelWithCheckbox").css("transform", "translateY(-138px)");
+
+        $(".rememberMe.withExpand .separatorLineView").css("opacity", "1");
+        $(".rememberMe.withExpand .separatorLineView").css("transform", "translateY(-138px)");
+        $(".rememberMe.withExpand .separatorLineView").show();
+
+        $(".rememberMe.withExpand .expanded").show();
+        $(".rememberMe.withExpand .expanded").css("opacity", "1");
+        $(".rememberMe.withExpand .expanded").css("transform", "rotateX(0deg)");
+
+        $(".rememberMe.withExpand .expanded p").show();
+        $(".rememberMe.withExpand .expanded p").css("opacity", "1");
+        $(".rememberMe.withExpand .expanded p").css("transform", "translateY(-138px)");
+
+        $(".rememberMe.withExpand .expanded .telInput").show();
+        $(".rememberMe.withExpand .expanded .telInput").css("opacity", "1");
+        $(".rememberMe.withExpand .expanded .telInput").css("transform", "translateY(-138px)");
+
+        $(".cardPaymentView .input").hide();
+        $(".cardPaymentView .separatorLineView").hide();
+    
+        $(".cardView .layoutSubview.separator").hide();
+        $(".cancelButton").show();
+        $(".submitButton").css("left", "50%");
+    } else {
+        $(".backgroundBottom div").css("transform", "translateY(-381px)");
+        $(".payButton").css("transform", "translateY(447px)");
+        $(".expanded").css("opacity", "1");
+        $(".expanded").css("transform", "rotateX(0deg)");
+        $(".expanded").css("transition", "none");
+        $(".expanded").css("display", "block");
+    }
+    
   } else {
-    $(".backgroundBottom div").css("transform", "");
-    $(".payButton").css("transform", "");
-    $(".expanded").css("display", "none");
+    if (appType.isMobile()) {
+        $("#payAmount").addClass("iconTick");
+        $("#payAmount").html("<span class='iconA'></span>Pay ₱650.00<span class='iconB'></span>");
+        $(".paymentView .emailInput").show();
+        $(".rememberMe.withExpand .labelWithCheckbox").css("transform", "translateY(0)");
+
+        $(".rememberMe.withExpand .separatorLineView").css("opacity", "0");
+        $(".rememberMe.withExpand .separatorLineView").css("transform", "translateY(0)");
+        $(".rememberMe.withExpand .separatorLineView").hide();
+
+        $(".rememberMe.withExpand .expanded").hide();
+        $(".rememberMe.withExpand .expanded").css("opacity", "0");
+        $(".rememberMe.withExpand .expanded").css("transform", "rotateX(-60deg)");
+
+        $(".rememberMe.withExpand .expanded p").hide();
+        $(".rememberMe.withExpand .expanded p").css("opacity", "0");
+        $(".rememberMe.withExpand .expanded p").css("transform", "translateY(0)");
+
+        $(".rememberMe.withExpand .expanded .telInput").hide();
+        $(".rememberMe.withExpand .expanded .telInput").css("opacity", "0");
+        $(".rememberMe.withExpand .expanded .telInput").css("transform", "translateY(0)");
+
+        $(".cardPaymentView .input").show();
+        $(".cardPaymentView .separatorLineView").show();
+
+        $(".cardView .layoutSubview.separator").show();
+
+        $(".rememberMe").removeClass("withExpand");
+
+        $(".cancelButton").hide();
+        $(".submitButton").css("left", "0");
+    } else {
+        $(".backgroundBottom div").css("transform", "");
+        $(".payButton").css("transform", "");
+        $(".expanded").css("display", "none");
+    }
   }
   
+}
+
+expand = function() {
+    $(".rememberMe.withExpand").css("transform", "translateY(-138px)");
+    $(".rememberMe.withExpand .line1").css("opacity", "1");
+    $(".rememberMe.withExpand .line1").css("transform", "translateY(-138px)");
+
+    $(".rememberMe.withExpand .line2").css("opacity", "1");
+    $(".rememberMe.withExpand .line2").css("transform", "translateY(-138px)");
+   
 }
 
 setExpandedVisible = function(visible, animated) {

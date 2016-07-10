@@ -106,6 +106,8 @@ isEventAllowedChar_ = function(e) {
     return !!/[\d\s+]/.test(char)
 };
 restrictEventAndFormat_ = function(e) {
+    onInputValueDidChange("#msisdn");
+
     var caretEnd, value;
     if (!isEventAllowed_(e)) {
         return e.preventDefault()

@@ -41,7 +41,9 @@ module.exports.routes = {
 
   'DELETE /v1/sessions'             : 'v1/Session.delete',
 
+
   '/checkout.html'                  : 'v1/Page.checkout',
+  '/mobile.html'                    : 'v1/Page.mobile',
 
   /***************************************************************************
   *                                                                          *

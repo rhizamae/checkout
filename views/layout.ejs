@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.2/mobile-detect.min.js"></script>
     
     <style>
      
@@ -30,27 +31,52 @@
     <!--STYLES END-->
   </head>
 
-  <body>
+  <!--<body class="en appView iOS9 tab mobile">-->
+  <% if (body_class != "") { %>
+    <body class="en appView iOS9 tab mobile">
+  <% } else { %>
+    <body>
+  <% } %>
+  
 
     
     <%- body %>
     <!--SCRIPTS-->
     <script src="/js/dependencies/checkout.min.js"></script>
     <script src="/js/magpie.js"></script>
+    <script src="/js/checkout/_SvgPaths.js"></script>
+    <script src="/js/checkout/_Uuid.js"></script>
+    <script src="/js/checkout/_Tracker.js"></script>
+    <script src="/js/checkout/_Helpers.js"></script>
+    <script src="/js/checkout/_Cache.js"></script>
+    <script src="/js/checkout/_Pixel.js"></script>
+    <script src="/js/checkout/_Support.js"></script>
+    <script src="/js/checkout/_App.js"></script>
+    <script src="/js/checkout/_AppType.js"></script>
+    <script src="/js/checkout/_Base64.js"></script>
+    <script src="/js/checkout/_Tick.js"></script>
+    <script src="/js/checkout/_EventDispatcher.js"></script>
+    <script src="/js/checkout/_View.js"></script>
+    <script src="/js/checkout/_Svg.js"></script>
+    <script src="/js/checkout/_Controller.js"></script>
+    <script src="/js/checkout/_StepController.js"></script>
+    <script src="/js/checkout/_Input.js"></script>
     <script src="/js/checkout/payment.js"></script>
     <script src="/js/checkout/function.js"></script>
-    <script src="/js/checkout/Input.js"></script>
     <script src="/js/checkout/_Account.js"></script>
     <script src="/js/checkout/_AccountLookup.js"></script>
-    <script src="/js/checkout/_AppType.js"></script>
+    <script src="/js/checkout/_BackgroundView.js"></script>
     <script src="/js/checkout/_CardPaymentView.js"></script>
+    <script src="/js/checkout/_CheckoutController.js"></script>
+    <script src="/js/checkout/_CheckoutView.js"></script>
     <script src="/js/checkout/_CodeInput.js"></script>
     <script src="/js/checkout/_CodeVerificationView.js"></script>
-    <script src="/js/checkout/_Helpers.js"></script>
+    <script src="/js/checkout/_LoggedBarController.js"></script>
+    <script src="/js/checkout/_NavigationController.js"></script>
+    <script src="/js/checkout/_OverlayView.js"></script>
+    <script src="/js/checkout/_PaymentStepController.js"></script>
     <script src="/js/checkout/_PhoneCodeVerificationView.js"></script>
-    <script src="/js/checkout/_Support.js"></script>
-    <script src="/js/checkout/_Svg.js"></script>
-    <script src="/js/checkout/_Tick.js"></script>
+    <script src="/js/checkout/_SwitchControl.js"></script>
     <script src="/js/checkout/cardCvcInput.js"></script>
     <script src="/js/checkout/cardExpiresInput.js"></script>
     <script src="/js/checkout/cardNumberInput.js"></script>

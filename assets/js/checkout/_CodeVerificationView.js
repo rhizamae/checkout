@@ -1,4 +1,4 @@
-var AuthorizingView, CarouselView, CodeInput, CodeVerificationView, ErrorView, INFO_ANIMATION_OPTIONS, SendingView, SentInfoView, SentView, VerifiedView, View, counter, i18n, __bind = function(fn, me) {
+var AuthorizingView, CarouselView, CodeInput, CodeVerificationView, ErrorView, INFO_ANIMATION_OPTIONS, SendingView, SentInfoView, SentView, VerifiedView, counter, i18n, __bind = function(fn, me) {
     return function() {
         return fn.apply(me, arguments)
     }
