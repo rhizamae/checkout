@@ -1,6 +1,33 @@
+saveSession = function(client) {
+  var obj = {
+    session_tab: tab_id,
+    distinct_id: helpers.getQueryParameterByName("distinct_id"),
+    details: client
+  };
+  console.log(obj);
+  $.post("/v1/sessions", obj)
+  .done(function( data ) {
+    console.log(data);
+  });
+}
+
+loadSession = function(client) {
+  console.log("loadSession: " + tab_id);
+  console.log(client);
+  if (tab_id == client.session_tab) {
+    $(".stripeErrorMessage").hide();
+    init(client.details);
+  } else {
+    $(".overlayView").hide();
+    $(".stripeErrorMessage").show();
+    console.log("problem loading checkout page!");
+  }
+}
+
 accountCheckCode = function(vcode) {
   //backVerifyCode();
   verifyVerificationCode(vcode);
+
   return;
 }
 accountLogin = function(email) {

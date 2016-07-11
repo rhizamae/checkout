@@ -30,6 +30,7 @@ var jsFilesToInject = [
 
   'js/dependencies/**/*.js',
   
+  '/js/variables.js',
   '/js/magpie.js',
 
   '/js/checkout/_SvgPaths.js',

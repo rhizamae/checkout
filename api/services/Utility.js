@@ -8,6 +8,10 @@ module.exports = {
     return uuid.v4();
   },
 
+  getUuid: function() {
+    return uuid.v4();
+  },
+
   filterObject: function(object) {
     for (property in object) {
       if (object[property] === undefined || object[property] === null || ( (typeof object[property]) == 'object'

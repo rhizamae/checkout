@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  
+
   // console.log("initializee-------");
   // console.log(md.mobile());
   // if (md.mobile() != null) {

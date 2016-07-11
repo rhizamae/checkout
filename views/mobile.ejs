@@ -1,4 +1,14 @@
-<div class="overlayView active">
+<div class="stripeErrorMessage">
+  <p>
+    Sorry, there was a problem loading Checkout.<br>
+    If this persists, please try a different browser.
+  </p>
+  <p class="stripeErrorMessageFrame">
+    <small>This message will automatically close in 5 seconds.</small>
+  </p>
+</div>
+
+<div class="overlayView active" style="display:none;">
   <form class="checkoutView" method="POST" novalidate="true">
     <div class="bodyView">
       <div class="layoutView contentView" style="height: 396px;">
@@ -15,8 +25,8 @@
                 <img id="image-logo">
               </div>
               <div class="title">
-                <h1 id="checkoutName">Single Session</h1>
-                <h2 id="checkoutDescription">One Session</h2>
+                <h1 id="checkoutName"></h1>
+                <h2 id="checkoutDescription"></h2>
               </div>
             </div>
           </header>
@@ -243,6 +253,9 @@
 $(document).ready(function() {
   if ('<%- session %>') {
     login(JSON.parse('<%- JSON.stringify(session) %>'));
+  }
+  if ('<%- client %>') {
+    loadSession(JSON.parse('<%- JSON.stringify(client) %>'));
   }  
 });
 </script>

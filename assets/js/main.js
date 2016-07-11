@@ -1,36 +1,31 @@
-var session, request_reference_num, email, msisdn, client, card, cardPaymentViewIntance;
-var vault = Checkout.getToken;
-var remember = Checkout.remember;
-var md = new MobileDetect(window.navigator.userAgent);
-var init;
 
 initializeView = function(client) {
-  
-  appBootstrap();
-  var options = {};
+    
   options.appType = appType;
   options.image = null;
-  //console.log(appType);
-  //var checkoutControllerInstance = new CheckoutController(options);
 
+  //var checkoutControllerInstance = new CheckoutController(options);
   cardPaymentViewIntance =  cardPaymentViewIntance ? cardPaymentViewIntance : new CardPaymentView(options) ;
-  
+  $(".overlayView").show();
   if (client.image) $("#image-logo").attr("src", client.image);
   if (appType.isMobile()) {
-    $("#payAmount").html("<span class='iconA'></span>Pay ₱650.00<span class='iconB'></span>");
+    $("#payAmount").html("<span class='iconA'></span>Pay ₱" + client.amount +  "<span class='iconB'></span>");
     $("header .close").hide();
   } else {
-    $("#payAmount").html("Pay ₱"+client.amount);
+    $("#payAmount").html("Pay ₱" + client.amount);
   }
   
   $("#checkoutName").html(client.name);
   $("#checkoutDescription").html(client.description);
   
-  if (md.mobile() != null) {
+  if (appType.isMobile()) { // if mobile
     // window.open("http://localhost:1337/mobile.html");
-    window.open("http://localhost:1337/checkout.html");
+    //var targetWindow = window.open("http://localhost:1337/checkout.html");
+    //targetWindow.postMessage("open_iframe_new_window", "*");
   } else {
-    window.parent.postMessage("open_iframe", "*");
+    if (helpers.isInsideFrame()) {
+      window.parent.postMessage("open_iframe", "*");
+    }
     $(".overlayView").show();
     $(".stripeInFrame .overlayView").removeClass("unactive");
     $(".stripeInFrame .overlayView").addClass("active");
@@ -38,8 +33,9 @@ initializeView = function(client) {
 };
 
 init = function(client) {
-  //console.log(client);
+
   this.client = client;
+  appBootstrap();
   initializeView(client);
 
   $('#email').on("change", function(e) {
@@ -53,7 +49,6 @@ init = function(client) {
             // card = data;
             verifyCodeView();
             codeInputInstance = new CodeInput({});
-            
             getVerificationCode();
             //cardPaymentViewIntance.setCard(card.customer.sources[0]);
           }
@@ -65,8 +60,6 @@ init = function(client) {
 
   $('.buttonsView').on("click", "#payAmount", function(e) {
     e.preventDefault();
-    //var valid_form = validateForm('.paymentView');
-    //console.log("payAmount");
     if ($(".profileSetting").css("display") == "block") {
       Magpie.close();
       window.parent.postMessage({card: card}, "*");
@@ -82,8 +75,13 @@ init = function(client) {
       }
       Checkout.getToken(key, email, cardNumber, cvv, expiry, msisdn)
         .then(function(token) {
-          Magpie.close();
-          window.parent.postMessage(token, "*");
+          if (appType.isMobile() || this.client.session_type == "window") {
+            window.opener.postMessage(token, "*");
+            window.close();
+          } else {
+            window.parent.postMessage(token, "*");
+            Magpie.close();
+          }
         }).catch(function(error) {
           console.log(error);
         });
@@ -96,9 +94,9 @@ init = function(client) {
 
 }
 
+//init({});
 // CALL INITIALIZE
-init({});
-// if (md.mobile() != null) { // if not mobile
+// if (md.mobile() != null) { // if mobile
 //   console.log("initializee-------");
 //   init({});
 // }
@@ -141,16 +139,13 @@ verifyVerificationCode = function(vcode) {
     });
 }
 
-var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-var eventer = window[eventMethod];
-var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-
 // Listen to message from child window
-eventer(messageEvent,function(e) {
+eventer(messageEvent, function(e) {
     var key = e.message ? "message" : "data";
     var data = JSON.parse(e[key]);
-    // Checkout.client = data.client;
-    // Checkout.merchant = data.merchant;
+    saveSession(data);
     init(data);
+    // e.source.postMessage({ping: "test"}, "*");
+    // window.opener.postMessage({ping: "test2"}, "*");
 }, false);
 

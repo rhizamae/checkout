@@ -1,7 +1,7 @@
 
 <div class="stripeInFrame appView iframe desktop en">
   
-  <div class="stripeErrorMessage">
+  <div class="stripeErrorMessage" >
     <p>
       Sorry, there was a problem loading Checkout.<br>
       If this persists, please try a different browser.
@@ -200,6 +200,9 @@
 $(document).ready(function() {
   if ('<%- session %>') {
     login(JSON.parse('<%- JSON.stringify(session) %>'));
+  }  
+  if ('<%- client %>') {
+    loadSession(JSON.parse('<%- JSON.stringify(client) %>'));
   }  
 });
 </script>
