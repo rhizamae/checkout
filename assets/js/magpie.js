@@ -1,17 +1,11 @@
-
-var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-var eventer = window[eventMethod];
-var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+var event_method = window.addEventListener ? "addEventListener" : "attachEvent";
+var message_event = event_method == "attachEvent" ? "onmessage" : "message";
 var iframe = document.createElement('iframe');
-var options;
-var iframeOnload;
+var options, iframeOnload, types, distinct_id;
+var appType = {types: []}
+
 var checkout_url = "http://localhost:1337";
-//var checkout_url = "http://54.179.132.181:8081/checkout.html?distinct_id=";
-var types;
-var distinct_id;
-var appType;
-appType = {};
-appType.types = [];
+//var checkout_url = "http://54.179.132.181:8081";
 
 appType.setTypes = function(types) {
     return appType.types = types
@@ -33,11 +27,11 @@ appType.toString = function() {
 };
 
 uaVersionFn = function(re) {
-    return function() {
-        var uaMatch;
-        uaMatch = helpers.userAgent.match(re);
-        return uaMatch && parseInt(uaMatch[1])
-    }
+  return function() {
+    var uaMatch;
+    uaMatch = helpers.userAgent.match(re);
+    return uaMatch && parseInt(uaMatch[1])
+  }
 };
 delurkWinPhone = function(fn) {
     return function() {
@@ -48,7 +42,7 @@ delurkWinPhone = function(fn) {
 var helpers = {
     userAgent: window.navigator.userAgent,
     escape: function(value) {
-        return value && ("" + value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;")
+      return value && ("" + value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;")
     },
     iOSVersion: uaVersionFn(/(?:iPhone OS |iPad; CPU OS )(\d+)_\d+/),
     iOSMinorVersion: uaVersionFn(/(?:iPhone OS |iPad; CPU OS )\d+_(\d+)/),
@@ -195,12 +189,9 @@ var Magpie = Magpie || {
     iframe.setAttribute("name", Date.now());
     iframe.setAttribute("src", checkout_url);
     
-    eventer(messageEvent,function(e) {
+     window[event_method](message_event,function(e) {
       var key = e.message ? "message" : "data";
       var data = e[key];
-      alert("data");
-      console.log("return");
-      console.log(data);
       if (data == "close_iframe") {
         $("iframe#magpie-checkout-app").hide();
       } else if (data == "open_iframe") {

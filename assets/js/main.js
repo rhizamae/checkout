@@ -6,7 +6,7 @@ initializeView = function(client) {
 
   //var checkoutControllerInstance = new CheckoutController(options);
   cardPaymentViewIntance =  cardPaymentViewIntance ? cardPaymentViewIntance : new CardPaymentView(options) ;
-  console.log("show--");
+  
   $(".overlayView").show();
   if (client.image) $("#image-logo").attr("src", client.image);
   if (appType.isMobile()) {
@@ -15,7 +15,6 @@ initializeView = function(client) {
   } else {
     $("#payAmount").html("Pay ₱" + client.amount);
   }
-  
   $("#checkoutName").html(client.name);
   $("#checkoutDescription").html(client.description);
   
@@ -37,8 +36,45 @@ initializeView = function(client) {
 init = function(client) {
 
   this.client = client;
-  appBootstrap();
   initializeView(client);
+
+  $(".telInput input").val("+63");
+  $(".telInput input").mobilePhoneNumber({
+    defaultPrefix: "+63"
+  });
+  
+  $(".checkbox-remember-me").on("click", function(e) {
+    updateRememberCheckbox(true);
+  });
+
+  $(".cancelButton").on("click", function() {
+    updateRememberCheckbox(true);
+  });
+
+  $(".logout").on("click", function() {
+    logoutSession();
+  });
+
+  $(".back").on("click", function() {
+    backVerifyCode();
+  });
+
+  $(".checkoutView .close").on("click", function() {
+    Magpie.close();
+    if (client.session_type == "window") {
+      window.close();
+    }
+  });
+
+  $('.buttonsView').on("click", "#save-msisdn", function(e) {
+    e.preventDefault();
+    var valid = $("#msisdn").mobilePhoneNumber("validate");
+    if (valid) {
+      saveMobileNumber();
+    } else {
+      onInputValueDidChange("#msisdn", true);
+    }
+  });
 
   $('#email').on("change", function(e) {
     var valid = validateEmail($('.paymentView #email').val());
@@ -63,9 +99,14 @@ init = function(client) {
   $('.buttonsView').on("click", "#payAmount", function(e) {
     e.preventDefault();
     if ($(".profileSetting").css("display") == "block") {
-      Magpie.close();
-      console.log("postmessage");
-      window.parent.postMessage({card: card}, "*");
+      console.log(client);
+      if (client.session_type == "window") {
+        window.opener.postMessage({card: card}, "*");
+        window.close();
+      } else {
+        Magpie.close();
+        window.parent.postMessage({card: card}, "*");
+      }
     } else if (validateForm('.paymentView')) {
       var key = "pk_test_aBTnnTX5QaO2AblZ5wNq2A" || client.key;
       var email = $('.paymentView #email').val();
@@ -91,10 +132,6 @@ init = function(client) {
           console.log(error);
         });
     }
-  });
-
-  $(".checkoutView .close").on("click", function() {
-    Magpie.close();
   });
 
 }

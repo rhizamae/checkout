@@ -3,7 +3,6 @@ updateClientDetails = function() {
     tab_id: tab_id,
     distinct_id: helpers.getQueryParameterByName("distinct_id")
   };
-  console.log(obj);
   $.ajax({
     type: "PUT",
     url: "/v1/sessions",
@@ -23,8 +22,9 @@ updateClientDetails = function() {
 }
 
 loadClientDetails = function(client) {
-  console.log("loadSession: " + tab_id);
-  console.log(client);
+  // console.log("loadSession: " + tab_id);
+  // console.log(client);
+  appBootstrap();
   if (client != "none" && !client.tab_id) {
     updateClientDetails();
   } else if (tab_id == client.tab_id) {
@@ -38,10 +38,11 @@ loadClientDetails = function(client) {
 }
 
 loginSession = function(session) {
+  appBootstrap();
   if (session != "none") {
     card = session.card;
-    cardPaymentViewIntance =  new CardPaymentView();
     accountLogin(session.email);
+    cardPaymentViewIntance =  new CardPaymentView();
     cardPaymentViewIntance.setCard(session.card);
   }
 }
