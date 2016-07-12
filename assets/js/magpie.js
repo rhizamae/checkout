@@ -5,7 +5,7 @@ var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 var iframe = document.createElement('iframe');
 var options;
 var iframeOnload;
-var checkout_url = "http://localhost:1337/checkout.html?distinct_id=";
+var checkout_url = "http://localhost:1337";
 //var checkout_url = "http://54.179.132.181:8081/checkout.html?distinct_id=";
 var types;
 var distinct_id;
@@ -153,41 +153,38 @@ var helpers = {
 };
 
 appBootstrap = function() {
-    types = [];
-    if (helpers.isSupportedMobileOS()) {
-        if (helpers.isiOSNative()) {
-            types.push("iOSNative")
-        }
-        if (!helpers.isiPad() && !helpers.isInsideFrame()) {
-            types.push("mobile")
-        } else {
-            types.push("tablet");
-            if (helpers.isSmallScreen()) {
-              types.push("smallScreen")
-            }
-        }
-    } else {
-        types.push("desktop")
+  types = [];
+  if (helpers.isSupportedMobileOS()) {
+    if (helpers.isiOSNative()) {
+      types.push("iOSNative")
     }
-    appType.setTypes(types);
+    if (!helpers.isiPad() && !helpers.isInsideFrame()) {
+      types.push("mobile")
+    } else {
+      types.push("tablet");
+      if (helpers.isSmallScreen()) {
+        types.push("smallScreen")
+      }
+    }
+  } else {
+    types.push("desktop")
+  }
+  appType.setTypes(types);
 };
 
 guid = function() {
   function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
   }
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4() + s4();
 }
-distinct_id = guid();
-checkout_url += distinct_id;
 
 var Magpie = Magpie || {
 
   configure: function(options) {
     appBootstrap();
+    distinct_id = guid();
     this.options = options;
     iframe.width = "100%";
     iframe.height = "100%";
@@ -201,6 +198,9 @@ var Magpie = Magpie || {
     eventer(messageEvent,function(e) {
       var key = e.message ? "message" : "data";
       var data = e[key];
+      alert("data");
+      console.log("return");
+      console.log(data);
       if (data == "close_iframe") {
         $("iframe#magpie-checkout-app").hide();
       } else if (data == "open_iframe") {
@@ -215,19 +215,13 @@ var Magpie = Magpie || {
     var obj = this.concat(this.options, options);
     if (appType.isMobile()) {
       obj.session_type = "window";
-      obj = {
-        distinct_id: distinct_id,
-        details: obj
-      };
-      $.post("http://localhost:1337/v1/sessions", obj)
+      obj = {details: obj};
+      obj.distinct_id = distinct_id;
+
+      $.post(checkout_url + "/v1/sessions", obj)
       .done(function( data ) {
-        console.log(data);
-        window.open(checkout_url, "_magpie");
-        // setTimeout(function() {
-        //   targetWindow.postMessage(JSON.stringify(obj), "*");
-        // }, 2000);
+        window.open(checkout_url + "/checkout.html?distinct_id=" + distinct_id, "_magpie");
       });
-      
     } else {
       obj.session_type = "iframe";
       document.body.appendChild(iframe);
@@ -239,21 +233,19 @@ var Magpie = Magpie || {
         iframe.contentWindow.postMessage(JSON.stringify(obj), "*");
       }
     }
-    return;
   },
 
   close: function() {
     $(".overlayView").hide();
     $(".stripeInFrame .overlayView").removeClass("active");
     $(".stripeInFrame .overlayView").addClass("unactive");
+    console.log("postmessage");
     window.parent.postMessage("close_iframe", "*");
   },
 
   concat: function(o1, o2) {
-    for (var key in o2) {
-      o1[key] = o2[key];
-   }
-   return o1;
+    for (var key in o2) { o1[key] = o2[key]; }
+    return o1;
   },
 
 };

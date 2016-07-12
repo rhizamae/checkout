@@ -31,6 +31,7 @@ _RememberController.prototype.getCustomer = function(cb, result) {
 
 _RememberController.prototype.createSession = function(cb, result) {
   var ACTION = "[createSession]";
+  if (!result.findEmail) return cb(null, {});
   var obj = {
     email: this.req.params.email, 
     card: result.getCustomer.customer.sources[0]

@@ -1,19 +1,3 @@
-// localStorage.setItem("lastname", "Smith");
-// saveClientDetails = function(client) {
-//   init(client);
-//   var obj = {
-//     session_tab: tab_id,
-//     distinct_id: helpers.getQueryParameterByName("distinct_id"),
-//     details: client
-//   };
-//   console.log(obj);
-//   $.post("/v1/sessions", obj)
-//   .done(function( data ) {
-//     //location.reload();
-//     console.log(data);
-//   });
-// }
-
 updateClientDetails = function() {
   var obj = {
     tab_id: tab_id,
@@ -27,7 +11,7 @@ updateClientDetails = function() {
     dataType: "json",
     success: function (data) {
       console.log(data);
-      data = data.tab_id ? data.tab_id : "none";
+      data = data.tab_id ? data : "none";
       loadClientDetails(data);
     },
     error: function(error) {

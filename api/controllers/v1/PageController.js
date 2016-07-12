@@ -18,7 +18,7 @@ module.exports = {
       } else {
         response.client = data;
       }
-      
+      //console.log(response);
       if (md.mobile()) {
         response.body_class = "en appView iOS9 tab mobile";
         res.view('mobile', response);

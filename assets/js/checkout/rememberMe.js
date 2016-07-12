@@ -71,7 +71,7 @@ viewRememberMeDetails = function (set) {
   } else {
     if (appType.isMobile()) {
         $("#payAmount").addClass("iconTick");
-        $("#payAmount").html("<span class='iconA'></span>Pay ₱650.00<span class='iconB'></span>");
+        $("#payAmount").html("<span class='iconA'></span>Pay ₱" + client.amount + "<span class='iconB'></span>");
         $(".paymentView .emailInput").show();
         $(".rememberMe.withExpand .labelWithCheckbox").css("transform", "translateY(0)");
 

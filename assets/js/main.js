@@ -25,6 +25,7 @@ initializeView = function(client) {
     //targetWindow.postMessage("open_iframe_new_window", "*");
   } else {
     if (helpers.isInsideFrame()) {
+      console.log("postmessage");
       window.parent.postMessage("open_iframe", "*");
     }
     $(".overlayView").show();
@@ -63,6 +64,7 @@ init = function(client) {
     e.preventDefault();
     if ($(".profileSetting").css("display") == "block") {
       Magpie.close();
+      console.log("postmessage");
       window.parent.postMessage({card: card}, "*");
     } else if (validateForm('.paymentView')) {
       var key = "pk_test_aBTnnTX5QaO2AblZ5wNq2A" || client.key;
@@ -77,9 +79,11 @@ init = function(client) {
       Checkout.getToken(key, email, cardNumber, cvv, expiry, msisdn)
         .then(function(token) {
           if (appType.isMobile() || this.client.session_type == "window") {
+            console.log("postmessage");
             window.opener.postMessage(token, "*");
             window.close();
           } else {
+            console.log("postmessage");
             window.parent.postMessage(token, "*");
             Magpie.close();
           }
