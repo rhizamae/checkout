@@ -6,6 +6,7 @@ initializeView = function(client) {
 
   //var checkoutControllerInstance = new CheckoutController(options);
   cardPaymentViewIntance =  cardPaymentViewIntance ? cardPaymentViewIntance : new CardPaymentView(options) ;
+  console.log("show--");
   $(".overlayView").show();
   if (client.image) $("#image-logo").attr("src", client.image);
   if (appType.isMobile()) {
@@ -94,21 +95,7 @@ init = function(client) {
 
 }
 
-//init({});
-// CALL INITIALIZE
-// if (md.mobile() != null) { // if mobile
-//   console.log("initializee-------");
-//   init({});
-// }
-
-login = function(session) {
-  card = session.card;
-  cardPaymentViewIntance =  new CardPaymentView();
-  accountLogin(session.email);
-  cardPaymentViewIntance.setCard(session.card);
-}
-
-logout = function(session) {
+logoutSession = function(session) {
   Checkout.logout($('.paymentView #email').val())
     .then(function(data) {
       accountLogout();
@@ -140,12 +127,11 @@ verifyVerificationCode = function(vcode) {
 }
 
 // Listen to message from child window
-eventer(messageEvent, function(e) {
-    var key = e.message ? "message" : "data";
-    var data = JSON.parse(e[key]);
-    saveSession(data);
-    init(data);
-    // e.source.postMessage({ping: "test"}, "*");
-    // window.opener.postMessage({ping: "test2"}, "*");
-}, false);
+// eventer(messageEvent, function(e) {
+//     var key = e.message ? "message" : "data";
+//     var data = JSON.parse(e[key]);
+//     updateClientDetails();
+//     //saveClientDetails(data);
+//     //loadClientDetails({details: data});
+// }, false);
 

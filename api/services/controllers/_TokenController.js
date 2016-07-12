@@ -94,7 +94,7 @@ _TokenController.prototype.createSession = function(cb, result) {
     email: this.req.body.email, 
     card: result.updateCustomer.customer.sources[0]
   };
-  Session.create(this.req, obj);
+  SessionHelper.rememberMe(this.req, obj);
   cb();
 }
 

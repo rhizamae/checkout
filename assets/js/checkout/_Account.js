@@ -1,20 +1,49 @@
-saveSession = function(client) {
+// localStorage.setItem("lastname", "Smith");
+// saveClientDetails = function(client) {
+//   init(client);
+//   var obj = {
+//     session_tab: tab_id,
+//     distinct_id: helpers.getQueryParameterByName("distinct_id"),
+//     details: client
+//   };
+//   console.log(obj);
+//   $.post("/v1/sessions", obj)
+//   .done(function( data ) {
+//     //location.reload();
+//     console.log(data);
+//   });
+// }
+
+updateClientDetails = function() {
   var obj = {
-    session_tab: tab_id,
-    distinct_id: helpers.getQueryParameterByName("distinct_id"),
-    details: client
+    tab_id: tab_id,
+    distinct_id: helpers.getQueryParameterByName("distinct_id")
   };
   console.log(obj);
-  $.post("/v1/sessions", obj)
-  .done(function( data ) {
-    console.log(data);
+  $.ajax({
+    type: "PUT",
+    url: "/v1/sessions",
+    data: obj,
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+      data = data.tab_id ? data.tab_id : "none";
+      loadClientDetails(data);
+    },
+    error: function(error) {
+      console.log("Error");
+      console.log(error);
+      loadClientDetails("none");
+    }
   });
 }
 
-loadSession = function(client) {
+loadClientDetails = function(client) {
   console.log("loadSession: " + tab_id);
   console.log(client);
-  if (tab_id == client.session_tab) {
+  if (client != "none" && !client.tab_id) {
+    updateClientDetails();
+  } else if (tab_id == client.tab_id) {
     $(".stripeErrorMessage").hide();
     init(client.details);
   } else {
@@ -24,12 +53,21 @@ loadSession = function(client) {
   }
 }
 
+loginSession = function(session) {
+  if (session != "none") {
+    card = session.card;
+    cardPaymentViewIntance =  new CardPaymentView();
+    accountLogin(session.email);
+    cardPaymentViewIntance.setCard(session.card);
+  }
+}
+
 accountCheckCode = function(vcode) {
   //backVerifyCode();
   verifyVerificationCode(vcode);
-
   return;
 }
+
 accountLogin = function(email) {
   $(".profileSetting .logout").css("display", "inline");
   $(".profileSetting").show();

@@ -6,6 +6,7 @@ var iframe = document.createElement('iframe');
 var options;
 var iframeOnload;
 var checkout_url = "http://localhost:1337/checkout.html?distinct_id=";
+//var checkout_url = "http://54.179.132.181:8081/checkout.html?distinct_id=";
 var types;
 var distinct_id;
 var appType;
@@ -180,7 +181,8 @@ guid = function() {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4() + s4();
 }
-checkout_url += guid();
+distinct_id = guid();
+checkout_url += distinct_id;
 
 var Magpie = Magpie || {
 
@@ -213,10 +215,19 @@ var Magpie = Magpie || {
     var obj = this.concat(this.options, options);
     if (appType.isMobile()) {
       obj.session_type = "window";
-      var targetWindow = window.open(checkout_url, "_magpie");
-      setTimeout(function() {
-        targetWindow.postMessage(JSON.stringify(obj), "*");
-      }, 2000);
+      obj = {
+        distinct_id: distinct_id,
+        details: obj
+      };
+      $.post("http://localhost:1337/v1/sessions", obj)
+      .done(function( data ) {
+        console.log(data);
+        window.open(checkout_url, "_magpie");
+        // setTimeout(function() {
+        //   targetWindow.postMessage(JSON.stringify(obj), "*");
+        // }, 2000);
+      });
+      
     } else {
       obj.session_type = "iframe";
       document.body.appendChild(iframe);

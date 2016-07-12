@@ -245,17 +245,17 @@
       </div>
 
     </div>
-
    
   </form>
 </div>
 <script>
 $(document).ready(function() {
-  if ('<%- session %>') {
-    login(JSON.parse('<%- JSON.stringify(session) %>'));
-  }
   if ('<%- client %>') {
-    loadSession(JSON.parse('<%- JSON.stringify(client) %>'));
+    loadClientDetails(JSON.parse('<%- JSON.stringify(client) %>'));
   }  
+  if ('<%- session %>') {
+    loginSession(JSON.parse('<%- JSON.stringify(session) %>'));
+  }
+  
 });
 </script>

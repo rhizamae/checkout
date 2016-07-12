@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
 
   // console.log("initializee-------");
   // console.log(md.mobile());
@@ -25,7 +25,7 @@ $(document).ready(function() {
   });
 
   $(".logout").on("click", function() {
-    logout();
+    logoutSession();
   });
 
   $(".back").on("click", function() {

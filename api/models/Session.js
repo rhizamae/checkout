@@ -1,24 +1,21 @@
 module.exports = {
   autoCreatedAt: false,
   autoUpdatedAt: false,
-  connection: 'mongodb',
+  connection: 'redis',
   attributes: {
     id: {
       type: 'string',
+      primaryKey: true,
       required: true,
       unique: true
     },
-    email: {
+    tab_id: {
       type: 'string',
-      required: true,
+      defaultsTo: null
     },
-    msisdn: {
-      type: 'string',
-      required: true
-    },
-    customer_id: {
-      type: 'string',
-      required: false
+    client: { 
+      type: 'json',
+      defaultsTo: {}
     },
     created_at: {
       type: 'datetime',
@@ -30,6 +27,8 @@ module.exports = {
     },
     toJSON: function() {
       var obj = this.toObject();
+      delete obj.created_at;
+      delete obj.updated_at;
       return Utility.filterObject(obj);
     }
   },

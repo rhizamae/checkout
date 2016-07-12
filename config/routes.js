@@ -40,6 +40,7 @@ module.exports.routes = {
   'POST  /v1/verifications/verify'  : 'v1/Vcode.verify',
 
   'POST   /v1/sessions'             : 'v1/Session.create',
+  'PUT    /v1/sessions'             : 'v1/Session.update',
   'DELETE /v1/sessions'             : 'v1/Session.delete',
 
 
